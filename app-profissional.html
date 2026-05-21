@@ -47,25 +47,33 @@
       <p id="msg">Aguarde, estamos abrindo o app para você.</p>
       <a id="openBtn" class="btn" href="nailnow://pending-requests">Abrir no app</a>
       <br/>
-      <a class="btn-secondary" href="https://apps.apple.com/br/app/nailnow/id6762576610">
+      <a id="iosStoreBtn" class="btn-secondary" href="https://apps.apple.com/br/app/nailnow/id6762576610">
         Baixar NailNow na App Store
       </a>
       <br/>
-      <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=br.com.nailnow.nailnow">
+      <a id="androidStoreBtn" class="btn-secondary" href="https://play.google.com/store/apps/details?id=br.com.nailnow.nailnow">
         Baixar NailNow no Google Play
       </a>
     </div>
     <script>
       (function () {
         var deepLink = 'nailnow://pending-requests';
+        var iosUrl = 'https://apps.apple.com/br/app/nailnow/id6762576610';
+        var androidUrl = 'https://play.google.com/store/apps/details?id=br.com.nailnow.nailnow';
+        var ua = navigator.userAgent || '';
+        var isAndroid = /Android/i.test(ua);
+        var fallbackUrl = isAndroid ? androidUrl : iosUrl;
         var start = Date.now();
+
         window.location = deepLink;
+
         setTimeout(function () {
           if (Date.now() - start < 2500) {
             document.getElementById('msg').textContent =
-              'Se o app não abriu, clique no botão abaixo para baixar.';
+              'Não conseguiu abrir o app? Redirecionando para a loja...';
+            window.location.href = fallbackUrl;
           }
-        }, 2000);
+        }, 1800);
       })();
     </script>
   </body>
