@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Abra o app NailNow ou baixe na App Store e Google Play." />
+    <meta property="og:title" content="Abrindo NailNow" />
+    <meta property="og:description" content="Abra o app NailNow ou baixe na App Store e Google Play." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nailnow.app/app-profissional" />
+    <meta name="apple-itunes-app" content="app-id=6762576610" />
     <title>Abrindo NailNow…</title>
     <style>
       * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,21 +47,33 @@
       <p id="msg">Aguarde, estamos abrindo o app para você.</p>
       <a id="openBtn" class="btn" href="nailnow://pending-requests">Abrir no app</a>
       <br/>
-      <a class="btn-secondary" href="https://apps.apple.com/br/app/nailnow/id6744671724">
+      <a id="iosStoreBtn" class="btn-secondary" href="https://apps.apple.com/br/app/nailnow/id6762576610">
         Baixar NailNow na App Store
+      </a>
+      <br/>
+      <a id="androidStoreBtn" class="btn-secondary" href="https://play.google.com/store/apps/details?id=br.com.nailnow.nailnow">
+        Baixar NailNow no Google Play
       </a>
     </div>
     <script>
       (function () {
         var deepLink = 'nailnow://pending-requests';
+        var iosUrl = 'https://apps.apple.com/br/app/nailnow/id6762576610';
+        var androidUrl = 'https://play.google.com/store/apps/details?id=br.com.nailnow.nailnow';
+        var ua = navigator.userAgent || '';
+        var isAndroid = /Android/i.test(ua);
+        var fallbackUrl = isAndroid ? androidUrl : iosUrl;
         var start = Date.now();
+
         window.location = deepLink;
+
         setTimeout(function () {
           if (Date.now() - start < 2500) {
             document.getElementById('msg').textContent =
-              'Se o app não abriu, clique no botão abaixo para baixar.';
+              'Não conseguiu abrir o app? Redirecionando para a loja...';
+            window.location.href = fallbackUrl;
           }
-        }, 2000);
+        }, 1800);
       })();
     </script>
   </body>
