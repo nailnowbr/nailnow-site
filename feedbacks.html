@@ -205,10 +205,9 @@
           <p id="feedback-erro" style="display: none; color: #d6457a; font-weight: 600; margin: 0 0 1rem;">Não foi possível enviar seu feedback. Tente novamente.</p>
           <button type="submit" class="btn">Enviar feedback</button>
         </form>
-        <div id="feedback-success" class="page-hero" style="display: none; text-align: center; margin-top: 1.5rem;">
-          <span class="eyebrow">✓ Feedback recebido</span>
-          <h2>Feedback enviado com sucesso!</h2>
-          <p>Obrigada por contribuir com a NailNow. Sua mensagem foi recebida.</p>
+        <div id="feedback-success" class="nn-success" style="display: none;">
+          <div class="nn-success-icon">✓</div>
+          <h2 class="nn-b2b-title" id="feedback-success-title" style="margin-bottom: 16px;">Recebido, <em>você!</em></h2>
           <button type="button" id="feedback-reset" class="btn">Enviar outro feedback</button>
         </div>
       </section>
@@ -286,6 +285,7 @@
     const feedbackSuccess = document.getElementById("feedback-success");
     const feedbackErro = document.getElementById("feedback-erro");
     const feedbackReset = document.getElementById("feedback-reset");
+    const feedbackSuccessTitle = document.getElementById("feedback-success-title");
 
     feedbackForm.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -298,6 +298,8 @@
       const feedback = feedbackForm.feedback.value.trim();
 
       try {
+        const firstName = nome.split(/\s+/)[0] || "você";
+
         await db.collection("feedback").add({
           nome,
           sobrenome,
@@ -306,6 +308,7 @@
           criadoEm: new Date(),
         });
 
+        feedbackSuccessTitle.innerHTML = `Recebido, <em>${firstName}!</em>`;
         feedbackForm.reset();
         feedbackForm.style.display = "none";
         feedbackSuccess.style.display = "block";
