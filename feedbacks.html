@@ -20,26 +20,26 @@
       content="Leia relatos reais de clientes da NailNow sobre agendamentos com profissionais e experiências personalizadas."
     />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://www.nailnow.app/depoimentos" />
-    <link rel="alternate" hreflang="pt-BR" href="https://www.nailnow.app/depoimentos" />
+    <link rel="canonical" href="https://www.nailnow.app/feedbacks" />
+    <link rel="alternate" hreflang="pt-BR" href="https://www.nailnow.app/feedbacks" />
     <meta property="og:site_name" content="NailNow" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
-    <meta property="og:title" content="Depoimentos | NailNow" />
+    <meta property="og:title" content="Feedbacks | NailNow" />
     <meta
       property="og:description"
       content="Leia relatos reais de clientes da NailNow sobre agendamentos com profissionais e experiências personalizadas."
     />
-    <meta property="og:url" content="https://www.nailnow.app/depoimentos" />
+    <meta property="og:url" content="https://www.nailnow.app/feedbacks" />
     <meta property="og:image" content="https://www.nailnow.app/assets/nail1.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Depoimentos | NailNow" />
+    <meta name="twitter:title" content="Feedbacks | NailNow" />
     <meta
       name="twitter:description"
       content="Leia relatos reais de clientes da NailNow sobre agendamentos com profissionais e experiências personalizadas."
     />
     <meta name="twitter:image" content="https://www.nailnow.app/assets/nail1.png" />
-    <title>Depoimentos | NailNow</title>
+    <title>Feedbacks | NailNow</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -85,8 +85,8 @@
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Depoimentos",
-            "item": "https://www.nailnow.app/depoimentos"
+            "name": "Feedbacks",
+            "item": "https://www.nailnow.app/feedbacks"
           }
         ]
       }
@@ -169,44 +169,49 @@
 
     <main>
       <section class="page-hero">
-        <span class="eyebrow">Depoimentos</span>
-        <h1>Histórias reais de clientes NailNow</h1>
-        <p>Quem já agendou com a gente conta como é ter beleza profissional na hora certa.</p>
+        <span class="eyebrow">Feedbacks</span>
+        <h1>Envie seu feedback para a equipe NailNow</h1>
+        <p>Queremos ouvir você para evoluir nosso atendimento.</p>
       </section>
 
       <section class="testimonials">
         <div class="section-heading">
-          <h2>Experiências que inspiram confiança</h2>
-          <p>Selecionamos relatos completos para mostrar o impacto do atendimento personalizado.</p>
+          <h2>Compartilhe sua experiência</h2>
+          <p>Seu feedback ajuda a melhorar a experiência de clientes e profissionais na NailNow.</p>
         </div>
-        <div class="testimonials-grid">
-          <figure class="testimonial-card">
-            <blockquote>
-              "Nunca foi tão simples cuidar das minhas unhas. Agendei do trabalho e a profissional chegou pontualmente com todos os materiais higienizados."
-            </blockquote>
-            <figcaption>Renata • São Paulo</figcaption>
-          </figure>
-          <figure class="testimonial-card">
-            <blockquote>
-              "Adoro poder escolher por avaliações reais. As sugestões da NailNow acertam meu estilo toda vez!"
-            </blockquote>
-            <figcaption>Camila • Belo Horizonte</figcaption>
-          </figure>
-          <figure class="testimonial-card">
-            <blockquote>
-              "Usei para o dia do meu casamento e foi perfeito. Atendimento cuidadoso e retoques incluídos no pacote."
-            </blockquote>
-            <figcaption>Bianca • Campinas</figcaption>
-          </figure>
-        </div>
+        <form class="request-form" action="https://formsubmit.co/suporte@nailnow.app" method="POST">
+          <input type="hidden" name="_subject" value="Novo feedback enviado pelo site NailNow" />
+          <input type="hidden" name="_captcha" value="false" />
+          <div class="request-form__group">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" required />
+          </div>
+          <div class="request-form__group">
+            <label for="sobrenome">Sobrenome</label>
+            <input id="sobrenome" name="sobrenome" type="text" required />
+          </div>
+          <div class="request-form__group">
+            <label for="perfil">Você é:</label>
+            <select id="perfil" name="perfil" class="availability-form__input" required>
+              <option value="" selected disabled>Selecione uma opção</option>
+              <option value="profissional">Profissional</option>
+              <option value="cliente">Cliente</option>
+            </select>
+          </div>
+          <div class="request-form__group">
+            <label for="feedback">Seu feedback para a equipe NailNow</label>
+            <textarea id="feedback" name="feedback" rows="6" placeholder="Escreva aqui sua experiência, sugestões ou elogios." required></textarea>
+          </div>
+          <button type="submit" class="btn">Enviar feedback</button>
+        </form>
       </section>
 
       <section class="page-highlight">
         <div class="page-highlight__content">
-          <h2>Pronta para viver a experiência NailNow?</h2>
-          <p>Escolha sua profissional favorita, agende em poucos cliques e receba atendimento premium onde estiver.</p>
+          <h2>Obrigada por contribuir com a NailNow</h2>
+          <p>Todo feedback é lido pela nossa equipe para aprimorar sua jornada na plataforma.</p>
         </div>
-        <a href="cliente" class="btn">Agendar atendimento</a>
+        <a href="cliente" class="btn">Voltar para agendamentos</a>
       </section>
     </main>
 
