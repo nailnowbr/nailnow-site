@@ -202,8 +202,15 @@
             <label for="feedback">Seu feedback para a equipe NailNow</label>
             <textarea id="feedback" name="feedback" rows="6" placeholder="Escreva aqui sua experiência, sugestões ou elogios." required></textarea>
           </div>
+          <p id="feedback-erro" style="display: none; color: #d6457a; font-weight: 600; margin: 0 0 1rem;">Não foi possível enviar seu feedback. Tente novamente.</p>
           <button type="submit" class="btn">Enviar feedback</button>
         </form>
+        <div id="feedback-success" class="page-hero" style="display: none; text-align: center; margin-top: 1.5rem;">
+          <span class="eyebrow">✓ Feedback recebido</span>
+          <h2>Feedback enviado com sucesso!</h2>
+          <p>Obrigada por contribuir com a NailNow. Sua mensagem foi recebida.</p>
+          <button type="button" id="feedback-reset" class="btn">Enviar outro feedback</button>
+        </div>
       </section>
 
     </main>
@@ -276,9 +283,14 @@
     const db = firebase.firestore();
 
     const feedbackForm = document.getElementById("feedback-form");
+    const feedbackSuccess = document.getElementById("feedback-success");
+    const feedbackErro = document.getElementById("feedback-erro");
+    const feedbackReset = document.getElementById("feedback-reset");
 
     feedbackForm.addEventListener("submit", async (event) => {
       event.preventDefault();
+
+      feedbackErro.style.display = "none";
 
       const nome = feedbackForm.nome.value.trim();
       const sobrenome = feedbackForm.sobrenome.value.trim();
@@ -294,12 +306,19 @@
           criadoEm: new Date(),
         });
 
-        alert("Feedback enviado com sucesso! Obrigada por contribuir com a NailNow.");
         feedbackForm.reset();
+        feedbackForm.style.display = "none";
+        feedbackSuccess.style.display = "block";
       } catch (error) {
         console.error("Erro ao salvar feedback:", error);
-        alert("Não foi possível enviar seu feedback agora. Tente novamente em instantes.");
+        feedbackErro.style.display = "block";
       }
+    });
+
+    feedbackReset.addEventListener("click", () => {
+      feedbackSuccess.style.display = "none";
+      feedbackErro.style.display = "none";
+      feedbackForm.style.display = "block";
     });
   </script>
 </body>
