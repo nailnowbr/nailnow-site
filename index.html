@@ -57,6 +57,8 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/svg+xml" href="/assets/nailnow-logo.svg" />
     <script src="/assets/js/menu-toggle.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
     <script>
       document.documentElement.classList.remove("no-js");
       document.documentElement.classList.add("js");
@@ -1226,6 +1228,7 @@
             <a href="/" class="nav-link" aria-current="page">Home</a>
             <a href="como-funciona" class="nav-link">Como funciona</a>
             <a href="servicos" class="nav-link">Serviços</a>
+            <a href="feedbacks" class="nav-link">Feedbacks</a>
           </nav>
           <div class="header-actions">
             <a href="profissional" class="header-cta">Sou Manicure</a>
@@ -3217,7 +3220,7 @@
               });
               const firstName = inputs.nome.value.trim().split(" ")[0];
               const empresa = inputs.empresa.value.trim();
-              formCard.innerHTML = `<div class="nn-success"><div class="nn-success-icon">✓</div><h2 class="nn-b2b-title" style="margin-bottom:8px;">Recebido, <em>${firstName}!</em></h2><p class="nn-b2b-sub" style="margin-bottom:0;">Nosso time entra em contato com a <strong>${empresa}</strong> em até 1 dia útil.</p></div>`;
+              formCard.innerHTML = `<div class="nn-success"><div class="nn-success-icon">✓</div><h2 class="nn-b2b-title" style="margin-bottom:8px;">Recebido, <em>${firstName}!</em></h2><p class="nn-b2b-sub" style="margin-bottom:0;">Nosso time entra em contato com a <strong>${empresa}</strong> em até 5 dias úteis.</p></div>`;
             } catch (err) {
               console.error("Erro ao salvar lead:", err);
               btn.disabled = false;
