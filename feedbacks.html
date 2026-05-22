@@ -92,6 +92,8 @@
       }
     </script>
 <script src="/assets/js/menu-toggle.js" defer></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
   </head>
   <body>
     <header class="site-header">
@@ -179,9 +181,7 @@
           <h2>Compartilhe sua experiência</h2>
           <p>Seu feedback ajuda a melhorar a experiência de clientes e profissionais na NailNow.</p>
         </div>
-        <form class="request-form" action="https://formsubmit.co/suporte@nailnow.app" method="POST">
-          <input type="hidden" name="_subject" value="Novo feedback enviado pelo site NailNow" />
-          <input type="hidden" name="_captcha" value="false" />
+        <form class="request-form" id="feedback-form">
           <div class="request-form__group">
             <label for="nome">Nome</label>
             <input id="nome" name="nome" type="text" required />
@@ -261,5 +261,46 @@
     </span>
     <span class="whatsapp-widget__text">WhatsApp</span>
   </a>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBHVZ9M6btJemXCIG-g5dG0xWq_jy50H7o",
+      authDomain: "nailnow-site.firebaseapp.com",
+      projectId: "nailnow-site",
+      storageBucket: "nailnow-site.firebasestorage.app",
+      messagingSenderId: "726392294571",
+      appId: "1:726392294571:web:a363a40231f7ac162e7bee",
+      measurementId: "G-RTV9Y1PKKF",
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    const feedbackForm = document.getElementById("feedback-form");
+
+    feedbackForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const nome = feedbackForm.nome.value.trim();
+      const sobrenome = feedbackForm.sobrenome.value.trim();
+      const perfil = feedbackForm.perfil.value;
+      const feedback = feedbackForm.feedback.value.trim();
+
+      try {
+        await db.collection("feedback").add({
+          nome,
+          sobrenome,
+          perfil,
+          feedback,
+          criadoEm: new Date(),
+        });
+
+        alert("Feedback enviado com sucesso! Obrigada por contribuir com a NailNow.");
+        feedbackForm.reset();
+      } catch (error) {
+        console.error("Erro ao salvar feedback:", error);
+        alert("Não foi possível enviar seu feedback agora. Tente novamente em instantes.");
+      }
+    });
+  </script>
 </body>
 </html>
