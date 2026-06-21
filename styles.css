@@ -39310,13 +39310,6 @@ main {
   justify-self: end;
 }
 
-.header-actions .social-link {
-  margin-left: auto;
-}
-
-.header-actions .social-link {
-  margin-left: auto;
-}
 
 .brand-mark {
   display: inline-flex;
@@ -39348,7 +39341,7 @@ main {
   display: flex;
   align-items: center;
   gap: clamp(1rem, 3vw, 2rem);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-start;
   grid-column: 1;
   justify-self: start;
@@ -39414,6 +39407,7 @@ main {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding-bottom: 0.35rem;
+  white-space: nowrap;
   transition: color 0.3s ease;
 }
 
