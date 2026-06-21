@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+  <head>
+    <script src="/assets/js/force-https.js"></script>
+    <script src="/assets/js/tracking.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Leve a NailNow para sua empresa e ofereça manicure e pedicure como benefício corporativo para colaboradoras."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.nailnow.app/beneficio-corporativo" />
+    <meta property="og:site_name" content="NailNow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Benefício corporativo | NailNow" />
+    <meta
+      property="og:description"
+      content="Ofereça cuidado e praticidade às suas colaboradoras com a NailNow para empresas."
+    />
+    <meta property="og:url" content="https://www.nailnow.app/beneficio-corporativo" />
+    <meta property="og:image" content="https://www.nailnow.app/assets/nail1.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Benefício corporativo | NailNow" />
+    <meta
+      name="twitter:description"
+      content="Ofereça cuidado e praticidade às suas colaboradoras com a NailNow para empresas."
+    />
+    <meta name="twitter:image" content="https://www.nailnow.app/assets/nail1.png" />
+    <title>Benefício corporativo | NailNow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/svg+xml" href="/assets/nailnow-logo.svg" />
+    <script src="/assets/js/menu-toggle.js" defer></script>
+    <script>
+      document.documentElement.classList.remove("no-js");
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="brand-mark" aria-label="Início da NailNow">
+          <img src="/assets/nailnow-logo.svg" alt="Logotipo da NailNow" class="brand-mark__logo" />
+          <span class="brand-mark__text">NailNow</span>
+        </a>
+        <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+          <span class="sr-only">Alternar menu</span>
+          <span class="mobile-menu-toggle__bars" aria-hidden="true">
+            <span class="mobile-menu-toggle__bar"></span>
+            <span class="mobile-menu-toggle__bar"></span>
+            <span class="mobile-menu-toggle__bar"></span>
+          </span>
+        </button>
+        <div class="header-navigation" id="site-navigation">
+          <nav class="primary-nav" aria-label="Principal">
+            <a href="/" class="nav-link">Home</a>
+            <a href="como-funciona" class="nav-link">Como funciona</a>
+            <a href="servicos" class="nav-link">Serviços</a>
+            <a href="beneficio-corporativo" class="nav-link" aria-current="page">Benefício corporativo</a>
+            <a href="feedbacks" class="nav-link">Feedbacks</a>
+          </nav>
+          <div class="header-actions">
+            <a href="profissional" class="header-cta">Sou Manicure</a>
+            <a href="cliente" class="header-cta">Sou Cliente</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="nn-b2b-wrap" aria-label="NailNow para empresas">
+        <div class="nn-b2b-card" id="nn-form-card">
+          <div class="nn-b2b-eyebrow">
+            <span class="dot" aria-hidden="true"></span>
+            NailNow para empresas
+          </div>
+
+          <h1 class="nn-b2b-title">Beleza como<br /><em>benefício corporativo.</em></h1>
+
+          <p class="nn-b2b-sub">
+            Oferecer cuidado às suas colaboradoras nunca foi tão simples. Conte para a gente sobre sua empresa e nosso time entra em contato.
+          </p>
+
+          <form id="nn-b2b-form" novalidate>
+            <div class="nn-field">
+              <label class="nn-label" for="nn-nome">Nome completo</label>
+              <input class="nn-input" id="nn-nome" name="nome" type="text" placeholder="Como podemos te chamar?" required />
+            </div>
+
+            <div class="nn-row">
+              <div class="nn-field">
+                <label class="nn-label" for="nn-celular">Celular</label>
+                <input class="nn-input" id="nn-celular" name="celular" type="tel" placeholder="(11) 99999-9999" maxlength="15" required />
+              </div>
+              <div class="nn-field">
+                <label class="nn-label" for="nn-email">E-mail corporativo</label>
+                <input class="nn-input" id="nn-email" name="email" type="email" placeholder="voce@empresa.com" required />
+              </div>
+            </div>
+
+            <div class="nn-field">
+              <label class="nn-label" for="nn-empresa">Empresa</label>
+              <input class="nn-input" id="nn-empresa" name="empresa" type="text" placeholder="Nome da empresa" required />
+            </div>
+
+            <div class="nn-field">
+              <label class="nn-label" for="nn-cnpj">CNPJ</label>
+              <input class="nn-input" id="nn-cnpj" name="cnpj" type="text" placeholder="00.000.000/0000-00" maxlength="18" required />
+            </div>
+
+            <button type="submit" class="nn-cta-pill" id="nn-submit-btn">Enviar Solicitação</button>
+            <div id="nn-error" class="nn-error-msg" style="display:none;"></div>
+
+            <p class="nn-disclaimer">
+              Ao enviar, você concorda com nossa política de privacidade.<br />
+              Sem spam — só respondemos quando faz sentido.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="brand-mark" aria-label="Início da NailNow">
+            <img src="/assets/nailnow-logo.svg" alt="Logotipo da NailNow" class="brand-mark__logo" />
+            <span class="brand-mark__text">NailNow</span>
+          </a>
+          <p>Manicure e pedicure a domicílio com profissionais verificadas.</p>
+        </div>
+        <div class="footer-column footer-links" aria-label="Institucional">
+          <h2>Institucional</h2>
+          <a href="/quem-somos">Quem somos</a>
+          <a href="/beneficio-corporativo">Benefício corporativo</a>
+        </div>
+        <div class="footer-column footer-links" aria-label="Termos e políticas">
+          <h2>Termos & políticas</h2>
+          <a href="/termos-de-uso">Termos de uso</a>
+          <a href="/politica-de-privacidade">Política de privacidade</a>
+        </div>
+      </div>
+      <p class="footer-copy">© NailNow 2026. Todos os direitos reservados. NAILNOW SERVICOS DIGITAIS LTDA</p>
+    </footer>
+
+    <nav class="bottom-nav" aria-label="Navegação inferior fixa">
+      <a href="/" class="bottom-nav__link" aria-label="Ir para o início">Home</a>
+      <a href="servicos" class="bottom-nav__link" aria-label="Buscar serviços profissionais">Buscar</a>
+      <a href="cliente" class="bottom-nav__link" aria-label="Ver agendamentos">Agendamentos</a>
+      <a href="cliente/" class="bottom-nav__link" aria-label="Ver perfil ou fazer login">Perfil</a>
+    </nav>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+      import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBHVZ9M6btJemXCIG-g5dG0xWq_jy50H7o",
+        authDomain: "nailnow-site.firebaseapp.com",
+        projectId: "nailnow-site",
+        storageBucket: "nailnow-site.firebasestorage.app",
+        messagingSenderId: "726392294571",
+        appId: "1:726392294571:web:a363a40231f7ac162e7bee",
+        measurementId: "G-RTV9Y1PKKF",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+      let authReadyPromise = null;
+
+      async function ensureAnonymousAccess() {
+        if (auth.currentUser) return auth.currentUser;
+        if (!authReadyPromise) {
+          authReadyPromise = signInAnonymously(auth).catch((error) => {
+            authReadyPromise = null;
+            console.error("Erro ao autenticar anonimamente", error);
+            throw error;
+          });
+        }
+        return authReadyPromise;
+      }
+
+      async function saveB2BLead(payload) {
+        const writeAttempt = async () => addDoc(collection(db, "b2b"), payload);
+        const withTimeout = (promise, timeoutMs = 15000) =>
+          Promise.race([
+            promise,
+            new Promise((_, reject) => {
+              const timeoutError = new Error("firestore-timeout");
+              timeoutError.code = "deadline-exceeded";
+              setTimeout(() => reject(timeoutError), timeoutMs);
+            }),
+          ]);
+
+        try {
+          return await withTimeout(writeAttempt());
+        } catch (error) {
+          if (error?.code !== "permission-denied") throw error;
+          try {
+            await ensureAnonymousAccess();
+            return await withTimeout(writeAttempt());
+          } catch (authError) {
+            if (authError?.code && authError.code !== "permission-denied") {
+              authError.message = `auth-failed: ${authError.message}`;
+            }
+            throw authError;
+          }
+        }
+      }
+
+      const nnB2BForm = document.getElementById("nn-b2b-form");
+      if (nnB2BForm) {
+        const maskPhone = (v) => {
+          v = v.replace(/\D/g, "").slice(0, 11);
+          if (v.length > 10) return v.replace(/(\d{2})(\d{5})(\d{0,4}).*/, "($1) $2-$3");
+          if (v.length > 6) return v.replace(/(\d{2})(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+          if (v.length > 2) return v.replace(/(\d{2})(\d{0,5}).*/, "($1) $2");
+          if (v.length > 0) return v.replace(/(\d{0,2}).*/, "($1");
+          return "";
+        };
+        const maskCNPJ = (v) => {
+          v = v.replace(/\D/g, "").slice(0, 14);
+          v = v.replace(/^(\d{2})(\d)/, "$1.$2");
+          v = v.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3");
+          v = v.replace(/\.(\d{3})(\d)/, ".$1/$2");
+          v = v.replace(/(\d{4})(\d)/, "$1-$2");
+          return v;
+        };
+        const isValidEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+        const isValidCNPJ = (cnpjValue) => {
+          const cnpj = cnpjValue.replace(/\D/g, "");
+          if (cnpj.length !== 14 || /^(\d)\1+$/.test(cnpj)) return false;
+          let t = cnpj.length - 2; let n = cnpj.substring(0, t); const d = cnpj.substring(t);
+          let s = 0; let m = t - 7;
+          for (let i = t; i >= 1; i -= 1) { s += Number(n.charAt(t - i)) * m; m -= 1; if (m < 2) m = 9; }
+          let r = s % 11 < 2 ? 0 : 11 - (s % 11);
+          if (r !== Number(d.charAt(0))) return false;
+          t += 1; n = cnpj.substring(0, t); s = 0; m = t - 7;
+          for (let i = t; i >= 1; i -= 1) { s += Number(n.charAt(t - i)) * m; m -= 1; if (m < 2) m = 9; }
+          r = s % 11 < 2 ? 0 : 11 - (s % 11);
+          return r === Number(d.charAt(1));
+        };
+
+        const inputs = {
+          nome: document.getElementById("nn-nome"),
+          celular: document.getElementById("nn-celular"),
+          email: document.getElementById("nn-email"),
+          empresa: document.getElementById("nn-empresa"),
+          cnpj: document.getElementById("nn-cnpj"),
+        };
+        const btn = document.getElementById("nn-submit-btn");
+        const errBox = document.getElementById("nn-error");
+        const formCard = document.getElementById("nn-form-card");
+        inputs.celular?.addEventListener("input", (e) => { e.target.value = maskPhone(e.target.value); });
+        inputs.cnpj?.addEventListener("input", (e) => { e.target.value = maskCNPJ(e.target.value); });
+
+        const validateB2B = () => {
+          let ok = true;
+          Object.values(inputs).forEach((i) => i?.classList.remove("is-error"));
+          if (!inputs.nome.value.trim() || inputs.nome.value.trim().split(" ").length < 2) { inputs.nome.classList.add("is-error"); ok = false; }
+          if (inputs.celular.value.replace(/\D/g, "").length < 10) { inputs.celular.classList.add("is-error"); ok = false; }
+          if (!isValidEmail(inputs.email.value)) { inputs.email.classList.add("is-error"); ok = false; }
+          if (!inputs.empresa.value.trim()) { inputs.empresa.classList.add("is-error"); ok = false; }
+          if (!isValidCNPJ(inputs.cnpj.value)) { inputs.cnpj.classList.add("is-error"); ok = false; }
+          return ok;
+        };
+
+        nnB2BForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          if (errBox) errBox.style.display = "none";
+          if (!validateB2B()) {
+            if (errBox) { errBox.textContent = "Por favor, confira os campos destacados."; errBox.style.display = "block"; }
+            return;
+          }
+          btn.disabled = true;
+          btn.innerHTML = '<span class="nn-spinner"></span> Enviando...';
+          try {
+            await saveB2BLead({
+              nome: inputs.nome.value.trim(), celular: inputs.celular.value, celularRaw: inputs.celular.value.replace(/\D/g, ""),
+              email: inputs.email.value.trim().toLowerCase(), empresa: inputs.empresa.value.trim(), cnpj: inputs.cnpj.value, cnpjRaw: inputs.cnpj.value.replace(/\D/g, ""),
+              origem: "site_b2b", status: "novo", createdAt: serverTimestamp(), userAgent: navigator.userAgent,
+            });
+            const firstName = inputs.nome.value.trim().split(" ")[0];
+            const empresa = inputs.empresa.value.trim();
+            formCard.innerHTML = `<div class="nn-success"><div class="nn-success-icon">✓</div><h2 class="nn-b2b-title" style="margin-bottom:8px;">Recebido, <em>${firstName}!</em></h2><p class="nn-b2b-sub" style="margin-bottom:0;">Nosso time entra em contato com a <strong>${empresa}</strong> em até 5 dias úteis.</p></div>`;
+          } catch (err) {
+            console.error("Erro ao salvar lead:", err);
+            btn.disabled = false;
+            btn.textContent = "Enviar Solicitação";
+            if (errBox) {
+              const code = err?.code || "";
+              const message = String(err?.message || "");
+              if (message.startsWith("auth-failed:")) {
+                errBox.textContent = "Não foi possível autenticar no Firebase. Ative o login anônimo em Authentication > Sign-in method e tente novamente.";
+              } else if (code.includes("permission-denied")) {
+                errBox.textContent = "Não foi possível enviar (permissão do Firestore). A coleção b2b precisa permitir create público.";
+              } else if (code.includes("deadline-exceeded") || code.includes("unavailable") || message.includes("503")) {
+                errBox.textContent = "Instabilidade temporária no Firebase (503/conexão). Tente novamente em instantes.";
+              } else {
+                errBox.textContent = "Não foi possível enviar agora. Tente novamente em instantes.";
+              }
+              errBox.style.display = "block";
+            }
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
