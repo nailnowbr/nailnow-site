@@ -1228,7 +1228,7 @@
       /* Topbar isolada da home — não afeta outras páginas */
       .nn-topbar{--nn-tb-pink:#F45CA2;--nn-tb-pink-strong:#FE68BF;--nn-tb-mauve:#814D68;--nn-tb-line:#E5A8C7;--nn-tb-ink:#1d1320;--nn-tb-ink-soft:#5b4a55;background:#fff;border-bottom:1px solid rgba(229,168,199,.45);position:sticky;top:0;z-index:50;font-family:'Poppins','Inter',system-ui,sans-serif}
       .nn-topbar *{box-sizing:border-box}
-      .nn-topbar .nn-tb-wrap{max-width:1320px;margin:0 auto;padding:0 32px;display:flex;align-items:center;gap:20px;height:80px}
+      .nn-topbar .nn-tb-wrap{max-width:min(1640px,96vw);margin:0 auto;padding:0 clamp(20px,3.5vw,56px);display:flex;align-items:center;gap:20px;height:84px}
       .nn-topbar .nn-tb-brand{display:flex;align-items:center;gap:9px;font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;color:var(--nn-tb-ink);flex-shrink:0;text-decoration:none}
       .nn-topbar .nn-tb-brand img{width:30px;height:30px;flex-shrink:0;display:block}
       .nn-topbar .nn-tb-nav{display:flex;align-items:center;gap:20px;font-size:.88rem;font-weight:500;margin-right:auto;margin-left:6px}
@@ -1328,7 +1328,7 @@
         .nn-home *{box-sizing:border-box;margin:0;padding:0}
         .nn-home a{text-decoration:none;color:inherit}
         .nn-home img,.nn-home svg{display:block;max-width:100%}
-        .nn-home .nn-wrap{max-width:1320px;margin:0 auto;padding:0 32px;width:100%}
+        .nn-home .nn-wrap{max-width:min(1640px,96vw);margin:0 auto;padding:0 clamp(20px,3.5vw,56px);width:100%}
 
         /* hero — reset agressivo pra neutralizar .nn-hero global do styles.css */
         .nn-home .nn-hero{
@@ -1345,17 +1345,17 @@
           font-family:'Poppins',sans-serif;
         }
         .nn-home .nn-hero::before{content:"";position:absolute;top:-120px;right:-80px;width:480px;height:480px;background:radial-gradient(circle at 35% 35%,rgba(254,104,191,.30),rgba(252,151,212,0) 62%);filter:blur(6px);pointer-events:none}
-        .nn-home .nn-hero .nn-wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:68px 24px 80px}
+        .nn-home .nn-hero .nn-wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,5vw,80px);align-items:center;padding:clamp(56px,6vw,96px) clamp(20px,3.5vw,56px) clamp(64px,7vw,110px)}
         .nn-home .nn-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--nn-line);color:var(--nn-mauve);font-weight:600;font-size:.82rem;padding:7px 15px;border-radius:999px;margin-bottom:24px;box-shadow:0 6px 18px -12px rgba(129,77,104,.5)}
         .nn-home .nn-dot{width:8px;height:8px;border-radius:50%;background:var(--nn-pink-strong);box-shadow:0 0 0 4px rgba(254,104,191,.22)}
-        .nn-home .nn-headline{font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(2.6rem,5.4vw,4.4rem);line-height:1.08;letter-spacing:-.01em;color:var(--nn-ink);margin-bottom:24px}
+        .nn-home .nn-headline{font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(2.8rem,6.4vw,5.6rem);line-height:1.05;letter-spacing:-.015em;color:var(--nn-ink);margin-bottom:28px}
         .nn-home .nn-headline .nn-serif{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;color:var(--nn-pink)}
-        .nn-home .nn-sub{font-size:clamp(1.05rem,1.5vw,1.25rem);color:var(--nn-ink-soft);max-width:36ch;margin-bottom:36px}
+        .nn-home .nn-sub{font-size:clamp(1.1rem,1.7vw,1.4rem);color:var(--nn-ink-soft);max-width:42ch;margin-bottom:38px;line-height:1.5}
         .nn-home .nn-cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:18px}
-        .nn-home .nn-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:600;font-size:1rem;padding:15px 26px;border-radius:var(--nn-radius);cursor:pointer;border:1.6px solid transparent;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+        .nn-home .nn-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(1rem,1.2vw,1.15rem);padding:clamp(15px,1.5vw,20px) clamp(26px,2.4vw,38px);border-radius:var(--nn-radius);cursor:pointer;border:1.6px solid transparent;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
         .nn-home .nn-btn-primary{background:var(--nn-pink);color:#fff;box-shadow:var(--nn-shadow)}
         .nn-home .nn-btn-primary:hover{transform:translateY(-2px);background:var(--nn-pink-strong)}
-        .nn-home .nn-btn-primary svg{width:21px;height:21px}
+        .nn-home .nn-btn-primary svg{width:clamp(21px,1.5vw,26px);height:clamp(21px,1.5vw,26px)}
         .nn-home .nn-stores{display:flex;gap:12px;flex-wrap:wrap}
         .nn-home .nn-btn-store{background:#fff;border:1.6px solid var(--nn-line);color:var(--nn-mauve);font-size:.9rem;font-weight:600;padding:13px 18px;border-radius:14px;display:inline-flex;align-items:center;gap:9px;transition:border-color .15s ease,color .15s ease}
         .nn-home .nn-btn-store:hover{border-color:var(--nn-pink);color:var(--nn-pink)}
@@ -1377,7 +1377,7 @@
         .nn-home .nn-how{padding:74px 0 30px;background:#fff;width:100%}
         .nn-home .nn-section-head{text-align:center;max-width:640px;margin:0 auto 48px}
         .nn-home .nn-section-head .nn-tag{color:var(--nn-pink);font-weight:600;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
-        .nn-home .nn-section-head h2{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(2rem,3.6vw,2.9rem);margin-top:10px;color:var(--nn-ink);line-height:1.15}
+        .nn-home .nn-section-head h2{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(2.2rem,4vw,3.4rem);margin-top:12px;color:var(--nn-ink);line-height:1.15}
         .nn-home .nn-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
         .nn-home .nn-step{background:var(--nn-bg);border-radius:var(--nn-radius);padding:30px 26px;border:1px solid rgba(229,168,199,.4)}
         .nn-home .nn-step .nn-n{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:2.1rem;color:var(--nn-pink-soft);line-height:1;margin-bottom:14px}
@@ -1440,15 +1440,56 @@
         .nn-home .nn-ig-card p{color:var(--nn-ink-soft);font-size:1rem;margin-bottom:24px}
         .nn-home .nn-ig-card .nn-btn-primary{font-size:.95rem}
 
-        /* sticky mobile WhatsApp */
+        /* hero refinements — trust acima do CTA, app link sutil */
+        .nn-home .nn-trust{margin-top:0;margin-bottom:26px;padding-top:0;border-top:0;justify-content:flex-start}
+        .nn-home .nn-app-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:18px}
+        .nn-home .nn-app-row-label{font-size:.92rem;color:var(--nn-ink-soft);font-weight:500;margin-right:2px}
+        .nn-home .nn-store-pill{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--nn-line);color:var(--nn-ink);padding:10px 18px;border-radius:999px;font-size:.95rem;font-weight:600;text-decoration:none;transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease}
+        .nn-home .nn-store-pill:hover{border-color:var(--nn-pink);transform:translateY(-1px);box-shadow:0 8px 18px -12px rgba(129,77,104,.45)}
+        .nn-home .nn-store-pill svg{width:18px;height:18px;flex-shrink:0}
+        .nn-home .nn-store-pill--apple svg{color:#000}
+        .nn-home .nn-store-pill--google svg{color:#34A853}
+
+        /* stats strip — números reais como prova */
+        .nn-home .nn-stats{background:#fff;padding:54px 0;width:100%;border-bottom:1px solid rgba(229,168,199,.3)}
+        .nn-home .nn-stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:920px;margin:0 auto;text-align:center}
+        .nn-home .nn-stat{padding:6px 14px}
+        .nn-home .nn-stat .nn-num{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:clamp(2.6rem,5vw,3.6rem);line-height:1;color:var(--nn-pink);margin-bottom:10px}
+        .nn-home .nn-stat .nn-lbl{font-size:.92rem;color:var(--nn-ink-soft);font-weight:500;letter-spacing:.01em;line-height:1.4}
+
+        /* refined reviews — sem avatar, com aspas decorativas */
+        .nn-home .nn-review{position:relative;padding:42px 26px 26px}
+        .nn-home .nn-review::before{content:"\201C";position:absolute;top:-2px;left:22px;font-family:'Playfair Display',serif;font-size:5rem;line-height:1;color:var(--nn-pink-soft);font-weight:700;pointer-events:none}
+        .nn-home .nn-review .nn-byline{font-size:.84rem;color:var(--nn-ink-soft);margin-top:6px;line-height:1.5}
+        .nn-home .nn-review .nn-byline b{color:var(--nn-ink);font-weight:600}
+
+        /* sticky mobile WhatsApp com microcopy + pulse */
         @media (max-width:720px){
           .whatsapp-widget{display:none!important}
-          .nn-home-sticky-cta{position:fixed;left:0;right:0;bottom:0;background:#25d366;color:#fff;text-align:center;font-weight:700;font-size:1rem;padding:16px 18px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 -10px 30px -10px rgba(0,0,0,.25);z-index:100;font-family:'Poppins','Inter',system-ui,sans-serif}
-          .nn-home-sticky-cta svg{width:22px;height:22px}
-          body{padding-bottom:64px}
+          .nn-home-sticky-cta{position:fixed;left:0;right:0;bottom:0;background:#25d366;color:#fff;text-align:center;font-weight:700;font-size:1rem;padding:11px 18px 13px;text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;box-shadow:0 -10px 30px -10px rgba(0,0,0,.25);z-index:100;font-family:'Poppins','Inter',system-ui,sans-serif;line-height:1.2}
+          .nn-home-sticky-cta .nn-sticky-main{display:inline-flex;align-items:center;gap:8px;font-size:1rem}
+          .nn-home-sticky-cta .nn-sticky-sub{font-size:.7rem;font-weight:500;opacity:.95;letter-spacing:.02em}
+          .nn-home-sticky-cta svg{width:22px;height:22px;animation:nnPulse 2.6s ease-in-out infinite}
+          @keyframes nnPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+          body{padding-bottom:80px}
         }
         @media (min-width:721px){
           .nn-home-sticky-cta{display:none}
+        }
+
+        /* desktop floating WhatsApp pill — aparece após scroll do hero */
+        .nn-home-float-cta{position:fixed;right:24px;bottom:24px;z-index:99;display:flex;align-items:center;gap:10px;background:#25d366;color:#fff;font-family:'Poppins','Inter',system-ui,sans-serif;font-weight:600;font-size:.95rem;padding:14px 20px;border-radius:999px;text-decoration:none;box-shadow:0 18px 40px -16px rgba(37,211,102,.6);opacity:0;pointer-events:none;transform:translateY(20px);transition:opacity .25s ease,transform .25s ease}
+        .nn-home-float-cta.is-visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+        .nn-home-float-cta:hover{background:#22c55e}
+        .nn-home-float-cta svg{width:22px;height:22px}
+        @media (min-width:721px){ .whatsapp-widget{display:none!important} }
+        @media (max-width:720px){ .nn-home-float-cta{display:none} }
+
+        /* scroll reveal sutil */
+        .nn-home .nn-reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+        .nn-home .nn-reveal.is-in{opacity:1;transform:none}
+        @media (prefers-reduced-motion:reduce){
+          .nn-home .nn-reveal{opacity:1;transform:none}
         }
 
         @media (max-width:860px){
@@ -1467,25 +1508,29 @@
               <h1 class="nn-headline">Manicure verificada<br>na sua casa, <span class="nn-serif">hoje.</span></h1>
               <p class="nn-sub">Manicures aprovadas pela NailNow atendendo em Porto Alegre e região metropolitana. Agende pelo WhatsApp em minutos — sem ligação, sem cadastro complicado.</p>
 
+              <div class="nn-trust">
+                <span><i>✓</i> Profissionais verificadas</span>
+                <span><i>🔒</i> Pagamento seguro</span>
+                <span><i>🏠</i> Atendimento a domicílio</span>
+              </div>
+
               <div class="nn-cta-row">
                 <a class="nn-btn nn-btn-primary" href="https://wa.me/555191518097?text=Oi!%20Vi%20o%20site%20da%20NailNow%20e%20quero%20agendar%20uma%20manicure%20a%20domic%C3%ADlio.%20Atendem%20o%20meu%20bairro%3F" target="_blank" rel="noopener">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.13c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.82c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
                   Agendar pelo WhatsApp
                 </a>
-                <div class="nn-stores">
-                  <a class="nn-btn-store" href="https://apps.apple.com/br/app/nailnow-app/id6762576610" target="_blank" rel="noopener">
-                    <span class="nn-store-stack"><small>Baixe na</small><b>App Store</b></span>
-                  </a>
-                  <a class="nn-btn-store" href="https://play.google.com/store/apps/details?id=br.com.nailnow.nailnow" target="_blank" rel="noopener">
-                    <span class="nn-store-stack"><small>Disponível no</small><b>Google Play</b></span>
-                  </a>
-                </div>
               </div>
 
-              <div class="nn-trust">
-                <span><i>✓</i> Profissionais verificadas</span>
-                <span><i>🔒</i> Pagamento seguro</span>
-                <span><i>🏠</i> Atendimento a domicílio</span>
+              <div class="nn-app-row">
+                <span class="nn-app-row-label">ou baixe o app:</span>
+                <a class="nn-store-pill nn-store-pill--apple" href="https://apps.apple.com/br/app/nailnow-app/id6762576610" target="_blank" rel="noopener" aria-label="Baixar na App Store">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.04c-.02-2.18 1.78-3.23 1.86-3.28-1.01-1.48-2.59-1.68-3.16-1.71-1.34-.14-2.62.79-3.31.79-.68 0-1.74-.77-2.86-.75-1.47.02-2.83.86-3.59 2.17-1.53 2.65-.39 6.58 1.1 8.74.73 1.06 1.6 2.25 2.74 2.21 1.1-.05 1.52-.71 2.85-.71 1.33 0 1.71.71 2.87.69 1.19-.02 1.94-1.08 2.66-2.14.84-1.22 1.18-2.41 1.2-2.47-.03-.01-2.3-.88-2.32-3.5zM14.86 5.43c.6-.74 1.02-1.75.9-2.78-.87.04-1.95.59-2.58 1.31-.56.64-1.06 1.7-.93 2.69.98.08 1.98-.5 2.61-1.22z"/></svg>
+                  App Store
+                </a>
+                <a class="nn-store-pill nn-store-pill--google" href="https://play.google.com/store/apps/details?id=br.com.nailnow.nailnow" target="_blank" rel="noopener" aria-label="Baixar no Google Play">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2c-.4.3-.6.8-.6 1.4v16.8c0 .6.2 1.1.6 1.4l.1.1L13.1 12 3.7 2.1l-.1.1zm10.6 10.3l2.5-2.5L14.2 8 4.8 2.5l9.4 10zM18 11l-3.1-1.7-2.7 2.7 2.7 2.7L18 13c.9-.5.9-1.5 0-2zM4.8 21.5L14.2 16l-2.5-2.5-7.4 8z"/></svg>
+                  Google Play
+                </a>
               </div>
             </div>
 
@@ -1503,8 +1548,28 @@
           </div>
         </section>
 
+        <!-- STATS STRIP -->
+        <section class="nn-stats nn-reveal" aria-label="NailNow em números">
+          <div class="nn-wrap">
+            <div class="nn-stats-grid">
+              <div class="nn-stat">
+                <div class="nn-num">24</div>
+                <div class="nn-lbl">manicures aprovadas atendendo</div>
+              </div>
+              <div class="nn-stat">
+                <div class="nn-num">20+</div>
+                <div class="nn-lbl">bairros em POA e região metropolitana</div>
+              </div>
+              <div class="nn-stat">
+                <div class="nn-num">7</div>
+                <div class="nn-lbl">dias por semana, das 8h às 20h</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <!-- COMO FUNCIONA -->
-        <section class="nn-how">
+        <section class="nn-how nn-reveal">
           <div class="nn-wrap">
             <div class="nn-section-head">
               <span class="nn-tag">Simples assim</span>
@@ -1519,23 +1584,70 @@
         </section>
 
         <!-- PROVA SOCIAL -->
-        <section class="nn-proof">
+        <section class="nn-proof nn-reveal">
           <div class="nn-wrap">
             <div class="nn-section-head">
               <span class="nn-tag">Quem já usou</span>
               <h2>Clientes reais de Porto Alegre</h2>
             </div>
-            <!-- TROQUE pelos depoimentos REAIS dos seus atendimentos -->
             <div class="nn-reviews">
-              <div class="nn-review"><div class="nn-stars">★★★★★</div><p>“Unhas perfeitas, muito bem feita com muito capricho ❤️”</p><div class="nn-who"><span class="nn-av">D</span><div><b>Delcinea</b><small>Cliente NailNow · Porto Alegre</small></div></div></div>
-              <div class="nn-review"><div class="nn-stars">★★★★★</div><p>“Obrigada Val, amei seu trabalho, mesmo com pedido em cima da hora. É isso que nós mulheres precisamos, disponibilidade a qualquer hora.”</p><div class="nn-who"><span class="nn-av">B</span><div><b>Bruna</b><small>Cliente NailNow · Porto Alegre</small></div></div></div>
-              <div class="nn-review"><div class="nn-stars">★★★★★</div><p>“Deu tudo certo! A Cris é ótima! Foi ótimo! Certamente numa próxima vinda farei contato, se estiver precisando 🩷”</p><div class="nn-who"><span class="nn-av">A</span><div><b>Ana Paula</b><small>Cliente NailNow · Porto Alegre</small></div></div></div>
+              <div class="nn-review">
+                <div class="nn-stars">★★★★★</div>
+                <p>Unhas perfeitas, muito bem feita com muito capricho ❤️</p>
+                <p class="nn-byline">— <b>Delcinea</b>, cliente em Porto Alegre</p>
+              </div>
+              <div class="nn-review">
+                <div class="nn-stars">★★★★★</div>
+                <p>Obrigada Val, amei seu trabalho, mesmo com pedido em cima da hora. É isso que nós mulheres precisamos, disponibilidade a qualquer hora.</p>
+                <p class="nn-byline">— <b>Bruna</b>, cliente em Porto Alegre</p>
+              </div>
+              <div class="nn-review">
+                <div class="nn-stars">★★★★★</div>
+                <p>Deu tudo certo! A Cris é ótima! Foi ótimo! Certamente numa próxima vinda farei contato, se estiver precisando 🩷</p>
+                <p class="nn-byline">— <b>Ana Paula</b>, cliente em Porto Alegre</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ (objeções primeiro, antes de bairros) -->
+        <section class="nn-faq nn-reveal" aria-label="Perguntas frequentes">
+          <div class="nn-wrap">
+            <div class="nn-section-head">
+              <span class="nn-tag">Dúvidas comuns</span>
+              <h2>Tudo que você precisa saber antes de agendar</h2>
+            </div>
+            <div class="nn-faq-grid">
+              <details open>
+                <summary>Como sei que a manicure é confiável?</summary>
+                <p>Toda profissional passa por aprovação antes de entrar: documentos, portfólio e verificação de identidade. Você recebe quem a NailNow confiaria em receber — e ainda pode ver o perfil e as avaliações antes de confirmar o atendimento.</p>
+              </details>
+              <details>
+                <summary>Quanto custa?</summary>
+                <p>Cada manicure define o próprio preço. Você vê os valores e o tempo estimado antes de confirmar — sem surpresa, sem taxa escondida.</p>
+              </details>
+              <details>
+                <summary>Atende meu bairro?</summary>
+                <p>Atendemos Porto Alegre inteira e cidades da região metropolitana (Canoas, Alvorada, Viamão, Gravataí, Cachoeirinha). Em dúvida, <a href="https://wa.me/555191518097?text=Oi!%20Voc%C3%AAs%20atendem%20o%20meu%20bairro%3F" target="_blank" rel="noopener">pergunta pelo WhatsApp</a>.</p>
+              </details>
+              <details>
+                <summary>Quanto tempo leva o atendimento?</summary>
+                <p>Manicure ou pedicure simples: cerca de 1 hora. Combos completos, gel, blindagem ou alongamento: 1h30 a 2h30, dependendo do serviço escolhido.</p>
+              </details>
+              <details>
+                <summary>Como funciona o pagamento?</summary>
+                <p>Pelo app, com cartão de crédito ou PIX, no momento do agendamento. Você não precisa pagar nada em dinheiro na hora do atendimento.</p>
+              </details>
+              <details>
+                <summary>Posso cancelar ou remarcar?</summary>
+                <p>Sim. Cancelamentos e remarcações com antecedência são gratuitos e podem ser feitos direto pelo app ou no WhatsApp.</p>
+              </details>
             </div>
           </div>
         </section>
 
         <!-- BAIRROS ATENDIDOS -->
-        <section class="nn-areas" aria-label="Bairros e cidades atendidas">
+        <section class="nn-areas nn-reveal" aria-label="Bairros e cidades atendidas">
           <div class="nn-wrap">
             <div class="nn-section-head">
               <span class="nn-tag">Onde atendemos</span>
@@ -1567,44 +1679,8 @@
           </div>
         </section>
 
-        <!-- FAQ -->
-        <section class="nn-faq" aria-label="Perguntas frequentes">
-          <div class="nn-wrap">
-            <div class="nn-section-head">
-              <span class="nn-tag">Dúvidas comuns</span>
-              <h2>Tudo que você precisa saber antes de agendar</h2>
-            </div>
-            <div class="nn-faq-grid">
-              <details>
-                <summary>Quanto custa?</summary>
-                <p>Cada manicure define o próprio preço. Você vê os valores e tempo estimado antes de confirmar — sem surpresa, sem taxa escondida.</p>
-              </details>
-              <details>
-                <summary>Atende meu bairro?</summary>
-                <p>Atendemos Porto Alegre inteira e cidades da região metropolitana (Canoas, Alvorada, Viamão, Gravataí, Cachoeirinha). Em dúvida, <a href="https://wa.me/555191518097?text=Oi!%20Voc%C3%AAs%20atendem%20o%20meu%20bairro%3F" target="_blank" rel="noopener">pergunta pelo WhatsApp</a>.</p>
-              </details>
-              <details>
-                <summary>É seguro abrir minha casa para uma manicure?</summary>
-                <p>Todas as profissionais passam por aprovação: documentos, portfólio e verificação de identidade antes de entrar na plataforma. Você recebe quem a NailNow confiaria em receber.</p>
-              </details>
-              <details>
-                <summary>Quanto tempo leva o atendimento?</summary>
-                <p>Manicure ou pedicure simples: cerca de 1 hora. Combos completos, gel, blindagem ou alongamento: 1h30 a 2h30, dependendo do serviço escolhido.</p>
-              </details>
-              <details>
-                <summary>Como funciona o pagamento?</summary>
-                <p>Pelo app, com cartão de crédito ou PIX, no momento do agendamento. Você não precisa pagar nada em dinheiro na hora do atendimento.</p>
-              </details>
-              <details>
-                <summary>Posso cancelar ou remarcar?</summary>
-                <p>Sim. Cancelamentos e remarcações com antecedência são gratuitos e podem ser feitos direto pelo app ou no WhatsApp.</p>
-              </details>
-            </div>
-          </div>
-        </section>
-
         <!-- INSTAGRAM CTA -->
-        <section class="nn-ig" aria-label="Veja trabalhos no Instagram">
+        <section class="nn-ig nn-reveal" aria-label="Veja trabalhos no Instagram">
           <div class="nn-wrap">
             <div class="nn-ig-card">
               <h2>Quer ver os trabalhos antes?</h2>
@@ -1618,9 +1694,48 @@
 
     </main>
     <a class="nn-home-sticky-cta" href="https://wa.me/555191518097?text=Oi!%20Vi%20o%20site%20da%20NailNow%20e%20quero%20agendar%20uma%20manicure%20a%20domic%C3%ADlio." target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
+      <span class="nn-sticky-main">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.13c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.82c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+        Agendar pelo WhatsApp
+      </span>
+      <span class="nn-sticky-sub">Resposta em minutos · seg–dom 8h–20h</span>
+    </a>
+    <a class="nn-home-float-cta" id="nnFloatCta" href="https://wa.me/555191518097?text=Oi!%20Vi%20o%20site%20da%20NailNow%20e%20quero%20agendar%20uma%20manicure%20a%20domic%C3%ADlio." target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.13c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.82c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
       Agendar pelo WhatsApp
     </a>
+    <script>
+      (function(){
+        // Scroll reveal sutil
+        var reveal = document.querySelectorAll('.nn-home .nn-reveal');
+        if ('IntersectionObserver' in window && reveal.length){
+          var io = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+              if (e.isIntersecting){
+                e.target.classList.add('is-in');
+                io.unobserve(e.target);
+              }
+            });
+          }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+          reveal.forEach(function(el){ io.observe(el); });
+        } else {
+          reveal.forEach(function(el){ el.classList.add('is-in'); });
+        }
+
+        // Float WhatsApp pill aparece depois que o hero sai da view
+        var hero = document.querySelector('.nn-home .nn-hero');
+        var float = document.getElementById('nnFloatCta');
+        if (hero && float && 'IntersectionObserver' in window){
+          var heroIo = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+              if (!e.isIntersecting) float.classList.add('is-visible');
+              else float.classList.remove('is-visible');
+            });
+          }, {threshold:0});
+          heroIo.observe(hero);
+        }
+      })();
+    </script>
 
     <footer class="site-footer">
       <div class="footer-inner">
