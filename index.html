@@ -1426,6 +1426,47 @@
           .nn-home .nn-btn-primary,.nn-home .nn-stores{width:100%}
           .nn-home .nn-btn-store{flex:1}
         }
+        /* faq */
+        .nn-home .nn-faq{padding:64px 0 30px;background:var(--nn-bg);width:100%}
+        .nn-home .nn-faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:960px;margin:0 auto}
+        .nn-home .nn-faq details{background:#fff;border:1px solid rgba(229,168,199,.45);border-radius:var(--nn-radius);padding:20px 22px;transition:border-color .15s ease,box-shadow .15s ease}
+        .nn-home .nn-faq details[open]{border-color:var(--nn-pink-soft);box-shadow:0 12px 26px -20px rgba(129,77,104,.45)}
+        .nn-home .nn-faq summary{cursor:pointer;list-style:none;font-weight:600;font-size:1rem;color:var(--nn-ink);display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+        .nn-home .nn-faq summary::-webkit-details-marker{display:none}
+        .nn-home .nn-faq summary::after{content:"+";font-weight:400;color:var(--nn-pink);font-size:1.35rem;line-height:1;flex-shrink:0;transition:transform .2s ease}
+        .nn-home .nn-faq details[open] summary::after{content:"−"}
+        .nn-home .nn-faq details p{margin-top:12px;font-size:.92rem;color:var(--nn-ink-soft);line-height:1.55}
+        .nn-home .nn-faq details p a{color:var(--nn-pink);font-weight:600;text-decoration:underline}
+
+        /* bairros */
+        .nn-home .nn-areas{padding:64px 0;background:#fff;width:100%}
+        .nn-home .nn-areas-list{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:880px;margin:24px auto 0}
+        .nn-home .nn-area-chip{background:var(--nn-bg);border:1px solid var(--nn-line);color:var(--nn-mauve);padding:8px 16px;border-radius:999px;font-size:.88rem;font-weight:500}
+        .nn-home .nn-areas-note{text-align:center;color:var(--nn-ink-soft);font-size:.9rem;margin-top:22px}
+        .nn-home .nn-areas-note a{color:var(--nn-pink);font-weight:600;text-decoration:none}
+        .nn-home .nn-areas-note a:hover{text-decoration:underline}
+
+        /* instagram CTA */
+        .nn-home .nn-ig{padding:64px 0 80px;background:var(--nn-bg);width:100%}
+        .nn-home .nn-ig-card{background:linear-gradient(135deg,#fff 0%,#FFF4FA 100%);border:1px solid rgba(229,168,199,.5);border-radius:24px;padding:44px 36px;text-align:center;max-width:780px;margin:0 auto;box-shadow:0 24px 44px -32px rgba(129,77,104,.4)}
+        .nn-home .nn-ig-card h2{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.5rem,2.4vw,1.9rem);color:var(--nn-ink);margin-bottom:10px}
+        .nn-home .nn-ig-card p{color:var(--nn-ink-soft);font-size:1rem;margin-bottom:24px}
+        .nn-home .nn-ig-card .nn-btn-primary{font-size:.95rem}
+
+        /* sticky mobile WhatsApp */
+        @media (max-width:720px){
+          .whatsapp-widget{display:none!important}
+          .nn-home-sticky-cta{position:fixed;left:0;right:0;bottom:0;background:#25d366;color:#fff;text-align:center;font-weight:700;font-size:1rem;padding:16px 18px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 -10px 30px -10px rgba(0,0,0,.25);z-index:100;font-family:'Poppins','Inter',system-ui,sans-serif}
+          .nn-home-sticky-cta svg{width:22px;height:22px}
+          body{padding-bottom:64px}
+        }
+        @media (min-width:721px){
+          .nn-home-sticky-cta{display:none}
+        }
+
+        @media (max-width:860px){
+          .nn-home .nn-faq-grid{grid-template-columns:1fr}
+        }
         @media (prefers-reduced-motion:reduce){ .nn-home *{transition:none!important} }
       </style>
 
@@ -1437,10 +1478,10 @@
             <div>
               <span class="nn-eyebrow"><span class="nn-dot"></span> Porto Alegre e região metropolitana</span>
               <h1 class="nn-headline">Manicure verificada<br>na sua casa, <span class="nn-serif">hoje.</span></h1>
-              <p class="nn-sub">Profissionais selecionadas, pagamento seguro e agenda confirmada na hora. Você escolhe quem, onde e quando.</p>
+              <p class="nn-sub">Manicures aprovadas pela NailNow atendendo em Porto Alegre e região metropolitana. Agende pelo WhatsApp em minutos — sem ligação, sem cadastro complicado.</p>
 
               <div class="nn-cta-row">
-                <a class="nn-btn nn-btn-primary" href="https://wa.me/555191518097?text=Oi!%20Quero%20agendar%20uma%20manicure%20a%20domic%C3%ADlio%20em%20Porto%20Alegre." target="_blank" rel="noopener">
+                <a class="nn-btn nn-btn-primary" href="https://wa.me/555191518097?text=Oi!%20Vi%20o%20site%20da%20NailNow%20e%20quero%20agendar%20uma%20manicure%20a%20domic%C3%ADlio.%20Atendem%20o%20meu%20bairro%3F" target="_blank" rel="noopener">
                   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.13c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.82c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
                   Agendar pelo WhatsApp
                 </a>
@@ -1506,9 +1547,93 @@
           </div>
         </section>
 
+        <!-- BAIRROS ATENDIDOS -->
+        <section class="nn-areas" aria-label="Bairros e cidades atendidas">
+          <div class="nn-wrap">
+            <div class="nn-section-head">
+              <span class="nn-tag">Onde atendemos</span>
+              <h2>Porto Alegre e região metropolitana</h2>
+            </div>
+            <div class="nn-areas-list" role="list">
+              <span class="nn-area-chip" role="listitem">Bela Vista</span>
+              <span class="nn-area-chip" role="listitem">Bom Fim</span>
+              <span class="nn-area-chip" role="listitem">Cidade Baixa</span>
+              <span class="nn-area-chip" role="listitem">Centro</span>
+              <span class="nn-area-chip" role="listitem">Higienópolis</span>
+              <span class="nn-area-chip" role="listitem">Jardim Botânico</span>
+              <span class="nn-area-chip" role="listitem">Menino Deus</span>
+              <span class="nn-area-chip" role="listitem">Moinhos de Vento</span>
+              <span class="nn-area-chip" role="listitem">Mont’Serrat</span>
+              <span class="nn-area-chip" role="listitem">Petrópolis</span>
+              <span class="nn-area-chip" role="listitem">Praia de Belas</span>
+              <span class="nn-area-chip" role="listitem">Rio Branco</span>
+              <span class="nn-area-chip" role="listitem">Santana</span>
+              <span class="nn-area-chip" role="listitem">Tristeza</span>
+              <span class="nn-area-chip" role="listitem">Zona Sul</span>
+              <span class="nn-area-chip" role="listitem">Canoas</span>
+              <span class="nn-area-chip" role="listitem">Alvorada</span>
+              <span class="nn-area-chip" role="listitem">Viamão</span>
+              <span class="nn-area-chip" role="listitem">Gravataí</span>
+              <span class="nn-area-chip" role="listitem">Cachoeirinha</span>
+            </div>
+            <p class="nn-areas-note">Não vê seu bairro? <a href="https://wa.me/555191518097?text=Oi!%20Voc%C3%AAs%20atendem%20o%20meu%20bairro%3F" target="_blank" rel="noopener">Pergunte no WhatsApp</a> — provavelmente atendemos.</p>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="nn-faq" aria-label="Perguntas frequentes">
+          <div class="nn-wrap">
+            <div class="nn-section-head">
+              <span class="nn-tag">Dúvidas comuns</span>
+              <h2>Tudo que você precisa saber antes de agendar</h2>
+            </div>
+            <div class="nn-faq-grid">
+              <details>
+                <summary>Quanto custa?</summary>
+                <p>Cada manicure define o próprio preço. Você vê os valores e tempo estimado antes de confirmar — sem surpresa, sem taxa escondida.</p>
+              </details>
+              <details>
+                <summary>Atende meu bairro?</summary>
+                <p>Atendemos Porto Alegre inteira e cidades da região metropolitana (Canoas, Alvorada, Viamão, Gravataí, Cachoeirinha). Em dúvida, <a href="https://wa.me/555191518097?text=Oi!%20Voc%C3%AAs%20atendem%20o%20meu%20bairro%3F" target="_blank" rel="noopener">pergunta pelo WhatsApp</a>.</p>
+              </details>
+              <details>
+                <summary>É seguro abrir minha casa para uma manicure?</summary>
+                <p>Todas as profissionais passam por aprovação: documentos, portfólio e verificação de identidade antes de entrar na plataforma. Você recebe quem a NailNow confiaria em receber.</p>
+              </details>
+              <details>
+                <summary>Quanto tempo leva o atendimento?</summary>
+                <p>Manicure ou pedicure simples: cerca de 1 hora. Combos completos, gel, blindagem ou alongamento: 1h30 a 2h30, dependendo do serviço escolhido.</p>
+              </details>
+              <details>
+                <summary>Como funciona o pagamento?</summary>
+                <p>Pelo app, com cartão de crédito ou PIX, no momento do agendamento. Você não precisa pagar nada em dinheiro na hora do atendimento.</p>
+              </details>
+              <details>
+                <summary>Posso cancelar ou remarcar?</summary>
+                <p>Sim. Cancelamentos e remarcações com antecedência são gratuitos e podem ser feitos direto pelo app ou no WhatsApp.</p>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <!-- INSTAGRAM CTA -->
+        <section class="nn-ig" aria-label="Veja trabalhos no Instagram">
+          <div class="nn-wrap">
+            <div class="nn-ig-card">
+              <h2>Quer ver os trabalhos antes?</h2>
+              <p>Fotos reais das nossas manicures aprovadas, todos os dias no Instagram.</p>
+              <a class="nn-btn nn-btn-primary" href="https://www.instagram.com/nailnow/" target="_blank" rel="noopener">Ver no @nailnow</a>
+            </div>
+          </div>
+        </section>
+
       </div>
 
     </main>
+    <a class="nn-home-sticky-cta" href="https://wa.me/555191518097?text=Oi!%20Vi%20o%20site%20da%20NailNow%20e%20quero%20agendar%20uma%20manicure%20a%20domic%C3%ADlio." target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.13c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.82c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+      Agendar pelo WhatsApp
+    </a>
 
     <footer class="site-footer">
       <div class="footer-inner">
