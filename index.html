@@ -1247,6 +1247,16 @@
         .nn-topbar .nn-tb-nav,.nn-topbar .nn-tb-actions{display:none}
         .nn-topbar .nn-tb-toggle{display:block}
       }
+      @media (max-width:640px){
+        .nn-topbar .nn-tb-wrap{height:64px;padding:0 16px;gap:12px}
+        .nn-topbar .nn-tb-brand{font-size:1.15rem;gap:8px}
+        .nn-topbar .nn-tb-brand img{width:30px;height:30px}
+        .nn-topbar .nn-tb-toggle{font-size:1.6rem;padding:8px 10px}
+        .nn-topbar .nn-tb-mobile{padding:12px 16px 16px}
+        .nn-topbar .nn-tb-mobile a.nn-tb-m-link{padding:13px 4px}
+        .nn-topbar .nn-tb-mobile .nn-tb-m-actions{gap:8px}
+        .nn-topbar .nn-tb-mobile .nn-tb-btn{padding:13px 12px;font-size:.92rem;border-radius:12px;min-height:46px;display:inline-flex;align-items:center;justify-content:center}
+      }
     </style>
     <header class="nn-topbar">
       <div class="nn-tb-wrap">
@@ -1458,12 +1468,14 @@
         /* sticky mobile WhatsApp com microcopy + pulse */
         @media (max-width:720px){
           .whatsapp-widget{display:none!important}
-          .nn-home-sticky-cta{position:fixed;left:0;right:0;bottom:0;background:#25d366;color:#fff;text-align:center;font-weight:700;font-size:1rem;padding:11px 18px 13px;text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;box-shadow:0 -10px 30px -10px rgba(0,0,0,.25);z-index:100;font-family:'Poppins','Inter',system-ui,sans-serif;line-height:1.2}
+          /* esconde bottom-nav só na home em mobile: o sticky CTA do WhatsApp ocupa o mesmo lugar */
+          body:has(.nn-home) .bottom-nav{display:none}
+          .nn-home-sticky-cta{position:fixed;left:0;right:0;bottom:0;background:#25d366;color:#fff;text-align:center;font-weight:700;font-size:1rem;padding:11px 18px calc(13px + env(safe-area-inset-bottom,0px));text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;box-shadow:0 -10px 30px -10px rgba(0,0,0,.25);z-index:100;font-family:'Poppins','Inter',system-ui,sans-serif;line-height:1.2}
           .nn-home-sticky-cta .nn-sticky-main{display:inline-flex;align-items:center;gap:8px;font-size:1rem}
           .nn-home-sticky-cta .nn-sticky-sub{font-size:.7rem;font-weight:500;opacity:.95;letter-spacing:.02em}
           .nn-home-sticky-cta svg{width:22px;height:22px;animation:nnPulse 2.6s ease-in-out infinite}
           @keyframes nnPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
-          body{padding-bottom:80px}
+          body:has(.nn-home){padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}
         }
         @media (min-width:721px){
           .nn-home-sticky-cta{display:none}
@@ -1487,6 +1499,62 @@
         @media (max-width:860px){
           .nn-home .nn-faq-grid{grid-template-columns:1fr}
         }
+
+        /* mobile tuning <=640px — sections mais compactas, photo menor, touch targets */
+        @media (max-width:640px){
+          .nn-home .nn-hero .nn-wrap{padding:32px 18px 44px;gap:32px}
+          .nn-home .nn-eyebrow{font-size:.78rem;padding:6px 13px;margin-bottom:18px}
+          .nn-home .nn-headline{font-size:clamp(2.2rem,9vw,2.9rem);margin-bottom:20px;line-height:1.08}
+          .nn-home .nn-sub{font-size:1.02rem;margin-bottom:24px}
+          .nn-home .nn-trust{gap:12px 16px;margin-bottom:22px}
+          .nn-home .nn-trust span{font-size:.85rem}
+          .nn-home .nn-cta-row{margin-bottom:16px}
+          .nn-home .nn-btn{font-size:1rem;padding:16px 24px}
+          .nn-home .nn-btn-primary{min-height:52px}
+          .nn-home .nn-app-row{gap:8px;margin-top:14px}
+          .nn-home .nn-app-row-label{flex-basis:100%;font-size:.88rem;margin-bottom:2px}
+          .nn-home .nn-store-pill{padding:11px 16px;font-size:.9rem;min-height:44px}
+          .nn-home .nn-hero-photo{aspect-ratio:5/4;border-radius:20px}
+          .nn-home .nn-hero-badge{left:8px;right:8px;bottom:14px;max-width:none;padding:11px 14px}
+          .nn-home .nn-hero-badge p{font-size:.74rem}
+          .nn-home .nn-hero-badge b{font-size:.84rem}
+
+          .nn-home .nn-stats{padding:36px 0}
+          .nn-home .nn-stats-grid{gap:14px}
+          .nn-home .nn-stat{padding:4px 6px}
+          .nn-home .nn-stat .nn-num{font-size:2.2rem;margin-bottom:6px}
+          .nn-home .nn-stat .nn-lbl{font-size:.78rem;line-height:1.3}
+
+          .nn-home .nn-how{padding:48px 0 24px}
+          .nn-home .nn-proof{padding:44px 0 56px}
+          .nn-home .nn-faq{padding:44px 0 24px}
+          .nn-home .nn-areas{padding:44px 0}
+          .nn-home .nn-ig{padding:44px 0 60px}
+
+          .nn-home .nn-section-head{margin-bottom:30px}
+          .nn-home .nn-section-head h2{font-size:clamp(1.7rem,6.5vw,2.1rem);margin-top:8px}
+          .nn-home .nn-section-head .nn-tag{font-size:.72rem}
+
+          .nn-home .nn-steps,.nn-home .nn-reviews{gap:14px}
+          .nn-home .nn-step{padding:22px 20px}
+          .nn-home .nn-step .nn-n{font-size:1.8rem;margin-bottom:10px}
+
+          .nn-home .nn-review{padding:36px 22px 22px}
+          .nn-home .nn-review::before{font-size:4rem;top:0;left:16px}
+
+          .nn-home .nn-faq-grid{gap:12px;max-width:none}
+          .nn-home .nn-faq details{padding:16px 18px}
+          .nn-home .nn-faq summary{font-size:.95rem}
+          .nn-home .nn-faq details p{font-size:.88rem}
+
+          .nn-home .nn-areas-list{gap:8px;margin-top:18px}
+          .nn-home .nn-area-chip{padding:7px 14px;font-size:.83rem}
+          .nn-home .nn-areas-note{font-size:.85rem;margin-top:18px;padding:0 8px}
+
+          .nn-home .nn-ig-card{padding:28px 22px;border-radius:18px}
+          .nn-home .nn-ig-card p{font-size:.94rem;margin-bottom:20px}
+        }
+
         @media (prefers-reduced-motion:reduce){ .nn-home *{transition:none!important} }
       </style>
 
