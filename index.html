@@ -1376,11 +1376,17 @@
 
         /* bairros */
         .nn-home .nn-areas{padding:64px 0;background:#fff;width:100%}
-        .nn-home .nn-areas-list{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:880px;margin:24px auto 0}
+        .nn-home .nn-areas-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;max-width:1200px;margin:0 auto;align-items:start}
+        .nn-home .nn-areas-col{min-width:0}
+        .nn-home .nn-areas-col-title{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.35rem,2vw,1.75rem);color:var(--nn-ink);text-align:center;margin:0 0 18px;line-height:1.2}
+        .nn-home .nn-areas-list{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:0}
         .nn-home .nn-area-chip{background:var(--nn-bg);border:1px solid var(--nn-line);color:var(--nn-mauve);padding:8px 16px;border-radius:999px;font-size:.88rem;font-weight:500}
-        .nn-home .nn-areas-note{text-align:center;color:var(--nn-ink-soft);font-size:.9rem;margin-top:22px}
+        .nn-home .nn-areas-note{text-align:center;color:var(--nn-ink-soft);font-size:.9rem;margin-top:34px}
         .nn-home .nn-areas-note a{color:var(--nn-pink);font-weight:600;text-decoration:none}
         .nn-home .nn-areas-note a:hover{text-decoration:underline}
+        @media (max-width:820px){
+          .nn-home .nn-areas-grid{grid-template-columns:minmax(0,1fr);gap:36px}
+        }
 
         /* instagram CTA */
         .nn-home .nn-ig{padding:64px 0 80px;background:var(--nn-bg);width:100%}
@@ -1658,29 +1664,59 @@
           <div class="nn-wrap">
             <div class="nn-section-head">
               <span class="nn-tag">Onde atendemos</span>
-              <h2>Porto Alegre e região metropolitana</h2>
+              <h2>Cidades e bairros atendidos</h2>
             </div>
-            <div class="nn-areas-list" role="list">
-              <span class="nn-area-chip" role="listitem">Bela Vista</span>
-              <span class="nn-area-chip" role="listitem">Bom Fim</span>
-              <span class="nn-area-chip" role="listitem">Cidade Baixa</span>
-              <span class="nn-area-chip" role="listitem">Centro</span>
-              <span class="nn-area-chip" role="listitem">Higienópolis</span>
-              <span class="nn-area-chip" role="listitem">Jardim Botânico</span>
-              <span class="nn-area-chip" role="listitem">Menino Deus</span>
-              <span class="nn-area-chip" role="listitem">Moinhos de Vento</span>
-              <span class="nn-area-chip" role="listitem">Mont’Serrat</span>
-              <span class="nn-area-chip" role="listitem">Petrópolis</span>
-              <span class="nn-area-chip" role="listitem">Praia de Belas</span>
-              <span class="nn-area-chip" role="listitem">Rio Branco</span>
-              <span class="nn-area-chip" role="listitem">Santana</span>
-              <span class="nn-area-chip" role="listitem">Tristeza</span>
-              <span class="nn-area-chip" role="listitem">Zona Sul</span>
-              <span class="nn-area-chip" role="listitem">Canoas</span>
-              <span class="nn-area-chip" role="listitem">Alvorada</span>
-              <span class="nn-area-chip" role="listitem">Viamão</span>
-              <span class="nn-area-chip" role="listitem">Gravataí</span>
-              <span class="nn-area-chip" role="listitem">Cachoeirinha</span>
+            <div class="nn-areas-grid">
+              <div class="nn-areas-col">
+                <h3 class="nn-areas-col-title">Porto Alegre e região metropolitana</h3>
+                <div class="nn-areas-list" role="list">
+                  <span class="nn-area-chip" role="listitem">Bela Vista</span>
+                  <span class="nn-area-chip" role="listitem">Bom Fim</span>
+                  <span class="nn-area-chip" role="listitem">Cidade Baixa</span>
+                  <span class="nn-area-chip" role="listitem">Centro</span>
+                  <span class="nn-area-chip" role="listitem">Higienópolis</span>
+                  <span class="nn-area-chip" role="listitem">Jardim Botânico</span>
+                  <span class="nn-area-chip" role="listitem">Menino Deus</span>
+                  <span class="nn-area-chip" role="listitem">Moinhos de Vento</span>
+                  <span class="nn-area-chip" role="listitem">Mont’Serrat</span>
+                  <span class="nn-area-chip" role="listitem">Petrópolis</span>
+                  <span class="nn-area-chip" role="listitem">Praia de Belas</span>
+                  <span class="nn-area-chip" role="listitem">Rio Branco</span>
+                  <span class="nn-area-chip" role="listitem">Santana</span>
+                  <span class="nn-area-chip" role="listitem">Tristeza</span>
+                  <span class="nn-area-chip" role="listitem">Zona Sul</span>
+                  <span class="nn-area-chip" role="listitem">Canoas</span>
+                  <span class="nn-area-chip" role="listitem">Alvorada</span>
+                  <span class="nn-area-chip" role="listitem">Viamão</span>
+                  <span class="nn-area-chip" role="listitem">Gravataí</span>
+                  <span class="nn-area-chip" role="listitem">Cachoeirinha</span>
+                </div>
+              </div>
+              <div class="nn-areas-col">
+                <h3 class="nn-areas-col-title">São Paulo e região metropolitana</h3>
+                <div class="nn-areas-list" role="list">
+                  <span class="nn-area-chip" role="listitem">Itaim Bibi</span>
+                  <span class="nn-area-chip" role="listitem">Vila Olímpia</span>
+                  <span class="nn-area-chip" role="listitem">Pinheiros</span>
+                  <span class="nn-area-chip" role="listitem">Vila Madalena</span>
+                  <span class="nn-area-chip" role="listitem">Jardins</span>
+                  <span class="nn-area-chip" role="listitem">Moema</span>
+                  <span class="nn-area-chip" role="listitem">Perdizes</span>
+                  <span class="nn-area-chip" role="listitem">Higienópolis</span>
+                  <span class="nn-area-chip" role="listitem">Consolação</span>
+                  <span class="nn-area-chip" role="listitem">Bela Vista</span>
+                  <span class="nn-area-chip" role="listitem">Vila Mariana</span>
+                  <span class="nn-area-chip" role="listitem">Brooklin</span>
+                  <span class="nn-area-chip" role="listitem">Butantã</span>
+                  <span class="nn-area-chip" role="listitem">Morumbi</span>
+                  <span class="nn-area-chip" role="listitem">Ibirapuera</span>
+                  <span class="nn-area-chip" role="listitem">Guarulhos</span>
+                  <span class="nn-area-chip" role="listitem">Osasco</span>
+                  <span class="nn-area-chip" role="listitem">Santo André</span>
+                  <span class="nn-area-chip" role="listitem">São Bernardo do Campo</span>
+                  <span class="nn-area-chip" role="listitem">São Caetano do Sul</span>
+                </div>
+              </div>
             </div>
             <p class="nn-areas-note">Não vê seu bairro? <a href="https://wa.me/555191518097?text=Oi!%20Voc%C3%AAs%20atendem%20o%20meu%20bairro%3F" target="_blank" rel="noopener">Pergunte no WhatsApp</a> — provavelmente atendemos.</p>
           </div>
