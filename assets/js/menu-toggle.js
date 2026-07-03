@@ -3,46 +3,48 @@
     return;
   }
 
-  function initMobileMenu() {
-    const toggle = document.querySelector(".mobile-menu-toggle");
-    const navigation = document.querySelector("#site-navigation");
+  function initTopbar() {
+    var toggle = document.getElementById("nnTbToggle");
+    var mobile = document.getElementById("nnTbMobile");
 
-    if (!toggle || !navigation || toggle.dataset.menuInitialized === "true") {
+    if (!toggle || !mobile || toggle.dataset.menuInitialized === "true") {
       return;
     }
 
-    const closeMenu = () => {
-      toggle.setAttribute("aria-expanded", "false");
-      navigation.classList.remove("is-open");
-    };
-
-    const openMenu = () => {
+    var openMenu = function () {
+      mobile.removeAttribute("hidden");
       toggle.setAttribute("aria-expanded", "true");
-      navigation.classList.add("is-open");
+      toggle.textContent = "✕";
     };
 
-    toggle.addEventListener("click", () => {
-      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
-      if (isExpanded) {
-        closeMenu();
-      } else {
+    var closeMenu = function () {
+      mobile.setAttribute("hidden", "");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.textContent = "☰";
+    };
+
+    toggle.addEventListener("click", function () {
+      var isHidden = mobile.hasAttribute("hidden");
+      if (isHidden) {
         openMenu();
+      } else {
+        closeMenu();
       }
     });
 
-    navigation.addEventListener("click", (event) => {
+    mobile.addEventListener("click", function (event) {
       if (event.target instanceof Element && event.target.closest("a")) {
         closeMenu();
       }
     });
 
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 720) {
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 1080) {
         closeMenu();
       }
     });
 
-    document.addEventListener("keydown", (event) => {
+    document.addEventListener("keydown", function (event) {
       if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
         closeMenu();
         toggle.focus();
@@ -53,8 +55,8 @@
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initMobileMenu);
+    document.addEventListener("DOMContentLoaded", initTopbar);
   } else {
-    initMobileMenu();
+    initTopbar();
   }
 })();
