@@ -16,22 +16,27 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Agende manicure a domicílio em Porto Alegre com a NailNow. Encontre atendimento para manicure, pedicure, gel e nail art sem sair de casa." />
-    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Manicure a domicílio em Porto Alegre com profissionais verificadas. Atendemos Moinhos de Vento, Bela Vista, Bom Fim, Menino Deus, Petrópolis, Zona Sul, Canoas, Alvorada, Viamão, Gravataí e mais. Manicure, pedicure, gel, blindagem e alongamento sem sair de casa." />
+    <meta name="keywords" content="manicure a domicilio porto alegre, manicure em casa poa, pedicure a domicilio poa, esmaltacao em gel porto alegre, manicure moinhos de vento, manicure bela vista, manicure menino deus, manicure petropolis, manicure zona sul poa, manicure canoas" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://www.nailnow.app/manicure-a-domicilio-porto-alegre" />
     <link rel="alternate" hreflang="pt-BR" href="https://www.nailnow.app/manicure-a-domicilio-porto-alegre" />
+    <meta name="geo.region" content="BR-RS" />
+    <meta name="geo.placename" content="Porto Alegre" />
+    <meta name="geo.position" content="-30.0346;-51.2177" />
+    <meta name="ICBM" content="-30.0346, -51.2177" />
     <meta property="og:site_name" content="NailNow" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
-    <meta property="og:title" content="Manicure a domicílio em Porto Alegre | NailNow" />
-    <meta property="og:description" content="Agende manicure a domicílio em Porto Alegre com a NailNow. Encontre atendimento para manicure, pedicure, gel e nail art sem sair de casa." />
+    <meta property="og:title" content="Manicure a Domicílio em Porto Alegre — POA e Região Metropolitana | NailNow" />
+    <meta property="og:description" content="Manicure a domicílio em Porto Alegre com profissionais verificadas. Atendemos Moinhos de Vento, Bela Vista, Menino Deus, Petrópolis, Zona Sul, Canoas, Alvorada e mais." />
     <meta property="og:url" content="https://www.nailnow.app/manicure-a-domicilio-porto-alegre" />
     <meta property="og:image" content="https://www.nailnow.app/assets/nail1.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Manicure a domicílio em Porto Alegre | NailNow" />
-    <meta name="twitter:description" content="Agende manicure a domicílio em Porto Alegre com a NailNow. Encontre atendimento para manicure, pedicure, gel e nail art sem sair de casa." />
+    <meta name="twitter:title" content="Manicure a Domicílio em Porto Alegre — POA e Região Metropolitana | NailNow" />
+    <meta name="twitter:description" content="Manicure a domicílio em Porto Alegre com profissionais verificadas. Atendemos Moinhos de Vento, Bela Vista, Menino Deus, Petrópolis, Zona Sul, Canoas, Alvorada e mais." />
     <meta name="twitter:image" content="https://www.nailnow.app/assets/nail1.png" />
-    <title>Manicure a domicílio em Porto Alegre | NailNow</title>
+    <title>Manicure a Domicílio em Porto Alegre — POA e Região Metropolitana | NailNow</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -135,6 +140,15 @@
         line-height: 1.7;
       }
 
+      .local-breadcrumbs {
+        font-size: 13px;
+        color: #814D68;
+        opacity: .8;
+        margin: 8px 0 16px;
+      }
+      .local-breadcrumbs a { color: #F45CA2; text-decoration: none; }
+      .local-breadcrumbs a:hover { text-decoration: underline; }
+
       @media (max-width: 820px) {
         .local-hero__grid,
         .local-section__grid,
@@ -186,14 +200,16 @@
         "image": "https://www.nailnow.app/assets/nail1.png",
         "url": "https://www.nailnow.app/manicure-a-domicilio-porto-alegre",
         "priceRange": "R$30+",
-        "areaServed": {
-          "@type": "City",
-          "name": "Porto Alegre",
-          "containedInPlace": {
-            "@type": "AdministrativeArea",
-            "name": "Rio Grande do Sul"
-          }
-        },
+        "areaServed": [
+          { "@type": "City", "name": "Porto Alegre", "containedInPlace": { "@type": "AdministrativeArea", "name": "Rio Grande do Sul" } },
+          { "@type": "City", "name": "Canoas" },
+          { "@type": "City", "name": "Alvorada" },
+          { "@type": "City", "name": "Viamão" },
+          { "@type": "City", "name": "Gravataí" },
+          { "@type": "City", "name": "Cachoeirinha" },
+          { "@type": "City", "name": "Sapucaia do Sul" },
+          { "@type": "City", "name": "Novo Hamburgo" }
+        ],
         "geo": {
           "@type": "GeoCoordinates",
           "latitude": -30.0346,
@@ -212,6 +228,17 @@
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nail art" } }
           ]
         }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "NailNow", "item": "https://www.nailnow.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Manicure a domicílio", "item": "https://www.nailnow.app/servicos" },
+          { "@type": "ListItem", "position": 3, "name": "Porto Alegre", "item": "https://www.nailnow.app/manicure-a-domicilio-porto-alegre" }
+        ]
       }
     </script>
     <script type="application/ld+json">
@@ -294,25 +321,31 @@
     </header>
 
     <main>
+      <nav class="local-breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">NailNow</a> · <a href="/servicos">Serviços</a> · <span aria-current="page">Porto Alegre</span>
+      </nav>
       <section class="local-hero">
         <div class="local-hero__grid">
           <div>
-            <span class="eyebrow">SEO local</span>
+            <span class="eyebrow">Porto Alegre · RS · Região Metropolitana</span>
             <h1>Manicure a domicílio em Porto Alegre</h1>
-            <p>A NailNow facilita o agendamento de manicure a domicílio em Porto Alegre para quem quer otimizar a rotina e manter o cuidado com as unhas em casa, no trabalho ou em momentos especiais.</p>
+            <p>Agende manicure, pedicure, esmaltação em gel e alongamento a domicílio em Porto Alegre com profissionais verificadas pela NailNow. Atendimento no seu endereço em POA capital, Canoas, Alvorada, Viamão, Gravataí, Cachoeirinha e cidades da região metropolitana.</p>
+            <p>Chega de sair de casa pra cuidar das unhas. A NailNow conecta você a manicures aprovadas com disponibilidade real de agenda, cobrança digital transparente e confirmação por WhatsApp em minutos.</p>
             <div class="local-links">
-              <a href="/cliente">Agendar atendimento</a>
-              <a href="/servicos">Ver serviços</a>
+              <a href="/cliente">Agendar manicure em POA</a>
+              <a href="/servicos">Ver todos os serviços</a>
               <a href="/faq">Tirar dúvidas</a>
+              <a href="/trabalhar-como-manicure-porto-alegre">Sou manicure em POA</a>
             </div>
           </div>
           <aside class="local-card" aria-label="Destaques do atendimento em Porto Alegre">
-            <h2>Por que agendar pela NailNow?</h2>
+            <h2>Por que a NailNow em POA?</h2>
             <ul class="local-highlights">
-              <li>Profissionais verificadas e com atendimento a domicílio.</li>
-              <li>Serviços como manicure, pedicure, gel, blindagem e nail art.</li>
-              <li>Pagamento digital e confirmação com antecedência.</li>
-              <li>Busca orientada por endereço, horário e disponibilidade real.</li>
+              <li>Manicures verificadas e com atendimento a domicílio em POA.</li>
+              <li>Serviços: manicure, pedicure, gel, blindagem, alongamento e nail art.</li>
+              <li>Pagamento digital (PIX/cartão) e confirmação com antecedência.</li>
+              <li>Busca por endereço, horário e disponibilidade real de agenda.</li>
+              <li>Cobertura em POA e cidades da região metropolitana.</li>
             </ul>
           </aside>
         </div>
@@ -386,9 +419,7 @@
         </div>
         <div class="footer-column footer-links" aria-label="Cidades atendidas">
           <h3>Cidades atendidas</h3>
-          <a href="/manicure-a-domicilio-sao-paulo">São Paulo</a>
-          <a href="/manicure-a-domicilio-rio-de-janeiro">Rio de Janeiro</a>
-          <a href="/manicure-a-domicilio-porto-alegre">Porto Alegre</a>
+          <a href="/manicure-a-domicilio-sao-paulo">São Paulo</a>          <a href="/manicure-a-domicilio-porto-alegre">Porto Alegre</a>
         </div>
       </div>
       <p class="footer-copy">© NailNow 2026. Todos os direitos reservados. NAILNOW SERVICOS DIGITAIS LTDA</p>
