@@ -44316,20 +44316,20 @@ body.portal .request-toolbar {
   background: #fff;
   border: 1px solid #E5A8C7;
   border-radius: 24px;
-  padding: 48px 44px;
-  max-width: 520px;
+  padding: 56px 52px;
+  max-width: 640px;
   width: 100%;
   box-shadow: 0 20px 60px -20px rgba(129, 77, 104, 0.15);
   box-sizing: border-box;
 }
-.nn-b2b-eyebrow { display:inline-flex;align-items:center;gap:6px;background:#FFE3F1;color:#814D68;padding:6px 12px;border-radius:999px;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px; }
+.nn-b2b-eyebrow { display:inline-flex;align-items:center;gap:6px;background:#FFE3F1;color:#814D68;padding:7px 14px;border-radius:999px;font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:1px;margin-bottom:22px; }
 .nn-b2b-eyebrow .dot { width:6px;height:6px;border-radius:50%;background:#F45CA2; }
-.nn-b2b-title { font-family:'Playfair Display', Georgia, serif;font-size:36px;line-height:1.05;color:#814D68;margin:0 0 12px;font-weight:400;letter-spacing:-1px; }
+.nn-b2b-title { font-family:'Playfair Display', Georgia, serif;font-size:40px;line-height:1.05;color:#814D68;margin:0 0 14px;font-weight:400;letter-spacing:-1px; }
 .nn-b2b-title em { color:#F45CA2;font-style:italic; }
-.nn-b2b-sub { font-size:15px;line-height:1.55;color:#814D68;margin:0 0 32px;opacity:.85; }
-.nn-field { margin-bottom:16px; }
-.nn-label { display:block;font-size:12px;font-weight:500;color:#814D68;margin-bottom:6px;letter-spacing:.3px; }
-.nn-input { width:100%;box-sizing:border-box;background:#fff;border:1px solid #E5A8C7;border-radius:12px;padding:14px 16px;font-family:'Inter', sans-serif;font-size:14px;color:#814D68;outline:none;transition:border-color .15s, box-shadow .15s; }
+.nn-b2b-sub { font-size:16px;line-height:1.55;color:#814D68;margin:0 0 36px;opacity:.85; }
+.nn-field { margin-bottom:18px; }
+.nn-label { display:block;font-size:13px;font-weight:500;color:#814D68;margin-bottom:7px;letter-spacing:.3px; }
+.nn-input { width:100%;box-sizing:border-box;background:#fff;border:1px solid #E5A8C7;border-radius:12px;padding:15px 18px;font-family:'Inter', sans-serif;font-size:15px;color:#814D68;outline:none;transition:border-color .15s, box-shadow .15s; }
 .nn-input::placeholder { color:#C9A3B3; }
 .nn-input:focus { border-color:#F45CA2; box-shadow:0 0 0 3px rgba(244, 92, 162, .12); }
 .nn-input.is-error { border-color:#E04A92; box-shadow:0 0 0 3px rgba(224, 74, 146, .12); }
