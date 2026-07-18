@@ -252,4 +252,22 @@
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
+  <url>
+    <loc>https://nailnow.app/manicure-a-domicilio-sarandi</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://nailnow.app/manicure-a-domicilio-jardim-lindoia</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://nailnow.app/manicure-a-domicilio-cristo-redentor</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
 </urlset>
