@@ -1437,11 +1437,9 @@
         .nn-home .nn-trust{margin-top:0;margin-bottom:26px;padding-top:0;border-top:0;justify-content:flex-start}
         .nn-home .nn-app-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:18px}
         .nn-home .nn-app-row-label{font-size:.92rem;color:var(--nn-ink-soft);font-weight:500;margin-right:2px}
-        .nn-home .nn-store-pill{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--nn-line);color:var(--nn-ink);padding:10px 18px;border-radius:999px;font-size:.95rem;font-weight:600;text-decoration:none;transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease}
-        .nn-home .nn-store-pill:hover{border-color:var(--nn-pink);transform:translateY(-1px);box-shadow:0 8px 18px -12px rgba(129,77,104,.45)}
-        .nn-home .nn-store-pill svg{width:18px;height:18px;flex-shrink:0}
-        .nn-home .nn-store-pill--apple svg{color:#000}
-        .nn-home .nn-store-pill--google svg{color:#34A853}
+        .nn-home .nn-store-badge{display:inline-flex;align-items:center;text-decoration:none;transition:transform .15s ease,filter .15s ease}
+        .nn-home .nn-store-badge:hover{transform:translateY(-1px);filter:brightness(1.05)}
+        .nn-home .nn-store-badge img{height:48px;width:auto;display:block}
 
         /* stats strip — números reais como prova */
         .nn-home .nn-stats{background:#fff;padding:54px 0;width:100%;border-bottom:1px solid rgba(229,168,199,.3)}
@@ -1504,7 +1502,7 @@
           .nn-home .nn-btn-primary{min-height:52px}
           .nn-home .nn-app-row{gap:8px;margin-top:14px}
           .nn-home .nn-app-row-label{flex-basis:100%;font-size:.88rem;margin-bottom:2px}
-          .nn-home .nn-store-pill{padding:11px 16px;font-size:.9rem;min-height:44px}
+          .nn-home .nn-store-badge img{height:44px}
           .nn-home .nn-hero-photo{aspect-ratio:3/4;border-radius:20px}
           .nn-home .nn-hero-photo img{object-position:center 65%}
           .nn-home .nn-hero-badge{left:8px;right:8px;bottom:14px;max-width:none;padding:11px 14px}
@@ -1575,13 +1573,11 @@
 
               <div class="nn-app-row">
                 <span class="nn-app-row-label">ou baixe o app:</span>
-                <a class="nn-store-pill nn-store-pill--apple" href="https://apps.apple.com/br/app/nailnow-app/id6762576610" target="_blank" rel="noopener" aria-label="Baixar na App Store">
-                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.04c-.02-2.18 1.78-3.23 1.86-3.28-1.01-1.48-2.59-1.68-3.16-1.71-1.34-.14-2.62.79-3.31.79-.68 0-1.74-.77-2.86-.75-1.47.02-2.83.86-3.59 2.17-1.53 2.65-.39 6.58 1.1 8.74.73 1.06 1.6 2.25 2.74 2.21 1.1-.05 1.52-.71 2.85-.71 1.33 0 1.71.71 2.87.69 1.19-.02 1.94-1.08 2.66-2.14.84-1.22 1.18-2.41 1.2-2.47-.03-.01-2.3-.88-2.32-3.5zM14.86 5.43c.6-.74 1.02-1.75.9-2.78-.87.04-1.95.59-2.58 1.31-.56.64-1.06 1.7-.93 2.69.98.08 1.98-.5 2.61-1.22z"/></svg>
-                  App Store
+                <a class="nn-store-badge" href="https://apps.apple.com/br/app/nailnow-app/id6762576610" target="_blank" rel="noopener" aria-label="Baixar na App Store">
+                  <img src="assets/app-store-badge.png" alt="Baixar na App Store" width="106" height="48" loading="lazy">
                 </a>
-                <a class="nn-store-pill nn-store-pill--google" href="https://play.google.com/store/apps/details?id=br.com.nailnow.nailnow" target="_blank" rel="noopener" aria-label="Baixar no Google Play">
-                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.2c-.4.3-.6.8-.6 1.4v16.8c0 .6.2 1.1.6 1.4l.1.1L13.1 12 3.7 2.1l-.1.1zm10.6 10.3l2.5-2.5L14.2 8 4.8 2.5l9.4 10zM18 11l-3.1-1.7-2.7 2.7 2.7 2.7L18 13c.9-.5.9-1.5 0-2zM4.8 21.5L14.2 16l-2.5-2.5-7.4 8z"/></svg>
-                  Google Play
+                <a class="nn-store-badge" href="https://play.google.com/store/apps/details?id=br.com.nailnow.nailnow" target="_blank" rel="noopener" aria-label="Baixar no Google Play">
+                  <img src="assets/google-play-badge.png" alt="Disponível no Google Play" width="106" height="48" loading="lazy">
                 </a>
               </div>
             </div>
