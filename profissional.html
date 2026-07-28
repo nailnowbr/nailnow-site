@@ -58,299 +58,577 @@
     <link rel="icon" type="image/svg+xml" href="/assets/nailnow-logo.svg" />
     <script src="/assets/js/menu-toggle.js" defer></script>
     <style>
-      .pro-lp {
-        width: min(1120px, 100% - 3rem);
-        margin: 0 auto;
-        padding: 2.5rem 0 5rem;
-        display: grid;
-        gap: 1.4rem;
+      :root {
+        --lp-pink-bg: #fce4ee;
+        --lp-pink-soft: #fbd6e5;
+        --lp-pink-strong: #f45ca2;
+        --lp-pink-deep: #d81b60;
+        --lp-cream: #fdf7f2;
+        --lp-plum: #6d3a54;
+        --lp-ink: #1a1a1a;
+        --lp-muted: #6b5a63;
       }
 
-      .pro-lp__section,
-      .pro-lp__hero,
-      .pro-lp__conversion {
-        background: var(--surface);
-        border: 1px solid rgba(244, 92, 162, 0.16);
-        border-radius: 24px;
-        box-shadow: 0 14px 42px rgba(244, 92, 162, 0.12);
-        padding: clamp(1.4rem, 2.5vw, 2.6rem);
+      .lp {
+        color: var(--lp-ink);
+        font-family: "Inter", system-ui, sans-serif;
       }
 
-      .pro-lp__hero {
-        position: relative;
-        overflow: hidden;
-        background:
-          radial-gradient(circle at 15% 22%, rgba(255, 255, 255, 0.3) 0 2px, transparent 2.5px) 0 0 / 120px 120px,
-          linear-gradient(140deg, rgba(236, 88, 170, 0.96), rgba(190, 108, 223, 0.93) 52%, rgba(135, 145, 232, 0.9));
-        border: 1px solid rgba(255, 255, 255, 0.3);
+      .lp section {
+        padding: clamp(3rem, 6vw, 5.5rem) clamp(1.2rem, 4vw, 3rem);
       }
 
-      .pro-kicker {
-        font-size: 0.8rem;
+      .lp h1,
+      .lp h2,
+      .lp h3 {
+        font-family: "Playfair Display", Georgia, serif;
+        margin: 0;
+        color: var(--lp-ink);
+        line-height: 1.1;
+      }
+
+      .lp p {
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .lp__kicker {
+        display: inline-block;
+        background: var(--lp-pink-strong);
+        color: #fff;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 0.4rem 0.85rem;
+        border-radius: 999px;
+      }
+
+      .lp__sub {
         text-transform: uppercase;
         letter-spacing: 0.08em;
-        font-weight: 700;
-        color: rgba(255, 255, 255, 0.9);
-        margin-bottom: 0.6rem;
+        font-weight: 600;
+        color: var(--lp-plum);
+        font-size: 0.95rem;
       }
 
-      .pro-lp h1,
-      .pro-lp h2,
-      .pro-lp h3 {
-        margin: 0;
-        color: var(--text-main);
-      }
-
-      .pro-lp h1 {
-        font-family: "Playfair Display", serif;
-        font-size: clamp(1.8rem, 4vw, 2.9rem);
-        line-height: 1.15;
-      }
-
-      .pro-lp p {
-        margin: 0;
-        color: var(--text-muted);
-      }
-
-      .pro-hero__body {
-        display: grid;
-        gap: 1rem;
-      }
-
-      .pro-hero-layout {
-        display: grid;
-        gap: 1.4rem;
-      }
-
-      .pro-lp__hero h1,
-      .pro-lp__hero p,
-      .pro-lp__hero strong {
-        color: #fff;
-      }
-
-      .pro-hero__lead {
-        max-width: 62ch;
-        color: rgba(255, 255, 255, 0.92);
-      }
-
-      .pro-hero__visual {
-        position: relative;
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.34);
-        background: rgba(255, 255, 255, 0.14);
-        padding: 0.9rem;
-        min-height: 220px;
-        display: grid;
-        place-items: center;
-      }
-
-      .pro-hero__visual::before {
-        content: "";
-        position: absolute;
-        inset: 14px;
-        border-radius: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.28);
-      }
-
-      .pro-hero__visual img {
-        width: min(280px, 100%);
-        border-radius: 14px;
-        box-shadow: 0 18px 34px rgba(39, 26, 71, 0.36);
-        position: relative;
-        z-index: 1;
-      }
-
-      .pro-btn {
+      .lp__btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: fit-content;
-        background: var(--pink-primary);
+        gap: 0.5rem;
+        background: var(--lp-pink-strong);
         color: #fff;
-        text-decoration: none;
         font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-size: 0.95rem;
+        padding: 1rem 2rem;
         border-radius: 999px;
-        padding: 0.85rem 1.35rem;
-        border: 1px solid var(--pink-primary);
+        border: 0;
         cursor: pointer;
-        transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 1px;
+        transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+        box-shadow: 0 12px 30px rgba(244, 92, 162, 0.28);
       }
 
-      .pro-btn:hover,
-      .pro-btn:focus-visible {
-        background: var(--pink-accent);
-        border-color: var(--pink-accent);
-        transform: translateY(-1px);
+      .lp__btn:hover {
+        transform: translateY(-2px);
+        background: var(--lp-pink-deep);
+        box-shadow: 0 16px 36px rgba(216, 27, 96, 0.35);
       }
 
-      .pro-points,
-      .pro-steps,
-      .pro-benefit-grid {
-        margin: 1rem 0 0;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 0.85rem;
-      }
-
-      .pro-points li,
-      .pro-steps li {
-        border: 1px solid rgba(244, 92, 162, 0.2);
-        border-radius: 14px;
-        padding: 0.9rem 1rem;
-        background: var(--surface-alt);
-      }
-
-      .pro-benefit-grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      }
-
-      .pro-benefit-card {
-        border: 1px solid rgba(244, 92, 162, 0.2);
-        border-radius: 16px;
-        padding: 1rem;
-        background: var(--surface);
-      }
-
-      .pro-benefit-card h3 {
-        margin-bottom: 0.5rem;
-        font-size: 1.05rem;
-      }
-
-      .pro-lp__conversion {
-        display: grid;
-        gap: 1rem;
-        background: linear-gradient(145deg, rgba(244, 92, 162, 0.13), rgba(244, 92, 162, 0.08));
-        border: 1px solid rgba(244, 92, 162, 0.24);
-      }
-
-      .pro-lp__conversion h2,
-      .pro-lp__conversion label {
-        color: var(--text-main);
-      }
-
-      .pro-lp__conversion p {
-        color: var(--text-muted);
-      }
-
-      .pro-form {
-        display: grid;
-        gap: 1rem;
-      }
-
-      .pro-form-progress {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0.8rem;
-      }
-
-      .pro-story-progress {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 0.8rem;
-        margin-top: 0.5rem;
-      }
-
-      .pro-story-progress__bar {
-        position: relative;
-        flex: 1;
-        height: 8px;
-        border-radius: 999px;
-        background: rgba(244, 92, 162, 0.18);
-        overflow: hidden;
-      }
-
-      .pro-story-progress__fill {
-        position: absolute;
-        inset: 0;
-        width: 0%;
-        background: linear-gradient(90deg, var(--pink-primary), var(--pink-accent));
-        transition: width 0.25s ease;
-      }
-
-      .pro-story-progress__label {
+      .lp__btn--sm {
+        padding: 0.7rem 1.3rem;
         font-size: 0.82rem;
-        font-weight: 600;
-        color: var(--text-main);
-        white-space: nowrap;
       }
 
-      .pro-story-step[hidden] {
-        display: none;
-      }
-
-      .pro-form label {
-        font-weight: 600;
-        font-size: 0.92rem;
-      }
-
-      .pro-form > span {
-        font-weight: 600;
-        font-size: 0.92rem;
-      }
-
-      .pro-form input,
-      .pro-form select {
-        width: 100%;
-        border: none;
-        border-radius: 10px;
-        padding: 0.78rem 0.9rem;
-        font-size: 0.98rem;
-      }
-
-      .pro-service-checklist {
-        display: grid;
-        gap: 0.6rem;
-        margin: 0.15rem 0 0.25rem;
-      }
-
-      .pro-service-checklist label {
+      /* ============ HERO ============ */
+      .lp__hero {
+        background:
+          linear-gradient(115deg, rgba(252, 228, 238, 0.94) 0%, rgba(252, 228, 238, 0.55) 55%, rgba(252, 228, 238, 0.35) 100%),
+          url("/assets/nail1-og.jpg") center right / cover no-repeat;
+        min-height: 78vh;
         display: flex;
         align-items: center;
-        gap: 0.55rem;
-        padding: 0.55rem 0.7rem;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.82);
-        border: 1px solid rgba(244, 92, 162, 0.26);
-        font-size: 0.92rem;
+      }
+
+      .lp__hero-inner {
+        max-width: 1240px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .lp__hero-body {
+        max-width: 640px;
+      }
+
+      .lp__hero h1 {
+        font-size: clamp(2.2rem, 5vw, 3.8rem);
+        margin-bottom: 1.1rem;
+      }
+
+      .lp__hero .lp__sub {
+        margin-bottom: 1.3rem;
+      }
+
+      .lp__hero p.lp__lead {
+        font-size: clamp(1rem, 1.3vw, 1.15rem);
+        color: #2a2a2a;
+        margin-bottom: 1.6rem;
+      }
+
+      .lp__hero .lp__divider {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.7);
+        margin: 1.4rem 0;
+      }
+
+      .lp__hero small {
+        display: block;
+        margin-top: 1rem;
+        color: #4a3a42;
+        font-style: italic;
+        font-size: 0.9rem;
+      }
+
+      /* ============ SEÇÃO PROBLEMA ============ */
+      .lp__problema {
+        background: var(--lp-pink-bg);
+      }
+
+      .lp__two-col {
+        max-width: 1240px;
+        margin: 0 auto;
+        display: grid;
+        gap: clamp(1.6rem, 4vw, 3rem);
+        grid-template-columns: 1fr;
+      }
+
+      @media (min-width: 900px) {
+        .lp__two-col {
+          grid-template-columns: 1.2fr 1fr;
+          align-items: center;
+        }
+      }
+
+      .lp__two-col--reverse > :first-child {
+        order: 2;
+      }
+
+      @media (min-width: 900px) {
+        .lp__two-col--reverse > :first-child {
+          order: 0;
+        }
+      }
+
+      .lp__problema h2 {
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        margin: 0.9rem 0 1rem;
+      }
+
+      .lp__problema .lp__sub {
+        margin-bottom: 1.2rem;
+        color: var(--lp-plum);
+      }
+
+      .lp__problema p.lp__body {
+        font-size: 1rem;
+        color: #333;
+        margin-bottom: 1.6rem;
+        max-width: 42ch;
+      }
+
+      .lp__list {
+        background: transparent;
+      }
+
+      .lp__list h3 {
+        color: var(--lp-pink-strong);
+        font-size: clamp(2rem, 3.5vw, 2.6rem);
+        margin-bottom: 1.2rem;
+      }
+
+      .lp__list ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 1rem;
+      }
+
+      .lp__list li {
+        position: relative;
+        padding-left: 1.4rem;
+        color: #2b2b2b;
+        line-height: 1.55;
+      }
+
+      .lp__list li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        top: -0.1rem;
+        color: var(--lp-pink-strong);
+        font-size: 1.5rem;
+        line-height: 1;
+      }
+
+      /* ============ SEÇÃO SOLUÇÃO ============ */
+      .lp__solucao {
+        background: #f7d9e5;
+      }
+
+      .lp__solucao h2 {
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        margin: 0.9rem 0 1rem;
+      }
+
+      .lp__solucao p.lp__body {
+        font-size: 1rem;
+        color: #2b2b2b;
+        margin-bottom: 1.6rem;
+        max-width: 46ch;
+      }
+
+      /* ============ SEÇÃO POR QUE ============ */
+      .lp__porque {
+        background: #fff;
+      }
+
+      .lp__porque-inner {
+        max-width: 1240px;
+        margin: 0 auto;
+      }
+
+      .lp__porque h2 {
+        font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+        margin-bottom: 2rem;
+        text-align: left;
+      }
+
+      .lp__benefits {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+      }
+
+      @media (min-width: 780px) {
+        .lp__benefits {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      .lp__benefit {
+        background: var(--lp-pink-bg);
+        border-radius: 20px;
+        padding: 1.6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .lp__benefit-visual {
+        height: 160px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background:
+          radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.55), transparent 55%),
+          linear-gradient(135deg, var(--lp-pink-soft), var(--lp-pink-strong));
+      }
+
+      .lp__benefit-visual svg {
+        width: 62px;
+        height: 62px;
+        color: #fff;
+      }
+
+      .lp__benefit h3 {
+        font-size: 1.35rem;
+      }
+
+      .lp__benefit p {
+        color: #333;
+        font-size: 0.96rem;
+      }
+
+      .lp__benefit .lp__btn {
+        align-self: flex-start;
+        margin-top: 0.4rem;
+      }
+
+      /* ============ SEÇÃO COMO FUNCIONA ============ */
+      .lp__how {
+        background: var(--lp-pink-bg);
+      }
+
+      .lp__how-inner {
+        max-width: 1240px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: clamp(1.6rem, 4vw, 3rem);
+      }
+
+      @media (min-width: 900px) {
+        .lp__how-inner {
+          grid-template-columns: 0.9fr 1.1fr;
+          align-items: center;
+        }
+      }
+
+      .lp__how h2 {
+        font-size: clamp(2.4rem, 5vw, 3.4rem);
+        margin: 1rem 0 1rem;
+      }
+
+      .lp__how .lp__sub {
+        margin: 1.2rem 0 1.6rem;
+        display: block;
+      }
+
+      .lp__steps {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .lp__step {
+        background: #fdf7f2;
+        border-radius: 18px;
+        padding: 1.2rem 1.4rem;
+        display: grid;
+        grid-template-columns: 58px 1fr;
+        gap: 1rem;
+        align-items: center;
+        box-shadow: 0 6px 20px rgba(216, 27, 96, 0.08);
+      }
+
+      .lp__step-icon {
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        background: var(--lp-pink-strong);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+      }
+
+      .lp__step-icon svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      .lp__step h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.25rem;
+        margin: 0;
+      }
+
+      .lp__step .lp__step-tag {
+        color: var(--lp-plum);
+        font-size: 0.88rem;
+        margin: 0.15rem 0 0.35rem;
         font-weight: 500;
       }
 
-      .pro-service-checklist input[type="checkbox"] {
+      .lp__step p {
+        color: #333;
+        font-size: 0.94rem;
+      }
+
+      /* ============ SEÇÃO CTA FUNDADORAS ============ */
+      .lp__cta-founder {
+        background:
+          linear-gradient(105deg, rgba(252, 228, 238, 0.95) 0%, rgba(252, 228, 238, 0.55) 55%, rgba(252, 228, 238, 0.35) 100%),
+          url("/assets/nail1.jpg") center right / cover no-repeat;
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .lp__cta-founder-inner {
+        max-width: 1240px;
+        margin: 0 auto;
+        max-width: 640px;
+      }
+
+      .lp__cta-founder h2 {
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        margin-bottom: 1.1rem;
+      }
+
+      .lp__cta-founder .lp__sub {
+        color: var(--lp-plum);
+        margin-bottom: 1.3rem;
+        display: block;
+      }
+
+      .lp__cta-founder p.lp__body {
+        color: #2a2a2a;
+        margin-bottom: 1.8rem;
+        max-width: 48ch;
+      }
+
+      .lp__cta-founder small {
+        display: block;
+        margin-top: 1rem;
+        color: #4a3a42;
+        font-style: italic;
+        font-size: 0.9rem;
+      }
+
+      /* ============ FORM ============ */
+      .lp__form-section {
+        background: var(--lp-pink-bg);
+      }
+
+      .lp__form-wrap {
+        max-width: 1120px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: clamp(1.6rem, 3vw, 2.6rem);
+        align-items: start;
+      }
+
+      @media (min-width: 900px) {
+        .lp__form-wrap {
+          grid-template-columns: 1.05fr 0.95fr;
+        }
+      }
+
+      .lp__form-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: clamp(1.5rem, 3vw, 2.4rem);
+        box-shadow: 0 20px 50px rgba(216, 27, 96, 0.12);
+      }
+
+      .lp__form-card h2 {
+        font-size: 1.85rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .lp__form-card > p.lp__form-sub {
+        color: var(--lp-muted);
+        margin-bottom: 1.6rem;
+        font-size: 0.96rem;
+      }
+
+      .lp__form {
+        display: grid;
+        gap: 1.1rem;
+      }
+
+      .lp__form label {
+        font-weight: 600;
+        color: #333;
+        font-size: 0.92rem;
+      }
+
+      .lp__form .lp__field {
+        display: grid;
+        gap: 0.4rem;
+      }
+
+      .lp__form input[type="text"],
+      .lp__form input[type="email"],
+      .lp__form input[type="tel"] {
+        width: 100%;
+        border: 1px solid #d9c1cd;
+        border-radius: 10px;
+        padding: 0.75rem 0.9rem;
+        font-size: 1rem;
+        font-family: inherit;
+        background: #fff;
+        color: var(--lp-ink);
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .lp__form input:focus {
+        outline: none;
+        border-color: var(--lp-pink-strong);
+        box-shadow: 0 0 0 3px rgba(244, 92, 162, 0.2);
+      }
+
+      .lp__form .lp__hint {
+        color: var(--lp-muted);
+        font-size: 0.82rem;
+      }
+
+      .lp__services {
+        display: grid;
+        gap: 0.55rem;
+      }
+
+      .lp__services label {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.6rem 0.8rem;
+        border-radius: 10px;
+        background: #fff7fb;
+        border: 1px solid #f2c9dc;
+        font-size: 0.92rem;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .lp__services input[type="checkbox"] {
+        accent-color: var(--lp-pink-strong);
         width: 1rem;
         height: 1rem;
-        accent-color: var(--pink-primary);
       }
 
-      .pro-form button {
-        margin-top: 0.45rem;
-      }
-
-      .pro-story-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.65rem;
-        margin-top: 1rem;
-      }
-
-      .pro-btn--ghost {
-        background: transparent;
-        color: var(--pink-primary);
-      }
-
-      .pro-form__feedback {
+      .lp__form-msg {
         min-height: 1.2rem;
         font-size: 0.92rem;
-        color: var(--pink-dark);
+        color: var(--lp-pink-deep);
       }
 
-      @media (min-width: 980px) {
-        .pro-hero-layout {
-          grid-template-columns: minmax(0, 1.22fr) minmax(260px, 0.78fr);
-          align-items: center;
-        }
+      .lp__form-side {
+        display: grid;
+        gap: 1rem;
+        align-content: start;
+      }
+
+      .lp__form-side h3 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.6rem, 2.6vw, 2rem);
+        color: var(--lp-ink);
+        margin: 0;
+      }
+
+      .lp__form-side p {
+        color: #2a2a2a;
+      }
+
+      .lp__form-side ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.6rem;
+      }
+
+      .lp__form-side li {
+        position: relative;
+        padding-left: 1.6rem;
+        color: #2a2a2a;
+      }
+
+      .lp__form-side li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: var(--lp-pink-strong);
+        font-weight: 700;
       }
     </style>
   </head>
@@ -421,166 +699,264 @@
       </div>
     </header>
 
-    <main class="page-content">
-      <div class="pro-lp">
-        <section class="pro-lp__hero pro-story-step" data-story-step="1" aria-labelledby="hero-title">
-          <div class="pro-hero-layout">
-            <div class="pro-hero__body">
-              <p class="pro-kicker">Grupo de testes • Porto Alegre</p>
-              <h1 id="hero-title">O salão retém 50% do seu lucro? Na NailNow, o seu talento vale mais.</h1>
-              <p class="pro-hero__lead">
-                Conquiste sua independência financeira e liberdade de agenda. Conectamos você às melhores clientes de Porto Alegre
-                diretamente pelo celular.
-              </p>
-              <button class="pro-btn js-story-next" type="button">QUERO MINHA LIBERDADE FINANCEIRA</button>
-              <p><strong>Cadastros limitados para o grupo de testes em Porto Alegre.</strong></p>
-            </div>
-            <div class="pro-hero__visual" aria-hidden="true">
-              <img src="/assets/nail1-og.jpg" alt="" loading="eager" decoding="async" />
-            </div>
+    <main class="lp">
+      <!-- HERO -->
+      <section class="lp__hero" aria-labelledby="hero-title">
+        <div class="lp__hero-inner">
+          <div class="lp__hero-body">
+            <h1 id="hero-title">O salão fica com 50% do seu lucro?</h1>
+            <p class="lp__sub">Na NailNow, o seu talento vale mais!</p>
+            <p class="lp__lead">
+              Conquiste sua independência financeira e liberdade de agenda.
+              Conectamos você às melhores clientes diretamente pelo celular.
+            </p>
+            <div class="lp__divider"></div>
+            <a class="lp__btn" href="#cadastro">Quero minha liberdade financeira</a>
+            <small>Vagas limitadas para o grupo de testes em Porto Alegre.</small>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="pro-lp__section" aria-label="Progresso da apresentação">
-          <div class="pro-story-progress" aria-live="polite">
-            <div class="pro-story-progress__bar" aria-hidden="true">
-              <span id="story-progress-fill" class="pro-story-progress__fill"></span>
-            </div>
-            <span id="story-progress-label" class="pro-story-progress__label">Seção 1 de 5</span>
+      <!-- PROBLEMA -->
+      <section class="lp__problema" aria-labelledby="problema-title">
+        <div class="lp__two-col">
+          <div>
+            <span class="lp__kicker">Manicure</span>
+            <h2 id="problema-title">Você já sentiu que trabalha muito e ganha pouco?</h2>
+            <p class="lp__sub">O salão acaba limitando os seus ganhos.</p>
+            <p class="lp__body">
+              O modelo tradicional de salão muitas vezes sufoca o crescimento
+              da manicure. Com a NailNow, mudamos as regras do jogo.
+            </p>
+            <a class="lp__btn" href="#cadastro">Quero ganhar mais</a>
           </div>
-        </section>
-
-        <section class="pro-lp__section" aria-label="Apresentação em vídeo">
-          <div
-            style="
-              position: relative;
-              width: 100%;
-              height: 0;
-              padding-top: 56.2225%;
-              padding-bottom: 0;
-              box-shadow: 0 2px 8px 0 rgba(63, 69, 81, 0.16);
-              margin-top: 1.6em;
-              margin-bottom: 0.9em;
-              overflow: hidden;
-              border-radius: 8px;
-              will-change: transform;
-            "
-          >
-            <iframe
-              loading="lazy"
-              style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0"
-              src="https://www.canva.com/design/DAHFdORivM4/4OXaoIlSAQIm4MMrzLK01Q/view?embed"
-              allowfullscreen="allowfullscreen"
-              allow="fullscreen"
-            >
-            </iframe>
+          <div class="lp__list">
+            <h3>No salão</h3>
+            <ul>
+              <li>Você fica “presa” a horários fixos e comissões baixas.</li>
+              <li>Horas ociosas esperando a cliente entrar pela porta.</li>
+              <li>As taxas são altas e às vezes você ainda precisa fornecer o material.</li>
+              <li>Fica dependente do movimento do salão.</li>
+              <li>Sente que precisa trabalhar muito para ganhar um pouco mais.</li>
+            </ul>
           </div>
-          <a
-            href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAHFdORivM4&#x2F;4OXaoIlSAQIm4MMrzLK01Q&#x2F;view?utm_content=DAHFdORivM4&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
-            target="_blank"
-            rel="noopener"
-          >
-            O salão retém 50% do seu lucro?
-          </a>
-          de Letícia Lançanova
-        </section>
+        </div>
+      </section>
 
-        <section class="pro-lp__section pro-story-step" data-story-step="2" aria-labelledby="dor-title" hidden>
-          <h2 id="dor-title">Você já sentiu que trabalha muito e ganha pouco?</h2>
-          <p>
-            O modelo tradicional de salão muitas vezes sufoca o crescimento da manicure. Com a NailNow, mudamos as regras do jogo:
-          </p>
-          <ul class="pro-points">
-            <li>❌ Antes: "Presa" a horários fixos e comissões baixas.<br />✅ NailNow: Você é sua própria chefe. Defina sua agenda e multiplique seus ganhos.</li>
-            <li>❌ Antes: Horas ociosa esperando a cliente entrar pela porta.<br />✅ NailNow: Notificações de serviços na sua região, em tempo real.</li>
-          </ul>
-          <div class="pro-story-actions">
-            <button class="pro-btn js-story-next" type="button">PRÓXIMA</button>
+      <!-- SOLUÇÃO -->
+      <section class="lp__solucao" aria-labelledby="solucao-title">
+        <div class="lp__two-col lp__two-col--reverse">
+          <div class="lp__list">
+            <h3>Com a NailNow</h3>
+            <ul>
+              <li>Você é sua própria chefe. Defina sua agenda e multiplique seus ganhos.</li>
+              <li>Notificações de serviços na sua região, em tempo real.</li>
+              <li>Liberdade para aceitar atendimentos — quando e onde quiser.</li>
+              <li>Portfólio personalizado, para divulgar os seus serviços.</li>
+              <li>Pagamento seguro com repasse rápido após cada atendimento.</li>
+            </ul>
           </div>
-        </section>
-
-        <section class="pro-lp__section pro-story-step" data-story-step="3" aria-labelledby="beneficios-title" hidden>
-          <h2 id="beneficios-title">Por que ser uma profissional NailNow?</h2>
-          <div class="pro-benefit-grid">
-            <article class="pro-benefit-card">
-              <h3>Pagamento Garantido</h3>
-              <p>
-                Chega de "fiado" ou esperar o fechamento do mês do salão. O valor do serviço cai na sua conta de forma digital e
-                segura.
-              </p>
-            </article>
-            <article class="pro-benefit-card">
-              <h3>Novas Clientes Todos os Dias</h3>
-              <p>Nós investimos pesado em anúncios para que você não precise se preocupar em "caçar" clientes.</p>
-            </article>
-            <article class="pro-benefit-card">
-              <h3>Valorização Profissional</h3>
-              <p>
-                Construa seu portfólio e receba avaliações que tornam o seu perfil um dos mais desejados da cidade.
-              </p>
-            </article>
+          <div>
+            <span class="lp__kicker">Manicure</span>
+            <h2 id="solucao-title">E se você pudesse ganhar mais e com mais liberdade?</h2>
+            <p class="lp__sub">Uma agenda simples e gerenciada por você.</p>
+            <p class="lp__body">
+              Estamos construindo uma nova forma de levar beleza às mulheres.
+              Conecte-se com clientes verificadas, receba suporte e garanta uma
+              agenda cheia com a plataforma de serviços profissionais de unhas
+              sob demanda.
+            </p>
+            <a class="lp__btn" href="#cadastro">Quero ganhar mais e com liberdade</a>
           </div>
-          <div class="pro-story-actions">
-            <button class="pro-btn pro-btn--ghost js-story-prev" type="button">VOLTAR</button>
-            <button class="pro-btn js-story-next" type="button">PRÓXIMA</button>
-          </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="pro-lp__section pro-story-step" data-story-step="4" aria-labelledby="passos-title" hidden>
-          <h2 id="passos-title">Sua nova carreira em 3 passos simples:</h2>
-          <ol class="pro-steps">
-            <li><strong>Pré-cadastro:</strong> Preencha seus dados na nossa lista prioritária.</li>
-            <li><strong>Curadoria:</strong> Nossa equipe valida seu perfil e portfólio (garantia de qualidade NailNow).</li>
-            <li><strong>Faturamento:</strong> Com o app liberado, você aceita serviços e começa a lucrar onde e quando quiser.</li>
-          </ol>
-          <div class="pro-story-actions">
-            <button class="pro-btn pro-btn--ghost js-story-prev" type="button">VOLTAR</button>
-            <button class="pro-btn js-story-next" type="button">IR PARA CADASTRO</button>
-          </div>
-        </section>
-
-        <section class="pro-lp__conversion pro-story-step" data-story-step="5" aria-labelledby="conversao-title" hidden>
-          <h2 id="conversao-title">Seja uma das 50 manicures fundadoras em Porto Alegre.</h2>
-          <p>
-            Estamos selecionando as melhores profissionais para a fase Alfa. Quem entrar agora terá prioridade máxima no algoritmo
-            quando o app for lançado.
-          </p>
-
-          <form id="form-prioridade" class="pro-form" autocomplete="on">
-            <section class="pro-form-step">
-              <label for="nomeCompleto">Nome completo</label>
-              <p class="pro-form-step__hint">Como você gosta de ser chamada no atendimento?</p>
-              <input id="nomeCompleto" name="nomeCompleto" type="text" required />
-              <label for="email">E-mail</label>
-              <p class="pro-form-step__hint">Vamos usar esse contato para te avisar da sua aprovação.</p>
-              <input id="email" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required />
-              <label for="whatsapp">WhatsApp (com DDD)</label>
-              <p class="pro-form-step__hint">É por aqui que enviamos convites e próximos passos.</p>
-              <input id="whatsapp" name="whatsapp" type="tel" placeholder="(51) 99999-0000" required />
-              <span id="especialidade-label">Serviços desejados</span>
-              <p class="pro-form-step__hint">Você pode marcar mais de uma opção.</p>
-              <div class="pro-service-checklist" role="group" aria-labelledby="especialidade-label">
-                <label><input type="checkbox" name="especialidade" value="Manicure clássica" /> Manicure clássica</label>
-                <label><input type="checkbox" name="especialidade" value="Pedicure clássica" /> Pedicure clássica</label>
-                <label><input type="checkbox" name="especialidade" value="Alongamento em gel" /> Alongamento em gel</label>
-                <label><input type="checkbox" name="especialidade" value="Esmaltação em gel (manicure)" /> Esmaltação em gel (manicure)</label>
-                <label><input type="checkbox" name="especialidade" value="Esmaltação em gel (pedicure)" /> Esmaltação em gel (pedicure)</label>
+      <!-- POR QUE -->
+      <section class="lp__porque" aria-labelledby="porque-title">
+        <div class="lp__porque-inner">
+          <h2 id="porque-title">Por que ser uma profissional NailNow?</h2>
+          <div class="lp__benefits">
+            <article class="lp__benefit">
+              <div class="lp__benefit-visual" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="6" width="20" height="12" rx="2" />
+                  <circle cx="12" cy="12" r="2.5" />
+                  <path d="M6 10v.01M18 14v.01" />
+                </svg>
               </div>
-              <label for="instagram">Instagram profissional (@...)</label>
-              <input id="instagram" name="instagram" type="text" placeholder="@seuinstagram" required />
+              <h3>Pagamento garantido</h3>
+              <p>
+                Chega de “fiado” ou esperar o fechamento do mês do salão.
+                O valor do serviço cai na sua conta de forma digital e segura.
+              </p>
+              <a class="lp__btn lp__btn--sm" href="#cadastro">Quero ganhar mais</a>
+            </article>
 
-              <label for="bairro">Bairro onde atende/mora</label>
-              <input id="bairro" name="bairro" type="text" required />
-              <div class="pro-form-actions">
-                <button class="pro-btn pro-btn--ghost js-story-prev" type="button">VOLTAR</button>
-                <button id="btnPrioridade" class="pro-btn" type="submit">QUERO PRIORIDADE NO LANÇAMENTO</button>
+            <article class="lp__benefit">
+              <div class="lp__benefit-visual" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
+                  <circle cx="10" cy="8" r="4" />
+                  <path d="M22 20v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M17 4.13a4 4 0 0 1 0 7.75" />
+                </svg>
               </div>
-            </section>
+              <h3>Novas clientes todos os dias</h3>
+              <p>
+                Nós investimos pesado em anúncios para que você não precise se
+                preocupar em “caçar” clientes.
+              </p>
+            </article>
 
-            <p id="formMsgPrioridade" class="pro-form__feedback" role="status" aria-live="polite"></p>
-          </form>
-        </section>
-      </div>
+            <article class="lp__benefit">
+              <div class="lp__benefit-visual" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2l2.9 6.1 6.6.6-5 4.6 1.5 6.7L12 16.9 5.9 20l1.5-6.7-5-4.6 6.6-.6L12 2z" />
+                </svg>
+              </div>
+              <h3>Valorização profissional</h3>
+              <p>
+                Construa seu portfólio e receba avaliações que tornam o seu
+                perfil um dos mais desejados da cidade.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMO FUNCIONA -->
+      <section class="lp__how" aria-labelledby="how-title">
+        <div class="lp__how-inner">
+          <div>
+            <span class="lp__kicker">Como funciona?</span>
+            <h2 id="how-title">Sua nova carreira</h2>
+            <p class="lp__sub">Em 3 passos simples:</p>
+            <a class="lp__btn" href="#cadastro">Quero fazer parte</a>
+          </div>
+          <div class="lp__steps">
+            <div class="lp__step">
+              <div class="lp__step-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M19 8v6M22 11h-6" />
+                </svg>
+              </div>
+              <div>
+                <h3>Pré-cadastro</h3>
+                <p class="lp__step-tag">Comunidade NailNow</p>
+                <p>Preencha seus dados na nossa lista prioritária.</p>
+              </div>
+            </div>
+
+            <div class="lp__step">
+              <div class="lp__step-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="2" width="16" height="20" rx="2" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+              </div>
+              <div>
+                <h3>Curadoria</h3>
+                <p class="lp__step-tag">Análise criteriosa</p>
+                <p>Nossa equipe valida seu perfil e portfólio (garantia de qualidade NailNow).</p>
+              </div>
+            </div>
+
+            <div class="lp__step">
+              <div class="lp__step-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="2" width="16" height="20" rx="2" />
+                  <path d="M12 7v10M9 10l3-3 3 3M9 14l3 3 3-3" />
+                </svg>
+              </div>
+              <div>
+                <h3>Faturamento</h3>
+                <p class="lp__step-tag">Agenda aberta</p>
+                <p>Com o app liberado, você aceita serviços e começa a lucrar onde e quando quiser.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA FUNDADORAS -->
+      <section class="lp__cta-founder" aria-labelledby="founder-title">
+        <div class="lp__cta-founder-inner">
+          <h2 id="founder-title">Seja uma das 50 manicures fundadoras em Porto Alegre.</h2>
+          <span class="lp__sub">Ganhe mais. Tenha liberdade. Trabalhe do seu jeito.</span>
+          <p class="lp__body">
+            Estamos selecionando as melhores profissionais para a fase Alfa.
+            Quem entrar agora terá prioridade máxima no algoritmo quando o
+            app for lançado.
+          </p>
+          <a class="lp__btn" href="#cadastro">Quero prioridade no lançamento</a>
+          <small>Vagas limitadas para o grupo de testes em Porto Alegre.</small>
+        </div>
+      </section>
+
+      <!-- FORM CADASTRO -->
+      <section class="lp__form-section" id="cadastro" aria-labelledby="cadastro-title">
+        <div class="lp__form-wrap">
+          <div class="lp__form-card">
+            <h2 id="cadastro-title">Cadastre-se</h2>
+            <p class="lp__form-sub">Faça parte da comunidade de profissionais NailNow.</p>
+
+            <form id="form-prioridade" class="lp__form" autocomplete="on">
+              <div class="lp__field">
+                <label for="nomeCompleto">Nome completo</label>
+                <input id="nomeCompleto" name="nomeCompleto" type="text" autocomplete="name" required />
+              </div>
+
+              <div class="lp__field">
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required />
+                <span class="lp__hint">Vamos usar esse contato para te avisar da sua aprovação.</span>
+              </div>
+
+              <div class="lp__field">
+                <label for="whatsapp">WhatsApp (com DDD)</label>
+                <input id="whatsapp" name="whatsapp" type="tel" placeholder="(51) 99999-0000" autocomplete="tel" required />
+              </div>
+
+              <div class="lp__field">
+                <label for="instagram">Seu perfil no Instagram</label>
+                <input id="instagram" name="instagram" type="text" placeholder="@seuinstagram" required />
+              </div>
+
+              <div class="lp__field">
+                <label for="bairro">Bairro onde atende/mora</label>
+                <input id="bairro" name="bairro" type="text" required />
+              </div>
+
+              <div class="lp__field">
+                <span id="especialidade-label">Serviços que você faz</span>
+                <div class="lp__services" role="group" aria-labelledby="especialidade-label">
+                  <label><input type="checkbox" name="especialidade" value="Manicure clássica" /> Manicure clássica</label>
+                  <label><input type="checkbox" name="especialidade" value="Pedicure clássica" /> Pedicure clássica</label>
+                  <label><input type="checkbox" name="especialidade" value="Alongamento em gel" /> Alongamento em gel</label>
+                  <label><input type="checkbox" name="especialidade" value="Esmaltação em gel (manicure)" /> Esmaltação em gel (manicure)</label>
+                  <label><input type="checkbox" name="especialidade" value="Esmaltação em gel (pedicure)" /> Esmaltação em gel (pedicure)</label>
+                </div>
+              </div>
+
+              <button id="btnPrioridade" class="lp__btn" type="submit">Quero prioridade no lançamento</button>
+              <p id="formMsgPrioridade" class="lp__form-msg" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <aside class="lp__form-side">
+            <h3>O que acontece depois?</h3>
+            <p>Assim que recebermos seu cadastro, nossa equipe entra em contato pelo WhatsApp para os próximos passos.</p>
+            <ul>
+              <li>Cadastro rápido, sem burocracia.</li>
+              <li>Prioridade máxima no algoritmo do app.</li>
+              <li>Suporte humano durante toda a fase Alfa.</li>
+              <li>Você escolhe quando aceitar atendimentos.</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
@@ -636,48 +1012,7 @@
       const form = document.getElementById("form-prioridade");
       const feedback = document.getElementById("formMsgPrioridade");
       const button = document.getElementById("btnPrioridade");
-      const storySteps = Array.from(document.querySelectorAll(".pro-story-step"));
-      const storyProgressFill = document.getElementById("story-progress-fill");
-      const storyProgressLabel = document.getElementById("story-progress-label");
-      let currentStoryStep = 0;
-      const HERO_SECTION_OFFSET = 1;
-      const STORY_TOTAL_SECTIONS = storySteps.length + HERO_SECTION_OFFSET;
-
-      const updateStoryUi = (nextStep) => {
-        currentStoryStep = Math.max(0, Math.min(nextStep, storySteps.length - 1));
-        storySteps.forEach((step, index) => {
-          step.hidden = index !== currentStoryStep;
-        });
-
-        const progress = ((currentStoryStep + 1 + HERO_SECTION_OFFSET) / STORY_TOTAL_SECTIONS) * 100;
-        if (storyProgressFill) storyProgressFill.style.width = `${progress}%`;
-        if (storyProgressLabel) {
-          storyProgressLabel.textContent = `Seção ${currentStoryStep + 1} de ${storySteps.length}`;
-        }
-
-        const activeStep = storySteps[currentStoryStep];
-        if (activeStep) {
-          const header = document.querySelector(".nn-topbar");
-          const headerOffset = header instanceof HTMLElement ? header.offsetHeight + 20 : 24;
-          const top = activeStep.getBoundingClientRect().top + window.scrollY - headerOffset;
-          window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
-        }
-      };
-
-      document.addEventListener("click", (event) => {
-        const target = event.target;
-        if (!(target instanceof HTMLElement)) return;
-
-        if (target.classList.contains("js-story-next")) {
-          updateStoryUi(currentStoryStep + 1);
-        }
-
-        if (target.classList.contains("js-story-prev")) {
-          updateStoryUi(currentStoryStep - 1);
-        }
-      });
-
-      updateStoryUi(0);
+      const submitLabel = "Quero prioridade no lançamento";
 
       form?.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -687,9 +1022,7 @@
 
         const formData = new FormData(form);
         const nomeCompleto = String(formData.get("nomeCompleto") || "").trim();
-        const email = String(formData.get("email") || "")
-          .trim()
-          .toLowerCase();
+        const email = String(formData.get("email") || "").trim().toLowerCase();
         const whatsapp = String(formData.get("whatsapp") || "").trim();
         const especialidades = formData
           .getAll("especialidade")
@@ -701,9 +1034,9 @@
         const instagram = instagramRaw.startsWith("@") ? instagramRaw : `@${instagramRaw}`;
 
         if (especialidades.length === 0) {
-          feedback.textContent = "Selecione pelo menos um serviço desejado.";
+          feedback.textContent = "Selecione pelo menos um serviço que você faz.";
           button.disabled = false;
-          button.textContent = "QUERO PRIORIDADE NO LANÇAMENTO";
+          button.textContent = submitLabel;
           return;
         }
 
@@ -732,7 +1065,7 @@
           feedback.textContent = "Não foi possível enviar agora. Tente novamente em instantes.";
         } finally {
           button.disabled = false;
-          button.textContent = "QUERO PRIORIDADE NO LANÇAMENTO";
+          button.textContent = submitLabel;
         }
       });
     </script>
