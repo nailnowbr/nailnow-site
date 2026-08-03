@@ -151,7 +151,7 @@
             { "@type": "Question", "name": "Como encontrar manicure a domicílio perto de mim?", "acceptedAnswer": { "@type": "Answer", "text": "Basta abrir o app da NailNow e informar seu endereço. Você vê imediatamente as manicures verificadas com disponibilidade próxima a você, com foto, avaliações e horários abertos. O agendamento e pagamento são feitos direto pelo app, sem taxa oculta." } },
             { "@type": "Question", "name": "Como sei que a manicure é confiável?", "acceptedAnswer": { "@type": "Answer", "text": "Toda profissional passa por aprovação antes de entrar: documentos, portfólio e verificação de identidade. Você recebe quem a NailNow confiaria em receber — e ainda pode ver o perfil e as avaliações antes de confirmar o atendimento." } },
             { "@type": "Question", "name": "Quanto custa a manicure a domicílio da NailNow?", "acceptedAnswer": { "@type": "Answer", "text": "Cada manicure define o próprio preço. Você vê os valores e o tempo estimado antes de confirmar — sem surpresa, sem taxa escondida." } },
-            { "@type": "Question", "name": "Vocês atendem o meu bairro?", "acceptedAnswer": { "@type": "Answer", "text": "Atendemos Porto Alegre inteira, São Paulo capital, Grande São Paulo (Guarulhos, Osasco, ABC, Alphaville) e cidades da região metropolitana de Porto Alegre (Canoas, Alvorada, Viamão, Gravataí, Cachoeirinha). Em caso de dúvida, pergunte pelo WhatsApp." } },
+            { "@type": "Question", "name": "Vocês atendem o meu bairro?", "acceptedAnswer": { "@type": "Answer", "text": "Atendemos Porto Alegre inteira, São Paulo capital, Grande São Paulo (Guarulhos, Osasco, ABC, Alphaville) e cidades da região metropolitana de Porto Alegre (Canoas, Alvorada, Viamão, Gravataí, Cachoeirinha). Baixe o app — o mapa mostra as manicures perto de você em segundos." } },
             { "@type": "Question", "name": "Quanto tempo leva o atendimento a domicílio?", "acceptedAnswer": { "@type": "Answer", "text": "Manicure ou pedicure simples: cerca de 1 hora. Combos completos, gel, blindagem ou alongamento: 1h30 a 2h30, dependendo do serviço escolhido." } },
             { "@type": "Question", "name": "Como funciona o pagamento na NailNow?", "acceptedAnswer": { "@type": "Answer", "text": "Pelo app, com cartão de crédito ou PIX, no momento do agendamento. Você não precisa pagar nada em dinheiro na hora do atendimento." } }
           ]
@@ -1437,11 +1437,12 @@
 
         /* hero refinements — trust acima do CTA, app link sutil */
         .nn-home .nn-trust{margin-top:0;margin-bottom:26px;padding-top:0;border-top:0;justify-content:flex-start}
-        .nn-home .nn-app-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:18px}
-        .nn-home .nn-app-row-label{font-size:.92rem;color:var(--nn-ink-soft);font-weight:500;margin-right:2px}
+        .nn-home .nn-app-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:6px;padding:6px 0;border-radius:14px;transition:box-shadow .35s ease,background .35s ease}
+        .nn-home .nn-app-row--flash{background:rgba(244,92,162,.06);box-shadow:0 0 0 6px rgba(244,92,162,.15)}
+        .nn-home .nn-app-row-label{display:block;font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:1.25rem;color:var(--nn-ink);letter-spacing:.01em;margin:0}
         .nn-home .nn-store-badge{display:inline-flex;align-items:center;text-decoration:none;transition:transform .15s ease,filter .15s ease}
         .nn-home .nn-store-badge:hover{transform:translateY(-1px);filter:brightness(1.05)}
-        .nn-home .nn-store-badge img{height:62px;width:auto;display:block}
+        .nn-home .nn-store-badge img{height:74px;width:auto;display:block}
         .nn-home .nn-partner-cta{margin-top:16px}
         .nn-home .nn-partner-link{display:inline-flex;align-items:center;gap:8px;color:var(--nn-pink-strong);text-decoration:none;font-weight:600;font-size:.98rem;border-bottom:1.5px dashed rgba(244,92,162,.5);padding-bottom:2px;transition:color .15s ease,border-color .15s ease}
         .nn-home .nn-partner-link:hover{color:var(--nn-ink);border-bottom-color:var(--nn-pink-strong)}
@@ -1460,28 +1461,38 @@
         .nn-home .nn-review .nn-byline{font-size:.84rem;color:var(--nn-ink-soft);margin-top:6px;line-height:1.5}
         .nn-home .nn-review .nn-byline b{color:var(--nn-ink);font-weight:600}
 
-        /* sticky mobile WhatsApp com microcopy + pulse */
+        /* WhatsApp fallback textual abaixo das badges */
+        .nn-home .nn-wa-fallback{margin-top:14px;font-size:.88rem;color:var(--nn-ink-soft);line-height:1.4}
+        .nn-home .nn-wa-fallback a{color:var(--nn-pink);font-weight:600;text-decoration:none;border-bottom:1px dashed rgba(244,92,162,.5);padding-bottom:1px}
+        .nn-home .nn-wa-fallback a:hover{border-bottom-color:var(--nn-pink-strong);color:var(--nn-pink-strong)}
+
+        /* sticky mobile "baixar o app" com microcopy — cor da marca */
         @media (max-width:720px){
+          /* widget WhatsApp segue oculto na home mobile: sticky ocupa o mesmo lugar */
           .whatsapp-widget{display:none!important}
-          /* esconde bottom-nav só na home em mobile: o sticky CTA do WhatsApp ocupa o mesmo lugar */
           body:has(.nn-home) .bottom-nav{display:none}
-          .nn-home-sticky-cta{position:fixed;left:0;right:0;bottom:0;background:#25d366;color:#fff;text-align:center;font-weight:700;font-size:1rem;padding:11px 18px calc(13px + env(safe-area-inset-bottom,0px));text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;box-shadow:0 -10px 30px -10px rgba(0,0,0,.25);z-index:100;font-family:'Poppins','Inter',system-ui,sans-serif;line-height:1.2}
+          .nn-home-sticky-cta{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(100deg,var(--nn-pink-strong),var(--nn-pink));color:#fff;text-align:center;font-weight:700;font-size:1rem;padding:11px 18px calc(13px + env(safe-area-inset-bottom,0px));text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;box-shadow:0 -10px 30px -10px rgba(129,77,104,.35);z-index:100;font-family:'Poppins','Inter',system-ui,sans-serif;line-height:1.2}
           .nn-home-sticky-cta .nn-sticky-main{display:inline-flex;align-items:center;gap:8px;font-size:1rem}
           .nn-home-sticky-cta .nn-sticky-sub{font-size:.7rem;font-weight:500;opacity:.95;letter-spacing:.02em}
-          .nn-home-sticky-cta svg{width:22px;height:22px;animation:nnPulse 2.6s ease-in-out infinite}
-          @keyframes nnPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+          .nn-home-sticky-cta svg{width:20px;height:20px;animation:nnBob 2.6s ease-in-out infinite}
+          @keyframes nnBob{0%,100%{transform:translateY(0)}50%{transform:translateY(2px)}}
           body:has(.nn-home){padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}
         }
         @media (min-width:721px){
           .nn-home-sticky-cta{display:none}
         }
 
-        /* desktop floating WhatsApp pill — aparece após scroll do hero */
-        .nn-home-float-cta{position:fixed;right:24px;bottom:24px;z-index:99;display:flex;align-items:center;gap:10px;background:#25d366;color:#fff;font-family:'Poppins','Inter',system-ui,sans-serif;font-weight:600;font-size:.95rem;padding:14px 20px;border-radius:999px;text-decoration:none;box-shadow:0 18px 40px -16px rgba(37,211,102,.6);opacity:0;pointer-events:none;transform:translateY(20px);transition:opacity .25s ease,transform .25s ease}
+        /* desktop floating "baixar o app" pill — cor da marca */
+        .nn-home-float-cta{position:fixed;right:24px;bottom:24px;z-index:99;display:flex;align-items:center;gap:10px;background:linear-gradient(100deg,var(--nn-pink-strong),var(--nn-pink));color:#fff;font-family:'Poppins','Inter',system-ui,sans-serif;font-weight:600;font-size:.95rem;padding:14px 20px;border-radius:999px;text-decoration:none;box-shadow:0 18px 40px -16px rgba(244,92,162,.55);opacity:0;pointer-events:none;transform:translateY(20px);transition:opacity .25s ease,transform .25s ease}
         .nn-home-float-cta.is-visible{opacity:1;pointer-events:auto;transform:translateY(0)}
-        .nn-home-float-cta:hover{background:#22c55e}
-        .nn-home-float-cta svg{width:22px;height:22px}
-        @media (min-width:721px){ .whatsapp-widget{display:none!important} }
+        .nn-home-float-cta:hover{filter:brightness(1.05)}
+        .nn-home-float-cta svg{width:20px;height:20px}
+        /* widget WhatsApp na home desktop fica discreto (sem etiqueta, só ícone) */
+        @media (min-width:721px){
+          body:has(.nn-home) .whatsapp-widget{padding:12px;opacity:.85}
+          body:has(.nn-home) .whatsapp-widget:hover{opacity:1}
+          body:has(.nn-home) .whatsapp-widget__text{display:none}
+        }
         @media (max-width:720px){ .nn-home-float-cta{display:none} }
 
         /* scroll reveal sutil */
@@ -1503,12 +1514,13 @@
           .nn-home .nn-sub{font-size:1.02rem;margin-bottom:24px}
           .nn-home .nn-trust{gap:12px 16px;margin-bottom:22px}
           .nn-home .nn-trust span{font-size:.85rem}
-          .nn-home .nn-cta-row{margin-bottom:16px}
+          .nn-home .nn-cta-row{margin-bottom:10px}
           .nn-home .nn-btn{font-size:1rem;padding:16px 24px}
           .nn-home .nn-btn-primary{min-height:52px}
-          .nn-home .nn-app-row{gap:8px;margin-top:14px}
-          .nn-home .nn-app-row-label{flex-basis:100%;font-size:.88rem;margin-bottom:2px}
-          .nn-home .nn-store-badge img{height:54px}
+          .nn-home .nn-app-row{gap:10px;margin-top:6px}
+          .nn-home .nn-app-row-label{flex-basis:100%;font-size:1.1rem;margin-bottom:2px}
+          .nn-home .nn-store-badge img{height:64px}
+          .nn-home .nn-wa-fallback{font-size:.85rem;margin-top:12px}
           .nn-home .nn-hero-photo{aspect-ratio:3/4;border-radius:20px}
           .nn-home .nn-hero-photo img{object-position:center 65%}
           .nn-home .nn-hero-badge{left:8px;right:8px;bottom:14px;max-width:none;padding:11px 14px}
@@ -1571,24 +1583,25 @@
               </div>
 
               <div class="nn-cta-row">
-                <a class="nn-btn nn-btn-primary" href="https://wa.me/555191518097?text=Oi!%20Vi%20o%20site%20da%20NailNow%20e%20quero%20agendar%20uma%20manicure%20a%20domic%C3%ADlio.%20Atendem%20o%20meu%20bairro%3F" target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.13c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.82c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
-                  Agendar pelo WhatsApp
-                </a>
+                <span class="nn-app-row-label">Baixe grátis e agende em minutos</span>
               </div>
 
-              <div class="nn-app-row">
+              <div class="nn-app-row" id="baixe-o-app">
                 <a class="nn-store-badge" href="https://apps.apple.com/br/app/nailnow-app/id6762576610" target="_blank" rel="noopener" aria-label="Baixar na App Store">
-                  <img src="assets/app-store-badge.png" alt="Baixar na App Store" width="198" height="62" loading="lazy">
+                  <img src="assets/app-store-badge.png" alt="Baixar na App Store" width="198" height="62" loading="eager">
                 </a>
                 <a class="nn-store-badge" href="https://play.google.com/store/apps/details?id=br.com.nailnow.nailnow" target="_blank" rel="noopener" aria-label="Baixar no Google Play">
-                  <img src="assets/google-play-badge.png" alt="Disponível no Google Play" width="198" height="62" loading="lazy">
+                  <img src="assets/google-play-badge.png" alt="Disponível no Google Play" width="198" height="62" loading="eager">
                 </a>
               </div>
 
+              <p class="nn-wa-fallback">
+                Prefere falar antes de baixar?
+                <a href="https://wa.me/555191518097?text=Oi!%20Vi%20o%20site%20da%20NailNow%20e%20quero%20tirar%20uma%20d%C3%BAvida." target="_blank" rel="noopener">Chame no WhatsApp</a>
+              </p>
+
               <div class="nn-partner-cta">
-                <a class="nn-partner-link" href="https://wa.me/555191518097?text=Oi!%20Vim%20pelo%20site%20e%20quero%20ser%20parceira%20NailNow." target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.13c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.82c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+                <a class="nn-partner-link" href="/profissional">
                   É manicure? Seja parceira NailNow
                 </a>
               </div>
@@ -1688,7 +1701,7 @@
               </details>
               <details>
                 <summary>Atende meu bairro?</summary>
-                <p>Atendemos Porto Alegre inteira, São Paulo capital, Grande São Paulo (Guarulhos, Osasco, ABC, Alphaville) e cidades da região metropolitana de POA (Canoas, Alvorada, Viamão, Gravataí, Cachoeirinha). Em dúvida, <a href="https://wa.me/555191518097?text=Oi!%20Voc%C3%AAs%20atendem%20o%20meu%20bairro%3F" target="_blank" rel="noopener">pergunta pelo WhatsApp</a>.</p>
+                <p>Atendemos Porto Alegre inteira, São Paulo capital, Grande São Paulo (Guarulhos, Osasco, ABC, Alphaville) e cidades da região metropolitana de POA (Canoas, Alvorada, Viamão, Gravataí, Cachoeirinha). <a href="#baixe-o-app">Baixe o app</a> — o mapa mostra as manicures perto de você em segundos.</p>
               </details>
               <details>
                 <summary>Quanto tempo leva o atendimento?</summary>
@@ -1761,7 +1774,7 @@
                 </div>
               </div>
             </div>
-            <p class="nn-areas-note">Não vê seu bairro? <a href="https://wa.me/555191518097?text=Oi!%20Voc%C3%AAs%20atendem%20o%20meu%20bairro%3F" target="_blank" rel="noopener">Pergunte no WhatsApp</a> — provavelmente atendemos.</p>
+            <p class="nn-areas-note">Não vê seu bairro? <a href="#baixe-o-app">Baixe o app</a> — o mapa mostra as manicures perto de você.</p>
           </div>
         </section>
 
@@ -1779,16 +1792,16 @@
       </div>
 
     </main>
-    <a class="nn-home-sticky-cta" href="https://wa.me/555191518097?text=Oi!%20Vi%20o%20site%20da%20NailNow%20e%20quero%20agendar%20uma%20manicure%20a%20domic%C3%ADlio." target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
+    <a class="nn-home-sticky-cta js-open-store" href="#baixe-o-app" aria-label="Baixar o app da NailNow">
       <span class="nn-sticky-main">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.13c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.82c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
-        Agendar pelo WhatsApp
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a1 1 0 011 1v10.6l3.3-3.3a1 1 0 011.4 1.4l-5 5a1 1 0 01-1.4 0l-5-5a1 1 0 011.4-1.4L11 14.6V4a1 1 0 011-1zM5 19a1 1 0 011-1h12a1 1 0 010 2H6a1 1 0 01-1-1z"/></svg>
+        Baixar o app grátis
       </span>
-      <span class="nn-sticky-sub">Resposta em minutos · 7 dias por semana</span>
+      <span class="nn-sticky-sub">iOS e Android · agende em minutos</span>
     </a>
-    <a class="nn-home-float-cta" id="nnFloatCta" href="https://wa.me/555191518097?text=Oi!%20Vi%20o%20site%20da%20NailNow%20e%20quero%20agendar%20uma%20manicure%20a%20domic%C3%ADlio." target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.13c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 012.41 5.82c0 4.54-3.7 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
-      Agendar pelo WhatsApp
+    <a class="nn-home-float-cta js-open-store" id="nnFloatCta" href="#baixe-o-app" aria-label="Baixar o app da NailNow">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3a1 1 0 011 1v10.6l3.3-3.3a1 1 0 011.4 1.4l-5 5a1 1 0 01-1.4 0l-5-5a1 1 0 011.4-1.4L11 14.6V4a1 1 0 011-1zM5 19a1 1 0 011-1h12a1 1 0 010 2H6a1 1 0 01-1-1z"/></svg>
+      Baixar o app grátis
     </a>
     <script>
       (function(){
@@ -1808,18 +1821,39 @@
           reveal.forEach(function(el){ el.classList.add('is-in'); });
         }
 
-        // Float WhatsApp pill aparece depois que o hero sai da view
+        // Float "Baixar app" pill aparece depois que o hero sai da view
         var hero = document.querySelector('.nn-home .nn-hero');
-        var float = document.getElementById('nnFloatCta');
-        if (hero && float && 'IntersectionObserver' in window){
+        var floatCta = document.getElementById('nnFloatCta');
+        if (hero && floatCta && 'IntersectionObserver' in window){
           var heroIo = new IntersectionObserver(function(entries){
             entries.forEach(function(e){
-              if (!e.isIntersecting) float.classList.add('is-visible');
-              else float.classList.remove('is-visible');
+              if (!e.isIntersecting) floatCta.classList.add('is-visible');
+              else floatCta.classList.remove('is-visible');
             });
           }, {threshold:0});
           heroIo.observe(hero);
         }
+
+        // Botões "Baixar app grátis": mobile abre loja correta; desktop scrolla até as badges.
+        var openBtns = document.querySelectorAll('.js-open-store');
+        var IOS_URL = 'https://apps.apple.com/br/app/nailnow-app/id6762576610';
+        var ANDROID_URL = 'https://play.google.com/store/apps/details?id=br.com.nailnow.nailnow';
+        openBtns.forEach(function(btn){
+          btn.addEventListener('click', function(ev){
+            var ua = navigator.userAgent || '';
+            var isAndroid = /android/i.test(ua);
+            var isIOS = /iphone|ipad|ipod/i.test(ua);
+            if (isAndroid){ ev.preventDefault(); window.open(ANDROID_URL, '_blank', 'noopener'); return; }
+            if (isIOS){ ev.preventDefault(); window.open(IOS_URL, '_blank', 'noopener'); return; }
+            var target = document.getElementById('baixe-o-app');
+            if (target){
+              ev.preventDefault();
+              target.scrollIntoView({behavior:'smooth', block:'center'});
+              target.classList.add('nn-app-row--flash');
+              setTimeout(function(){ target.classList.remove('nn-app-row--flash'); }, 1200);
+            }
+          });
+        });
       })();
     </script>
 
