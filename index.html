@@ -1461,10 +1461,16 @@
         .nn-home .nn-review .nn-byline{font-size:.84rem;color:var(--nn-ink-soft);margin-top:6px;line-height:1.5}
         .nn-home .nn-review .nn-byline b{color:var(--nn-ink);font-weight:600}
 
-        /* WhatsApp fallback textual abaixo das badges */
-        .nn-home .nn-wa-fallback{margin-top:14px;font-size:.88rem;color:var(--nn-ink-soft);line-height:1.4}
-        .nn-home .nn-wa-fallback a{color:var(--nn-pink);font-weight:600;text-decoration:none;border-bottom:1px dashed rgba(244,92,162,.5);padding-bottom:1px}
-        .nn-home .nn-wa-fallback a:hover{border-bottom-color:var(--nn-pink-strong);color:var(--nn-pink-strong)}
+        /* WhatsApp CTA — tamanho médio, acima das badges */
+        .nn-home .nn-wa-fallback{margin:0 0 18px;display:inline-flex;align-items:center;gap:12px;padding:13px 22px 13px 18px;background:#25D366;border:0;border-radius:999px;color:#fff;font-size:1rem;line-height:1.3;text-decoration:none;font-weight:600;font-family:'Poppins','Inter',system-ui,sans-serif;box-shadow:0 12px 26px -14px rgba(37,211,102,.65);transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;max-width:100%}
+        .nn-home .nn-wa-fallback:hover{transform:translateY(-1px);box-shadow:0 16px 30px -14px rgba(37,211,102,.8);filter:brightness(1.05)}
+        .nn-home .nn-wa-fallback__icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+        .nn-home .nn-wa-fallback__icon svg{width:22px;height:22px;fill:#fff}
+        .nn-home .nn-wa-fallback b{color:#fff;font-weight:700}
+        @media (max-width:520px){
+          .nn-home .nn-wa-fallback{font-size:.92rem;padding:12px 18px 12px 14px;gap:10px;border-radius:14px}
+          .nn-home .nn-wa-fallback__icon svg{width:20px;height:20px}
+        }
 
         /* sticky mobile "baixar o app" com microcopy — cor da marca */
         @media (max-width:720px){
@@ -1520,7 +1526,7 @@
           .nn-home .nn-app-row{gap:10px;margin-top:6px}
           .nn-home .nn-app-row-label{flex-basis:100%;font-size:1.1rem;margin-bottom:2px}
           .nn-home .nn-store-badge img{height:64px}
-          .nn-home .nn-wa-fallback{font-size:.85rem;margin-top:12px}
+          .nn-home .nn-wa-fallback{max-width:100%}
           .nn-home .nn-hero-photo{aspect-ratio:3/4;border-radius:20px}
           .nn-home .nn-hero-photo img{object-position:center 65%}
           .nn-home .nn-hero-badge{left:8px;right:8px;bottom:14px;max-width:none;padding:11px 14px}
@@ -1582,6 +1588,13 @@
                 <span><i>🏠</i> Atendimento a domicílio</span>
               </div>
 
+              <a class="nn-wa-fallback" href="https://wa.me/555191518097?text=Oi!%20N%C3%A3o%20encontrei%20manicure%20dispon%C3%ADvel%20na%20minha%20regi%C3%A3o.%20Podem%20me%20ajudar%20a%20agendar%3F" target="_blank" rel="noopener">
+                <span class="nn-wa-fallback__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.86 11.86 0 0012.03 0C5.5 0 .2 5.3.2 11.83c0 2.08.55 4.11 1.6 5.9L0 24l6.44-1.69a11.79 11.79 0 005.58 1.42h.01c6.53 0 11.83-5.3 11.83-11.83 0-3.16-1.23-6.13-3.34-8.42zM12.03 21.5h-.01a9.66 9.66 0 01-4.93-1.35l-.35-.21-3.82 1 1.02-3.72-.23-.38a9.66 9.66 0 01-1.48-5.12c0-5.35 4.35-9.7 9.7-9.7 2.59 0 5.02 1.01 6.85 2.84a9.62 9.62 0 012.84 6.86c0 5.35-4.35 9.78-9.6 9.78zm5.32-7.29c-.29-.15-1.72-.85-1.99-.94-.27-.1-.46-.15-.66.15-.19.29-.75.94-.92 1.13-.17.19-.34.22-.63.07-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.66-1.6-.91-2.19-.24-.57-.48-.5-.66-.51h-.56c-.19 0-.51.07-.77.36-.27.29-1.02.99-1.02 2.42s1.04 2.81 1.19 3c.15.19 2.05 3.14 4.98 4.4.7.3 1.24.48 1.66.61.7.22 1.33.19 1.83.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.19-.56-.34z"/></svg>
+                </span>
+                <span>Sem manicure na sua região? <b>Agende pelo WhatsApp</b></span>
+              </a>
+
               <div class="nn-cta-row">
                 <span class="nn-app-row-label">Baixe grátis e agende em minutos</span>
               </div>
@@ -1594,11 +1607,6 @@
                   <img src="assets/google-play-badge.png" alt="Disponível no Google Play" width="198" height="62" loading="eager">
                 </a>
               </div>
-
-              <p class="nn-wa-fallback">
-                Prefere falar antes de baixar?
-                <a href="https://wa.me/555191518097?text=Oi!%20Vi%20o%20site%20da%20NailNow%20e%20quero%20tirar%20uma%20d%C3%BAvida." target="_blank" rel="noopener">Chame no WhatsApp</a>
-              </p>
 
               <div class="nn-partner-cta">
                 <a class="nn-partner-link" href="/profissional">
