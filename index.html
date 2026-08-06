@@ -1390,16 +1390,9 @@
           .nn-home .nn-hero-media{order:-1}
           .nn-home .nn-hero-photo{aspect-ratio:16/11}
           .nn-home .nn-sub{max-width:none}
-          /* mobile: CTA WhatsApp sobe pra logo apos o sub, acima do trust badges */
-          .nn-home .nn-hero .nn-wrap > div:first-child{display:flex;flex-direction:column}
-          .nn-home .nn-hero .nn-wrap > div:first-child > .nn-eyebrow{order:1}
-          .nn-home .nn-hero .nn-wrap > div:first-child > .nn-headline{order:2}
-          .nn-home .nn-hero .nn-wrap > div:first-child > .nn-sub{order:3}
-          .nn-home .nn-hero .nn-wrap > div:first-child > .nn-wa-fallback{order:4}
-          .nn-home .nn-hero .nn-wrap > div:first-child > .nn-trust{order:5}
-          .nn-home .nn-hero .nn-wrap > div:first-child > .nn-cta-row{order:6}
-          .nn-home .nn-hero .nn-wrap > div:first-child > .nn-app-row{order:7}
-          .nn-home .nn-hero .nn-wrap > div:first-child > .nn-partner-cta{order:8}
+          /* mobile: WhatsApp CTA fica no topo do hero (entre IG e foto), esconde a versao do body */
+          .nn-home .nn-hero .nn-wrap > div:first-child > .nn-wa-fallback:not(.nn-wa-fallback--top){display:none}
+          .nn-home .nn-wa-fallback--top{display:inline-flex;margin:0 auto 16px;max-width:calc(100% - 16px)}
           .nn-home .nn-steps,.nn-home .nn-reviews{grid-template-columns:1fr}
           .nn-home .nn-hero-badge{left:12px}
           .nn-home .nn-hero-ig{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 auto 16px;padding:12px 20px;border-radius:999px;background:var(--nn-pink);color:#fff;font-weight:600;font-size:.95rem;text-decoration:none;box-shadow:0 14px 28px -14px rgba(244,92,162,.6);width:fit-content;max-width:calc(100% - 16px)}
@@ -1471,8 +1464,9 @@
         .nn-home .nn-review .nn-byline{font-size:.84rem;color:var(--nn-ink-soft);margin-top:6px;line-height:1.5}
         .nn-home .nn-review .nn-byline b{color:var(--nn-ink);font-weight:600}
 
-        /* WhatsApp CTA — tamanho médio, acima das badges */
+        /* WhatsApp CTA — tamanho médio, acima das badges (desktop) e no topo do hero (mobile) */
         .nn-home .nn-wa-fallback{margin:0 0 18px;display:inline-flex;align-items:center;gap:12px;padding:13px 22px 13px 18px;background:#25D366;border:0;border-radius:999px;color:#fff;font-size:1rem;line-height:1.3;text-decoration:none;font-weight:600;font-family:'Poppins','Inter',system-ui,sans-serif;box-shadow:0 12px 26px -14px rgba(37,211,102,.65);transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;max-width:100%}
+        .nn-home .nn-wa-fallback--top{display:none}
         .nn-home .nn-wa-fallback:hover{transform:translateY(-1px);box-shadow:0 16px 30px -14px rgba(37,211,102,.8);filter:brightness(1.05)}
         .nn-home .nn-wa-fallback__icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
         .nn-home .nn-wa-fallback__icon svg{width:22px;height:22px;fill:#fff}
@@ -1629,6 +1623,12 @@
               <a class="nn-hero-ig" href="https://www.instagram.com/nailnow/" target="_blank" rel="noopener" aria-label="Siga a NailNow no Instagram">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.5.01-4.74.07-1.14.05-1.76.24-2.17.4-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.41-.35 1.03-.4 2.17-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.05 1.14.24 1.76.4 2.17.21.55.47.94.88 1.35.41.41.8.67 1.35.88.41.16 1.03.35 2.17.4 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c1.14-.05 1.76-.24 2.17-.4.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.41.35-1.03.4-2.17.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.05-1.14-.24-1.76-.4-2.17a3.6 3.6 0 00-.88-1.35 3.6 3.6 0 00-1.35-.88c-.41-.16-1.03-.35-2.17-.4-1.24-.06-1.59-.07-4.74-.07zm0 2.76a5.46 5.46 0 110 10.92 5.46 5.46 0 010-10.92zm0 9a3.54 3.54 0 100-7.08 3.54 3.54 0 000 7.08zm6.95-9.22a1.27 1.27 0 11-2.55 0 1.27 1.27 0 012.55 0z"/></svg>
                 <span>Siga <b>@nailnow</b> no Instagram</span>
+              </a>
+              <a class="nn-wa-fallback nn-wa-fallback--top" href="https://wa.me/555191518097?text=Oi!%20N%C3%A3o%20encontrei%20manicure%20dispon%C3%ADvel%20na%20minha%20regi%C3%A3o.%20Podem%20me%20ajudar%20a%20agendar%3F" target="_blank" rel="noopener">
+                <span class="nn-wa-fallback__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.86 11.86 0 0012.03 0C5.5 0 .2 5.3.2 11.83c0 2.08.55 4.11 1.6 5.9L0 24l6.44-1.69a11.79 11.79 0 005.58 1.42h.01c6.53 0 11.83-5.3 11.83-11.83 0-3.16-1.23-6.13-3.34-8.42zM12.03 21.5h-.01a9.66 9.66 0 01-4.93-1.35l-.35-.21-3.82 1 1.02-3.72-.23-.38a9.66 9.66 0 01-1.48-5.12c0-5.35 4.35-9.7 9.7-9.7 2.59 0 5.02 1.01 6.85 2.84a9.62 9.62 0 012.84 6.86c0 5.35-4.35 9.78-9.6 9.78zm5.32-7.29c-.29-.15-1.72-.85-1.99-.94-.27-.1-.46-.15-.66.15-.19.29-.75.94-.92 1.13-.17.19-.34.22-.63.07-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.66-1.6-.91-2.19-.24-.57-.48-.5-.66-.51h-.56c-.19 0-.51.07-.77.36-.27.29-1.02.99-1.02 2.42s1.04 2.81 1.19 3c.15.19 2.05 3.14 4.98 4.4.7.3 1.24.48 1.66.61.7.22 1.33.19 1.83.12.56-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.19-.56-.34z"/></svg>
+                </span>
+                <span>Sem manicure na sua região? <b>Agende pelo WhatsApp</b></span>
               </a>
               <div class="nn-hero-photo">
                 <img src="assets/nail1.jpg" alt="Manicure da NailNow atendendo cliente a domicílio em apartamento em Porto Alegre" loading="eager" fetchpriority="high" width="787" height="1000">
