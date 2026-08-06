@@ -1390,6 +1390,16 @@
           .nn-home .nn-hero-media{order:-1}
           .nn-home .nn-hero-photo{aspect-ratio:16/11}
           .nn-home .nn-sub{max-width:none}
+          /* mobile: CTA WhatsApp sobe pra logo apos o sub, acima do trust badges */
+          .nn-home .nn-hero .nn-wrap > div:first-child{display:flex;flex-direction:column}
+          .nn-home .nn-hero .nn-wrap > div:first-child > .nn-eyebrow{order:1}
+          .nn-home .nn-hero .nn-wrap > div:first-child > .nn-headline{order:2}
+          .nn-home .nn-hero .nn-wrap > div:first-child > .nn-sub{order:3}
+          .nn-home .nn-hero .nn-wrap > div:first-child > .nn-wa-fallback{order:4}
+          .nn-home .nn-hero .nn-wrap > div:first-child > .nn-trust{order:5}
+          .nn-home .nn-hero .nn-wrap > div:first-child > .nn-cta-row{order:6}
+          .nn-home .nn-hero .nn-wrap > div:first-child > .nn-app-row{order:7}
+          .nn-home .nn-hero .nn-wrap > div:first-child > .nn-partner-cta{order:8}
           .nn-home .nn-steps,.nn-home .nn-reviews{grid-template-columns:1fr}
           .nn-home .nn-hero-badge{left:12px}
           .nn-home .nn-hero-ig{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 auto 16px;padding:12px 20px;border-radius:999px;background:var(--nn-pink);color:#fff;font-weight:600;font-size:.95rem;text-decoration:none;box-shadow:0 14px 28px -14px rgba(244,92,162,.6);width:fit-content;max-width:calc(100% - 16px)}
