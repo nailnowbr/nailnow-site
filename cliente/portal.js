@@ -808,7 +808,11 @@ const renderRequestServiceOptions = (professional, preferredIndex = 0) => {
     const priceLabel =
       service.priceLabel ||
       (typeof service.price === "number" ? formatCurrency(service.price) : "Sob consulta");
-    content.innerHTML = `<strong>${service.name}</strong><small>${priceLabel}</small>`;
+    const nameEl = document.createElement("strong");
+    nameEl.textContent = service.name;
+    const priceEl = document.createElement("small");
+    priceEl.textContent = priceLabel;
+    content.append(nameEl, priceEl);
 
     wrapper.appendChild(input);
     wrapper.appendChild(content);
@@ -1047,16 +1051,26 @@ const createAppointmentCard = (appointment, status) => {
   const professionalLabel = appointment.professional
     ? getPublicProfessionalLabel({ nome: appointment.professional })
     : "Profissional NailNow";
-  heading.innerHTML = `
-    <div>
-      <p class="schedule-card__service">${appointment.service || "Serviço NailNow"}</p>
-      <h3 class="schedule-card__client">${professionalLabel}</h3>
-    </div>
-    <div class="schedule-card__meta">
-      <span class="schedule-card__status">${statusLabel}</span>
-      <span class="schedule-card__id">${appointment.id || "—"}</span>
-    </div>
-  `;
+  const headingLeft = document.createElement("div");
+  const serviceP = document.createElement("p");
+  serviceP.className = "schedule-card__service";
+  serviceP.textContent = appointment.service || "Serviço NailNow";
+  const proH3 = document.createElement("h3");
+  proH3.className = "schedule-card__client";
+  proH3.textContent = professionalLabel;
+  headingLeft.append(serviceP, proH3);
+
+  const headingMeta = document.createElement("div");
+  headingMeta.className = "schedule-card__meta";
+  const statusSpan = document.createElement("span");
+  statusSpan.className = "schedule-card__status";
+  statusSpan.textContent = statusLabel;
+  const idSpan = document.createElement("span");
+  idSpan.className = "schedule-card__id";
+  idSpan.textContent = appointment.id || "—";
+  headingMeta.append(statusSpan, idSpan);
+
+  heading.append(headingLeft, headingMeta);
   wrapper.appendChild(heading);
 
   const details = document.createElement("div");
@@ -1068,26 +1082,23 @@ const createAppointmentCard = (appointment, status) => {
 
   const location = appointment.location || appointment.address || "Defina o endereço combinado";
 
-  details.innerHTML = `
-    <dl>
-      <div>
-        <dt>Data</dt>
-        <dd>${formattedDate}</dd>
-      </div>
-      <div>
-        <dt>Horário</dt>
-        <dd>${formattedTime}</dd>
-      </div>
-      <div>
-        <dt>Local</dt>
-        <dd>${location}</dd>
-      </div>
-      <div>
-        <dt>Valor</dt>
-        <dd>${formatCurrency(appointment.price)}</dd>
-      </div>
-    </dl>
-  `;
+  const dl = document.createElement("dl");
+  const detailRows = [
+    ["Data", formattedDate],
+    ["Horário", formattedTime],
+    ["Local", location],
+    ["Valor", formatCurrency(appointment.price)],
+  ];
+  for (const [label, value] of detailRows) {
+    const row = document.createElement("div");
+    const dt = document.createElement("dt");
+    dt.textContent = label;
+    const dd = document.createElement("dd");
+    dd.textContent = value;
+    row.append(dt, dd);
+    dl.appendChild(row);
+  }
+  details.appendChild(dl);
 
   if (appointment.note || appointment.observacao) {
     const note = document.createElement("p");
@@ -1293,7 +1304,12 @@ const renderJourneyRecommendations = (items = []) => {
         tag.className = "journey-service-tag";
         const priceLabel =
           service.priceLabel || (typeof service.price === "number" ? formatCurrency(service.price) : "Sob consulta");
-        tag.innerHTML = `<strong>${service.name}</strong><span class="journey-service-price">${priceLabel}</span>`;
+        const nameEl = document.createElement("strong");
+        nameEl.textContent = service.name;
+        const priceEl = document.createElement("span");
+        priceEl.className = "journey-service-price";
+        priceEl.textContent = priceLabel;
+        tag.append(nameEl, priceEl);
         services.appendChild(tag);
       });
     } else {
@@ -1373,7 +1389,12 @@ const updateJourneyProfile = (professional) => {
       chip.className = "journey-profile__service";
       const priceLabel =
         service.priceLabel || (typeof service.price === "number" ? formatCurrency(service.price) : "Sob consulta");
-      chip.innerHTML = `<strong>${service.name}</strong><span class="journey-service-price">${priceLabel}</span>`;
+      const nameEl = document.createElement("strong");
+      nameEl.textContent = service.name;
+      const priceEl = document.createElement("span");
+      priceEl.className = "journey-service-price";
+      priceEl.textContent = priceLabel;
+      chip.append(nameEl, priceEl);
       journeyProfileServices.appendChild(chip);
     });
   }
@@ -1532,7 +1553,11 @@ const renderProfessionalResults = (items = []) => {
         const priceLabel =
           service.priceLabel ||
           (typeof service.price === "number" ? formatCurrency(service.price) : "Sob consulta");
-        item.innerHTML = `<span>${service.name}</span><span>${priceLabel}</span>`;
+        const nameEl = document.createElement("span");
+        nameEl.textContent = service.name;
+        const priceEl = document.createElement("span");
+        priceEl.textContent = priceLabel;
+        item.append(nameEl, priceEl);
         servicesList.appendChild(item);
       });
       card.appendChild(servicesList);

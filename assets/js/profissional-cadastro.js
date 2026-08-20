@@ -1,28 +1,24 @@
 /**
  * @fileoverview Lógica para o formulário de cadastro de profissionais NailNow.
- * Replica a abordagem usada no cadastro de clientes para gravar os dados
- * diretamente no Firestore sem depender de múltiplos endpoints externos.
+ * @version 2.0
+ *
+ * @description
+ * Envia o cadastro para a Cloud Function `registerProfessionalAccount`,
+ * que cria o usuário no Firebase Auth (senha hasheada) e grava o perfil
+ * na coleção `profissionais` do projeto correto. Antes gravávamos direto
+ * no Firestore com senha e CPF em texto puro num projeto separado —
+ * nunca mais.
  */
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAZeg0zQtv9a5crhnWP2biJ1UPA_LCVoR28",
-  authDomain: "nailnow-site-72103273-8290b.firebaseapp.com",
-  projectId: "nailnow-site-72103273-8290b",
-  storageBucket: "nailnow-site-72103273-8290b.appspot.com",
-  messagingSenderId: "729530854645",
-  appId: "1:729530854645:web:e39cfffff423bf384da9bc",
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const FN_ENDPOINTS = [
+  "https://southamerica-east1-nailnow-site.cloudfunctions.net/registerProfessionalAccount",
+  "https://southamerica-east1-nailnow-7546c.cloudfunctions.net/registerProfessionalAccount",
+  "https://southamerica-east1-nailnow-7546c-53f84.cloudfunctions.net/registerProfessionalAccount",
+];
 
 const form = document.getElementById("form-cadastro-profissional");
 const btnSubmit = document.getElementById("btnSubmitProf");
 const formMsg = document.getElementById("formMsgProf");
-const TARGET_COLLECTION = "profissionais";
 
 const DEFAULT_SUBMIT_LABEL = "Cadastrar profissional";
 
@@ -60,6 +56,38 @@ function collectServices(currentForm) {
   if (!currentForm) return [];
   const inputs = currentForm.querySelectorAll("input[name='servicos']:checked");
   return Array.from(inputs, (input) => input.value).filter(Boolean);
+}
+
+async function submitWithFallback(endpoints, payload) {
+  const attempts = [];
+
+  for (const endpoint of endpoints) {
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const text = await response.text();
+
+      if (response.ok) {
+        return { endpoint, response, text };
+      }
+
+      attempts.push({ endpoint, status: response.status, body: text });
+
+      if (response.status >= 400 && response.status < 500 && response.status !== 429) {
+        break;
+      }
+    } catch (error) {
+      attempts.push({ endpoint, error: error?.message || "network-error" });
+    }
+  }
+
+  const error = new Error("all-endpoints-failed");
+  error.attempts = attempts;
+  throw error;
 }
 
 if (!form) {
@@ -100,46 +128,46 @@ if (!form) {
       return;
     }
 
-    const profissionalData = {
-      nomeCompleto,
+    const payload = {
+      type: "profissional",
+      nome: nomeCompleto,
       cpf,
       email,
-      emailLowercase: email.toLowerCase(),
       telefone,
       senha,
       endereco,
       bio,
-      servicos,
       aceiteTermos,
-      role: "profissional",
-      criadoEm: new Date().toISOString(),
+      origem: "site/profissional/cadastro",
     };
 
-    appendStringField(profissionalData, "nome", nomeCompleto);
-    appendStringField(profissionalData, "displayName", nomeCompleto);
-    appendStringField(profissionalData, "cpfRaw", cpfRaw);
-    appendStringField(profissionalData, "documento", cpf);
-    appendStringField(profissionalData, "telefonePrincipal", telefone);
+    appendStringField(payload, "endereco_texto", enderecoTexto);
+    appendStringField(payload, "endereco_formatado", enderecoFormatado);
+    appendStringField(payload, "enderecoAlternativo", enderecoAlternativo);
+    appendStringField(payload, "place_id", placeId);
+    appendNumberField(payload, "lat", lat);
+    appendNumberField(payload, "lng", lng);
 
-    appendStringField(profissionalData, "endereco_texto", enderecoTexto);
-    appendStringField(profissionalData, "endereco_formatado", enderecoFormatado);
-    appendStringField(profissionalData, "enderecoAlternativo", enderecoAlternativo);
-    appendStringField(profissionalData, "place_id", placeId);
-    appendNumberField(profissionalData, "lat", lat);
-    appendNumberField(profissionalData, "lng", lng);
-
-    if (!servicos.length) {
-      delete profissionalData.servicos;
+    if (servicos.length) {
+      payload.servicos = servicos;
     }
 
     try {
-      await addDoc(collection(db, TARGET_COLLECTION), profissionalData);
+      await submitWithFallback(FN_ENDPOINTS, payload);
       setFeedback("Cadastro enviado com sucesso!");
       form.reset();
       setSubmitState({ label: "Sucesso!" });
     } catch (error) {
-      console.error("Erro ao salvar no Firebase", error);
-      setFeedback("Ocorreu um problema ao salvar seus dados, tente novamente.");
+      console.error("Erro ao registrar cadastro", error);
+      const lastAttempt = Array.isArray(error?.attempts) && error.attempts.length
+        ? error.attempts[error.attempts.length - 1]
+        : null;
+      const detail = lastAttempt?.body || lastAttempt?.error || "";
+      setFeedback(
+        detail
+          ? `Não foi possível concluir o cadastro (${detail}). Tente novamente.`
+          : "Ocorreu um problema ao enviar seus dados, tente novamente.",
+      );
       setSubmitState();
       return;
     }

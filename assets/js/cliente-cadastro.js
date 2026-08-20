@@ -1,28 +1,20 @@
 /**
  * @fileoverview Lógica para o formulário de cadastro de clientes.
- * @version 3.0
- * @author Brunno Sena <contato@brunnoleitesena.com.br>
+ * @version 4.0
  *
  * @description
- * Simplifica o cadastro enviando os dados diretamente para o Firestore,
- * garantindo que a senha seja armazenada exatamente como digitada pelo
- * cliente e evitando falhas de rede com múltiplos endpoints de função.
+ * Envia o cadastro para a Cloud Function `registerClientAccount` (mesmo
+ * endpoint usado pelo cadastro público em /cadastro), que cria o usuário
+ * no Firebase Auth (senha hasheada) e grava o perfil na coleção `clientes`
+ * do projeto correto. Antes gravávamos direto no Firestore com senha em
+ * texto puro num projeto separado — não fazer isso de novo.
  */
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAZeg0zQtv9a5crhnWP2biJ1UPA_LCVoR28",
-  authDomain: "nailnow-site-72103273-8290b.firebaseapp.com",
-  projectId: "nailnow-site-72103273-8290b",
-  storageBucket: "nailnow-site-72103273-8290b.appspot.com",
-  messagingSenderId: "729530854645",
-  appId: "1:729530854645:web:e39cfffff423bf384da9bc",
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const FN_ENDPOINTS = [
+  "https://southamerica-east1-nailnow-site.cloudfunctions.net/registerClientAccount",
+  "https://southamerica-east1-nailnow-7546c.cloudfunctions.net/registerClientAccount",
+  "https://southamerica-east1-nailnow-7546c-53f84.cloudfunctions.net/registerClientAccount",
+];
 
 const form = document.getElementById("form-cadastro-cliente");
 const btnSubmit = document.getElementById("btnSubmit");
@@ -60,6 +52,38 @@ function appendNumberField(target, key, value) {
   target[key] = value;
 }
 
+async function submitWithFallback(endpoints, payload) {
+  const attempts = [];
+
+  for (const endpoint of endpoints) {
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const text = await response.text();
+
+      if (response.ok) {
+        return { endpoint, response, text };
+      }
+
+      attempts.push({ endpoint, status: response.status, body: text });
+
+      if (response.status >= 400 && response.status < 500 && response.status !== 429) {
+        break;
+      }
+    } catch (error) {
+      attempts.push({ endpoint, error: error?.message || "network-error" });
+    }
+  }
+
+  const error = new Error("all-endpoints-failed");
+  error.attempts = attempts;
+  throw error;
+}
+
 if (!form) {
   console.warn("[cliente-cadastro] Formulário não encontrado pelo id 'form-cadastro-cliente'.");
 } else {
@@ -95,33 +119,41 @@ if (!form) {
       return;
     }
 
-    const clienteData = {
-      nomeCompleto,
+    const payload = {
+      type: "cliente",
+      nome: nomeCompleto,
       email,
       telefone,
       senha,
       endereco,
       aceiteTermos,
-      criadoEm: new Date().toISOString(),
+      origem: "site/cliente/cadastro",
     };
 
-    appendStringField(clienteData, "endereco_texto", enderecoTexto);
-    appendStringField(clienteData, "endereco_formatado", enderecoFormatado);
-    appendStringField(clienteData, "enderecoAlternativo", enderecoAlternativo);
-    appendStringField(clienteData, "complemento", complemento);
-    appendStringField(clienteData, "place_id", placeId);
-    appendNumberField(clienteData, "lat", lat);
-    appendNumberField(clienteData, "lng", lng);
+    appendStringField(payload, "endereco_texto", enderecoTexto);
+    appendStringField(payload, "endereco_formatado", enderecoFormatado);
+    appendStringField(payload, "enderecoAlternativo", enderecoAlternativo);
+    appendStringField(payload, "complemento", complemento);
+    appendStringField(payload, "place_id", placeId);
+    appendNumberField(payload, "lat", lat);
+    appendNumberField(payload, "lng", lng);
 
     try {
-      await addDoc(collection(db, "clientes"), clienteData);
-
+      await submitWithFallback(FN_ENDPOINTS, payload);
       setFeedback("Conta criada com sucesso!");
       form.reset();
       setSubmitState({ label: "Sucesso!" });
     } catch (error) {
-      console.error("Erro ao salvar no Firebase", error);
-      setFeedback("Ocorreu um problema ao salvar seus dados, tente novamente.");
+      console.error("Erro ao registrar cadastro", error);
+      const lastAttempt = Array.isArray(error?.attempts) && error.attempts.length
+        ? error.attempts[error.attempts.length - 1]
+        : null;
+      const detail = lastAttempt?.body || lastAttempt?.error || "";
+      setFeedback(
+        detail
+          ? `Não foi possível concluir o cadastro (${detail}). Tente novamente.`
+          : "Ocorreu um problema ao enviar seus dados, tente novamente.",
+      );
       setSubmitState();
       return;
     }

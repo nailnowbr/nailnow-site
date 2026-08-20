@@ -3,11 +3,8 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /clientes/{document} {
-      // Permite criação e leitura dos cadastros de clientes.
-      // Avalie aplicar regras adicionais de autenticação conforme necessário.
-      allow create: if true;
-      allow read: if true;
-      allow update, delete: if false;
+      // Cadastro grava via backend (Admin SDK). Nenhum acesso cliente-side.
+      allow read, write: if false;
     }
 
     match /b2b/{document} {
