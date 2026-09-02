@@ -42389,6 +42389,18 @@ main {
   align-self: flex-start;
 }
 
+.footer-service-area {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  margin: 0.5rem 0 0;
+}
+
+.footer-service-area b {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+
 .footer-cta {
   display: inline-flex;
   margin-top: 1.25rem;
