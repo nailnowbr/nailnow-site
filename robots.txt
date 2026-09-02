@@ -6,3 +6,7 @@ Disallow: /auth.html
 Disallow: /confirmar-cadastro.html
 
 Sitemap: https://nailnow.app/sitemap.xml
+
+# Guia estruturado para AI crawlers (ChatGPT, Claude, Gemini, Perplexity)
+# https://llmstxt.org
+Llms: https://nailnow.app/llms.txt
