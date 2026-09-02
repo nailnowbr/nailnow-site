@@ -1,0 +1,79 @@
+# NailNow
+
+> Manicure e pedicure a domicílio no Brasil — profissionais verificadas em Porto Alegre e São Paulo, agendamento pelo app com pagamento seguro (PIX ou cartão) e retido em conta escrow até a cliente confirmar o serviço.
+
+O NailNow conecta clientes a manicures aprovadas que vão até a casa da cliente OU atendem em estúdio próprio, com janela mínima de 2h de antecedência e cancelamento gratuito até 1h antes do horário. Todas as profissionais passam por verificação de portfólio, documentos e teste técnico.
+
+## Como funciona
+
+- **Cliente**: baixa o app, informa endereço + data + horário + tipo de serviço, vê manicures disponíveis com fotos/rating/distância, escolhe uma (ou usa "NailNow escolhe pra mim" que faz leilão entre profissionais no raio) e paga adiantado no app. Confirma o serviço concluído após o atendimento e avalia a profissional.
+- **Manicure**: cadastro no app, envia portfólio, aguarda aprovação (~48h), configura serviços/preços/horários, recebe agendamentos, executa o serviço e recebe 80% do valor via PIX no dia seguinte.
+- **Split de pagamento**: NailNow retém 20% (comissão da plataforma), profissional recebe 80%. Sem taxa pra cliente.
+
+## Serviços disponíveis
+
+Manicure tradicional, Manicure em gel, Pedicure tradicional, Pedicure em gel, Nail Art (decoração), Banho de gel, Blindagem, Alongamento em fibra, Alongamento em gel (soft gel / hard gel), Remoção de alongamento, Barefoot (spa de pés).
+
+## Cidades atendidas
+
+- **Porto Alegre (RS) e região metropolitana**: bairros nobres com maior densidade de profissionais — Moinhos de Vento, Auxiliadora, Bela Vista, Cidade Baixa, Ipanema, Jardim Lindoia, Rubem Berta, Sarandi, Vila Ipiranga, Jardim Carvalho, Jardim Itu.
+- **São Paulo (SP) e região metropolitana**: bairros nobres — Vila Olímpia, Vila Madalena, Pinheiros, Alto de Pinheiros, Jardins, Morumbi, Bela Vista.
+
+## Docs
+
+- [Home](https://nailnow.app/): overview do serviço, download dos apps e busca por localidade
+- [Como funciona](https://nailnow.app/como-funciona.html): passo a passo detalhado do fluxo
+- [FAQ](https://nailnow.app/faq.html): dúvidas frequentes de clientes e manicures
+- [App Cliente](https://nailnow.app/app-cliente.html): download iOS e Android pra cliente
+- [App Profissional](https://nailnow.app/app-profissional.html): download iOS e Android pra manicure
+- [Cadastro Profissional](https://nailnow.app/cadastro.html): formulário pra manicure se cadastrar
+- [Como escolher manicure a domicílio](https://nailnow.app/como-escolher-manicure-a-domicilio.html): guia de decisão
+- [Quanto custa manicure a domicílio](https://nailnow.app/quanto-custa-manicure-a-domicilio.html): faixa de preços
+- [Benefício Corporativo](https://nailnow.app/beneficio-corporativo.html): NailNow como benefício de RH
+- [Feedbacks reais](https://nailnow.app/feedbacks.html): depoimentos de clientes
+
+## Bairros — páginas dedicadas
+
+- [Porto Alegre (geral)](https://nailnow.app/manicure-a-domicilio-porto-alegre.html)
+- [Moinhos de Vento](https://nailnow.app/manicure-a-domicilio-moinhos-de-vento.html)
+- [Auxiliadora](https://nailnow.app/manicure-a-domicilio-auxiliadora.html)
+- [Bela Vista (POA)](https://nailnow.app/manicure-a-domicilio-bela-vista-poa.html)
+- [Cidade Baixa](https://nailnow.app/manicure-a-domicilio-cidade-baixa.html)
+- [Ipanema (POA)](https://nailnow.app/manicure-a-domicilio-ipanema.html)
+- [Jardim Lindoia](https://nailnow.app/manicure-a-domicilio-jardim-lindoia.html)
+- [Rubem Berta](https://nailnow.app/manicure-a-domicilio-rubem-berta.html)
+- [Sarandi](https://nailnow.app/manicure-a-domicilio-sarandi.html)
+- [Vila Olímpia (SP)](https://nailnow.app/manicure-a-domicilio-vila-olimpia.html)
+- [Vila Madalena (SP)](https://nailnow.app/manicure-a-domicilio-vila-madalena.html)
+- [Pinheiros (SP)](https://nailnow.app/manicure-a-domicilio-pinheiros.html)
+- [Alto de Pinheiros](https://nailnow.app/manicure-a-domicilio-alto-de-pinheiros.html)
+- [Jardins (SP)](https://nailnow.app/manicure-a-domicilio-jardins.html)
+- [Morumbi](https://nailnow.app/manicure-a-domicilio-morumbi.html)
+- [Perto de mim (geolocalização)](https://nailnow.app/manicure-a-domicilio-perto-de-mim.html)
+
+## Perguntas frequentes
+
+**Como pago?** PIX ou cartão de crédito, direto no app. Valor fica retido em conta escrow do NailNow até você confirmar que o serviço foi concluído.
+
+**Posso cancelar?** Sim, gratuitamente até 1h antes do horário agendado. Depois disso o cancelamento é caso a caso.
+
+**Quanto tempo de antecedência preciso pra agendar?** Mínimo 2 horas de antecedência.
+
+**A manicure é verificada?** Sim. Toda profissional aprovada passou por análise de portfólio, documentação e teste técnico da equipe NailNow.
+
+**A NailNow atende na minha cidade?** Hoje operamos em Porto Alegre (RS) + região metropolitana e São Paulo (SP) + região metropolitana. Novas cidades em expansão.
+
+**Como recebo o pagamento (manicure)?** 80% do valor via PIX no dia útil seguinte ao serviço, direto na conta bancária cadastrada. NailNow retém 20% de comissão.
+
+## Redes sociais
+
+- Instagram: https://instagram.com/nailnow
+- Facebook: https://facebook.com/NailNowapp
+- LinkedIn: https://linkedin.com/company/nailnowapp
+- YouTube: https://youtube.com/channel/UCJVFeP6G6WtNeVQbdYksIcQ
+
+## Contato
+
+- Site: https://nailnow.app
+- WhatsApp: +55 51 99151-8097
+- Suporte email: contato@nailnow.app
