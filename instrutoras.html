@@ -99,6 +99,31 @@
         "about": {
           "@type": "Thing",
           "name": "Cursos de manicure e nail design"
+        },
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "Person",
+                "name": "Geisy Ferraz",
+                "jobTitle": "Nail Designer, Manicure, Podóloga e Instrutora",
+                "image": "https://nailnow.app/assets/instrutoras/geisy-ferraz.jpg",
+                "url": "https://nailnow.app/instrutora-geisy-ferraz",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "São Paulo",
+                  "addressRegion": "SP",
+                  "addressCountry": "BR"
+                },
+                "sameAs": [
+                  "https://www.instagram.com/eugeisyunhas/"
+                ]
+              }
+            }
+          ]
         }
       }
     </script>
@@ -242,11 +267,14 @@
           background:#FFF6FB; border:1px solid var(--nn-line);
           border-radius:20px; overflow:hidden;
           display:flex; flex-direction:column;
+          text-decoration:none; color:inherit;
           transition:transform .18s ease, box-shadow .18s ease;
         }
-        .nn-inst-card:hover{
+        .nn-inst-card:hover,
+        .nn-inst-card:focus-visible{
           transform:translateY(-2px);
           box-shadow:0 18px 32px -18px rgba(129,77,104,.35);
+          outline:none;
         }
         .nn-inst-card-photo{
           aspect-ratio:1/1; width:100%; object-fit:cover;
@@ -270,11 +298,12 @@
         .nn-inst-card-cta{
           margin-top:auto; display:inline-flex; align-items:center; justify-content:center;
           gap:8px; padding:10px 14px; border-radius:12px;
-          background:var(--nn-pink); color:#fff; text-decoration:none;
+          background:var(--nn-pink); color:#fff;
           font-weight:600; font-size:.92rem;
           transition:background .15s ease;
         }
-        .nn-inst-card-cta:hover{ background:var(--nn-pink-strong); }
+        .nn-inst-card:hover .nn-inst-card-cta,
+        .nn-inst-card:focus-visible .nn-inst-card-cta{ background:var(--nn-pink-strong); }
         .nn-inst-card-cta svg{ width:16px; height:16px; }
 
         .nn-inst-card.is-placeholder{
@@ -328,7 +357,7 @@
             <span class="dot" aria-hidden="true"></span>
             Programa de parceria
           </div>
-          <h1 class="nn-inst-title">Instrutoras <em>parceiras</em><br />da NailNow.</h1>
+          <h1 class="nn-inst-title">Instrutoras <em>parceiras</em> da NailNow.</h1>
         </div>
 
         <div class="nn-inst-grid-wrap">
@@ -338,10 +367,28 @@
               Referências para profissionais que estão entrando no mercado da manicure ou querem se aperfeiçoar.
             </p>
             <div class="nn-inst-grid" id="nn-inst-grid">
-              <div class="nn-inst-card is-placeholder">
-                <div class="nn-inst-ph-icon" aria-hidden="true">+</div>
-                <p>Seu card aqui</p>
-              </div>
+              <a class="nn-inst-card" href="/instrutora-geisy-ferraz" aria-label="Ver perfil de Geisy Ferraz — instrutora em São Paulo/SP">
+                <img
+                  class="nn-inst-card-photo"
+                  src="/assets/instrutoras/geisy-ferraz-thumb.jpg"
+                  srcset="/assets/instrutoras/geisy-ferraz-thumb.jpg 320w, /assets/instrutoras/geisy-ferraz.jpg 800w"
+                  sizes="(max-width: 600px) 90vw, 320px"
+                  alt="Geisy Ferraz — Nail Designer, Manicure, Podóloga e Instrutora"
+                  loading="lazy"
+                  width="320" height="320"
+                />
+                <div class="nn-inst-card-body">
+                  <p class="nn-inst-card-name">Geisy Ferraz</p>
+                  <p class="nn-inst-card-city">São Paulo — SP</p>
+                  <p class="nn-inst-card-courses">
+                    Nail Designer, Podóloga e Instrutora. Formação PREMIUM presencial e online, com +20 anos de experiência.
+                  </p>
+                  <span class="nn-inst-card-cta">
+                    Ver perfil
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                  </span>
+                </div>
+              </a>
             </div>
           </div>
         </div>
