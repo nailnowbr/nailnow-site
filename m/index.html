@@ -155,9 +155,8 @@
     <script>
       (function () {
         var BACKEND = 'https://nailnow.vercel.app/v1/professionals/public/by-slug/';
-        var STORE_APP_ID = 'app.nailnow';
         var IOS_STORE_URL = 'https://apps.apple.com/br/app/nailnow/id6762576610';
-        var ANDROID_STORE_URL = 'https://play.google.com/store/apps/details?id=' + STORE_APP_ID;
+        var ANDROID_STORE_URL = 'https://play.google.com/store/apps/details?id=app.nailnow';
 
         function getSlug() {
           var m = window.location.pathname.match(/^\/m\/([a-z0-9-]+)/i);
@@ -166,17 +165,28 @@
           return q || null;
         }
 
-        function realDeepLink(slug) {
-          return 'https://nailnow.app/m/' + slug;
+        function detectPlatform() {
+          var ua = navigator.userAgent || navigator.vendor || window.opera;
+          if (/android/i.test(ua)) return 'android';
+          if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) return 'ios';
+          return 'desktop';
         }
 
         function el(id) { return document.getElementById(id); }
 
         var slug = getSlug();
+        var platform = detectPlatform();
         if (!slug) {
           el('loading').classList.add('hidden');
           el('error').classList.remove('hidden');
           return;
+        }
+
+        // Ordena os botões de loja pela plataforma do cliente
+        if (platform === 'android') {
+          var apstore = el('appstore');
+          var plstore = el('playstore');
+          plstore.parentNode.insertBefore(plstore, apstore);
         }
 
         fetch(BACKEND + encodeURIComponent(slug))
@@ -232,11 +242,26 @@
             }
 
             var cta = el('ctaOpen');
-            cta.href = realDeepLink(slug);
-            cta.addEventListener('click', function () {
-              // Universal link tenta abrir o app. Se falhar (não instalado), o
-              // usuário fica na página e pode usar os botões de loja abaixo.
-              setTimeout(function () {}, 250);
+            // O CTA principal aponta pro universal link. iOS/Android com app
+            // instalado interceptam antes de qualquer navegação. Sem app, o
+            // clique cai de volta aqui — nesse caso mandamos direto pra loja.
+            cta.href = 'https://nailnow.app/m/' + slug;
+            cta.addEventListener('click', function (e) {
+              if (platform === 'ios' || platform === 'android') {
+                e.preventDefault();
+                var storeUrl = platform === 'android' ? ANDROID_STORE_URL : IOS_STORE_URL;
+                // Tenta abrir o app via universal link. Se ele não estiver
+                // instalado (universal link não intercepta), depois de ~1.2s
+                // caímos na loja.
+                var t = setTimeout(function () {
+                  window.location.href = storeUrl;
+                }, 1200);
+                window.location.href = 'https://nailnow.app/m/' + slug;
+                // Se a página virar hidden (app abriu), cancela o redirect
+                document.addEventListener('visibilitychange', function () {
+                  if (document.hidden) clearTimeout(t);
+                }, { once: true });
+              }
             });
 
             // Meta OpenGraph mais rico agora que temos os dados
