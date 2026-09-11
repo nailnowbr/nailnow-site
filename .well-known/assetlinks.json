@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "br.com.nailnow.nailnow",
+      "sha256_cert_fingerprints": [
+        "B4:1D:BF:5D:17:3E:C5:99:D9:FD:7C:F1:C1:D5:BB:E5:61:22:E4:C5:19:84:85:4E:EF:5F:FC:84:AD:8F:89:98",
+        "94:DA:34:73:D1:BE:4A:11:C4:D3:5D:D3:25:A4:75:92:C7:E5:B1:A4:FD:C7:26:02:DF:34:B5:E3:C2:B1:86:94"
+      ]
+    }
+  }
+]
