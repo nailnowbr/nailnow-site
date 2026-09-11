@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#F45CA2" />
     <meta name="robots" content="noindex, follow" />
+    <script>
+      // Fallback pro perfil da manicure. Se hosting resolve /m/slug como 404
+      // (GH Pages sem rewrite), redireciona pra /m/?u=slug que /m/index.html
+      // sabe interpretar.
+      (function () {
+        var m = window.location.pathname.match(/^\/m\/([a-z0-9-]+)/i);
+        if (m) {
+          window.location.replace('/m/?u=' + encodeURIComponent(m[1]));
+        }
+      })();
+    </script>
     <title>Página não encontrada — NailNow</title>
     <meta name="description" content="Página não encontrada na NailNow. Explore manicures a domicílio em Porto Alegre e São Paulo, ou volte para a home." />
     <link rel="canonical" href="https://nailnow.app/" />

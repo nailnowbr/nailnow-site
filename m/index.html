@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F45CA2" />
+    <meta name="apple-mobile-web-app-title" content="NailNow" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-itunes-app" content="app-id=6762576610" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://nailnow.app/m/" />
+    <link rel="icon" type="image/svg+xml" href="/assets/nailnow-logo.svg" />
+    <title>Manicure NailNow</title>
+    <meta name="description" content="Perfil de manicure na NailNow. Agende direto pelo app." />
+    <meta property="og:title" content="Manicure NailNow" />
+    <meta property="og:description" content="Perfil de manicure na NailNow. Agende direto pelo app." />
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://nailnow.app/m/" />
+    <meta property="og:image" content="https://nailnow.app/assets/app-logo.png" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        background: #fdf6f9;
+        color: #3B1E2A;
+        min-height: 100vh;
+      }
+      .wrap { max-width: 480px; margin: 0 auto; padding: 24px 16px 48px; }
+      .brand { display: flex; align-items: center; gap: 10px; padding: 8px 4px 20px; }
+      .brand img { width: 32px; height: 32px; }
+      .brand-text { display: flex; flex-direction: column; }
+      .brand-name { font-family: Georgia, 'Times New Roman', serif; font-size: 15px; letter-spacing: 3px; color: #F45CA2; font-weight: 400; }
+      .brand-tag { font-size: 8px; letter-spacing: 2px; color: #c98aa8; }
+      .card {
+        background: #fff;
+        border-radius: 24px;
+        padding: 24px 20px 20px;
+        box-shadow: 0 10px 30px -18px rgba(196, 38, 122, .25);
+      }
+      .cover-photo {
+        width: 100%;
+        aspect-ratio: 1;
+        background: #f8e5ee center/cover no-repeat;
+        border-radius: 16px;
+        margin-bottom: 16px;
+      }
+      .cover-photo.placeholder {
+        display: flex; align-items: center; justify-content: center;
+        color: #E48DBB; font-size: 48px;
+      }
+      .name { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; margin: 0 0 4px; color: #3B1E2A; }
+      .location { font-size: 13px; color: #7a5a68; margin: 0 0 12px; }
+      .rating { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; color: #3B1E2A; margin-bottom: 12px; }
+      .rating .star { color: #F45CA2; }
+      .rating .count { color: #7a5a68; font-size: 12px; }
+      .about { font-size: 14px; line-height: 1.55; color: #5b3a4c; margin: 8px 0 20px; }
+
+      .cta {
+        display: block;
+        width: 100%;
+        background: #F45CA2;
+        color: #fff;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 15px 20px;
+        border-radius: 999px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 14px 28px -14px rgba(244, 92, 162, .55);
+      }
+      .cta:active { transform: translateY(1px); }
+
+      .stores { display: flex; gap: 12px; margin-top: 14px; justify-content: center; }
+      .stores a { flex: 1; text-align: center; padding: 12px; border: 1px solid #f1bfd9; border-radius: 12px; background: #fff; color: #C4267A; text-decoration: none; font-size: 13px; font-weight: 600; }
+
+      .section-title {
+        font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px;
+        color: #7a5a68; margin: 24px 4px 10px;
+      }
+      .services { display: flex; flex-direction: column; gap: 8px; }
+      .service {
+        background: #fff9fc;
+        border: 1px solid #f6d5e7;
+        border-radius: 12px;
+        padding: 10px 14px;
+        display: flex; justify-content: space-between; align-items: center;
+      }
+      .service .n { font-size: 14px; color: #3B1E2A; }
+      .service .p { font-size: 14px; font-weight: 700; color: #C4267A; }
+
+      .portfolio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 8px; }
+      .portfolio img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; background: #f8e5ee; }
+
+      .foot {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 12px;
+        color: #97788a;
+      }
+      .foot a { color: #C4267A; text-decoration: none; }
+
+      #loading, #error { text-align: center; padding: 60px 20px; color: #7a5a68; }
+      #error { color: #B24858; }
+      .hidden { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="brand">
+        <img src="/assets/app-logo.png" alt="NailNow" />
+        <div class="brand-text">
+          <span class="brand-name">NAILNOW</span>
+          <span class="brand-tag">DO SEU JEITO. NO SEU TEMPO.</span>
+        </div>
+      </div>
+
+      <div id="loading">Carregando perfil...</div>
+      <div id="error" class="hidden">Não encontramos essa manicure 💔<br /><br /><a href="/" style="color:#C4267A;">Voltar pra home</a></div>
+
+      <div id="content" class="hidden">
+        <div class="card">
+          <div id="cover" class="cover-photo placeholder">💅</div>
+          <h1 id="name" class="name">Nome</h1>
+          <div id="location" class="location"></div>
+          <div id="rating" class="rating"></div>
+          <p id="about" class="about"></p>
+
+          <a id="ctaOpen" class="cta" href="#">Agendar comigo</a>
+
+          <div class="stores">
+            <a id="appstore" href="https://apps.apple.com/br/app/nailnow/id6762576610">📱 App Store</a>
+            <a id="playstore" href="https://play.google.com/store/apps/details?id=app.nailnow">🤖 Google Play</a>
+          </div>
+        </div>
+
+        <div id="servicesSection" class="hidden">
+          <div class="section-title">Serviços</div>
+          <div id="services" class="services"></div>
+        </div>
+
+        <div id="portfolioSection" class="hidden">
+          <div class="section-title">Portfólio</div>
+          <div id="portfolio" class="portfolio"></div>
+        </div>
+
+        <p class="foot">
+          Feito pela <a href="/">NailNow</a> · Do seu jeito. No seu tempo.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var BACKEND = 'https://nailnow.vercel.app/v1/professionals/public/by-slug/';
+        var STORE_APP_ID = 'app.nailnow';
+        var IOS_STORE_URL = 'https://apps.apple.com/br/app/nailnow/id6762576610';
+        var ANDROID_STORE_URL = 'https://play.google.com/store/apps/details?id=' + STORE_APP_ID;
+
+        function getSlug() {
+          var m = window.location.pathname.match(/^\/m\/([a-z0-9-]+)/i);
+          if (m) return m[1];
+          var q = new URLSearchParams(window.location.search).get('u');
+          return q || null;
+        }
+
+        function realDeepLink(slug) {
+          return 'https://nailnow.app/m/' + slug;
+        }
+
+        function el(id) { return document.getElementById(id); }
+
+        var slug = getSlug();
+        if (!slug) {
+          el('loading').classList.add('hidden');
+          el('error').classList.remove('hidden');
+          return;
+        }
+
+        fetch(BACKEND + encodeURIComponent(slug))
+          .then(function (r) { if (!r.ok) throw new Error('not_found'); return r.json(); })
+          .then(function (p) {
+            el('loading').classList.add('hidden');
+            el('content').classList.remove('hidden');
+
+            var fullName = (p.firstName || '') + (p.lastName ? ' ' + p.lastName : '');
+            document.title = fullName + ' — NailNow';
+            el('name').textContent = fullName;
+
+            if (p.pictureURL) {
+              var cover = el('cover');
+              cover.classList.remove('placeholder');
+              cover.style.backgroundImage = 'url("' + p.pictureURL + '")';
+              cover.textContent = '';
+            }
+
+            var loc = [p.address && p.address.neighborhood, p.address && p.address.city, p.address && p.address.state]
+              .filter(Boolean).join(' · ');
+            if (loc) el('location').textContent = loc;
+
+            if (p.ratingsCount > 0) {
+              el('rating').innerHTML = '<span class="star">★</span>' + (p.averageRating || 0).toFixed(1)
+                + ' <span class="count">(' + p.ratingsCount + ')</span>';
+            }
+
+            if (p.about) el('about').textContent = p.about;
+
+            if (Array.isArray(p.services) && p.services.length > 0) {
+              el('servicesSection').classList.remove('hidden');
+              var wrap = el('services');
+              p.services.forEach(function (s) {
+                var d = document.createElement('div');
+                d.className = 'service';
+                var name = s.name || s.title || '';
+                var price = typeof s.price === 'number' ? s.price : null;
+                d.innerHTML = '<span class="n">' + name + '</span>'
+                  + (price != null ? '<span class="p">R$ ' + price.toFixed(2).replace('.', ',') + '</span>' : '');
+                wrap.appendChild(d);
+              });
+            }
+
+            if (Array.isArray(p.portfolio) && p.portfolio.length > 0) {
+              el('portfolioSection').classList.remove('hidden');
+              var pw = el('portfolio');
+              p.portfolio.slice(0, 9).forEach(function (u) {
+                var img = document.createElement('img');
+                img.src = u; img.alt = fullName;
+                pw.appendChild(img);
+              });
+            }
+
+            var cta = el('ctaOpen');
+            cta.href = realDeepLink(slug);
+            cta.addEventListener('click', function () {
+              // Universal link tenta abrir o app. Se falhar (não instalado), o
+              // usuário fica na página e pode usar os botões de loja abaixo.
+              setTimeout(function () {}, 250);
+            });
+
+            // Meta OpenGraph mais rico agora que temos os dados
+            var ogTitle = document.querySelector('meta[property="og:title"]');
+            var ogDesc = document.querySelector('meta[property="og:description"]');
+            var ogUrl = document.querySelector('meta[property="og:url"]');
+            var ogImg = document.querySelector('meta[property="og:image"]');
+            if (ogTitle) ogTitle.setAttribute('content', fullName + ' na NailNow');
+            if (ogDesc && p.about) ogDesc.setAttribute('content', p.about.slice(0, 200));
+            if (ogUrl) ogUrl.setAttribute('content', 'https://nailnow.app/m/' + slug);
+            if (ogImg && p.pictureURL) ogImg.setAttribute('content', p.pictureURL);
+          })
+          .catch(function () {
+            el('loading').classList.add('hidden');
+            el('error').classList.remove('hidden');
+          });
+      })();
+    </script>
+  </body>
+</html>

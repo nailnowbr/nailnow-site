@@ -7,7 +7,8 @@
         "paths": [
           "/confirmar-cadastro.html",
           "/app-cliente.html",
-          "/app-profissional.html"
+          "/app-profissional.html",
+          "/m/*"
         ]
       }
     ]
