@@ -213,7 +213,19 @@
             <p>Caso seja identificado cadastro realizado em desconformidade com essa regra, a conta poderá ser suspensa ou excluída.</p>
           </article>
           <article class="faq-item" role="listitem">
-            <h3>15. Atualizações desta Política</h3>
+            <h3>15. Integração com o Google Calendar</h3>
+            <p>A NailNow oferece às profissionais parceiras a possibilidade de conectar sua agenda do Google Calendar à plataforma. Essa integração é <strong>opcional</strong> e depende de consentimento expresso da profissional por meio do fluxo de autorização do Google (OAuth 2.0).</p>
+            <p><strong>Escopos solicitados:</strong> a NailNow acessa dois escopos do Google Calendar:</p>
+            <ul>
+              <li><em>https://www.googleapis.com/auth/calendar.events</em> — para criar, atualizar e excluir eventos correspondentes aos agendamentos confirmados na NailNow;</li>
+              <li><em>https://www.googleapis.com/auth/calendar.readonly</em> — para consultar os horários já ocupados no calendário primário da profissional e evitar a oferta de horários com conflitos.</li>
+            </ul>
+            <p><strong>Uso dos dados:</strong> os dados obtidos por meio dessa integração são utilizados exclusivamente para (i) sincronizar agendamentos NailNow com a agenda do Google da profissional e (ii) calcular a disponibilidade real da profissional para novas solicitações de clientes, aplicando uma margem de 30 minutos antes e depois de cada compromisso registrado.</p>
+            <p><strong>Não uso para outros fins:</strong> a NailNow <strong>não transfere, vende ou compartilha</strong> com terceiros os dados do Google Calendar obtidos por essa integração e não utiliza esses dados para publicidade, treinamento de modelos de inteligência artificial ou qualquer outra finalidade não descrita nesta seção. O uso está em conformidade com a <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, incluindo as exigências de Uso Limitado (<em>Limited Use</em>).</p>
+            <p><strong>Armazenamento:</strong> a NailNow armazena o token de renovação (<em>refresh token</em>) da profissional em ambiente seguro no Firestore, com acesso restrito ao próprio backend da plataforma. Nenhum evento do Calendar da profissional é armazenado persistentemente; a plataforma consulta os intervalos ocupados apenas no momento necessário para calcular a disponibilidade.</p>
+            <p><strong>Revogação:</strong> a profissional pode desconectar a integração a qualquer momento diretamente no perfil dentro do aplicativo NailNow. A desconexão revoga imediatamente o acesso da NailNow ao Google Calendar e remove o token armazenado. Adicionalmente, a profissional pode revogar o acesso a qualquer momento em <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a>.</p>
+
+            <h3>16. Atualizações desta Política</h3>
             <p>Esta Política poderá ser atualizada a qualquer momento para adequação a alterações legais, regulatórias ou operacionais.</p>
             <p>A versão vigente estará sempre disponível na plataforma.</p>
           </article>
