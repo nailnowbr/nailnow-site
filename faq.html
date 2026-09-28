@@ -263,61 +263,67 @@
     </header>
 
     <style>
-      .faq-tabs { display:flex; gap:8px; justify-content:center; margin:0 auto 32px; max-width:640px; padding:0 20px; }
-      .faq-tab-btn { flex:1; padding:12px 16px; border:2px solid #F45CA2; border-radius:50px; background:#fff; color:#F45CA2; font-family:'Inter',system-ui,sans-serif; font-size:.95rem; font-weight:600; cursor:pointer; transition:background .15s,color .15s; }
-      .faq-tab-btn.active, .faq-tab-btn:hover { background:#F45CA2; color:#fff; }
-      .faq-panel { display:none; }
-      .faq-panel.active { display:block; }
-      .faq-feedback-banner { text-align:center; margin:40px auto 0; padding:24px 20px; background:#fff9fc; border:1px solid #f6d5e7; border-radius:16px; max-width:640px; font-family:'Inter',system-ui,sans-serif; }
-      .faq-feedback-banner p { margin:0 0 12px; color:#3B1E2A; font-size:.95rem; }
-      .faq-feedback-banner a { display:inline-block; padding:10px 24px; background:#F45CA2; color:#fff; border-radius:50px; font-weight:600; text-decoration:none; font-size:.9rem; }
-      .faq-feedback-banner a:hover { background:#d94d8e; }
+      .faq-page { max-width: 720px; margin: 0 auto; padding: 0 24px 64px; }
+      .faq-tabs { display: flex; gap: 8px; margin-bottom: 48px; }
+      .faq-tab-btn { padding: 10px 28px; border: 2px solid #F45CA2; border-radius: 50px; background: #fff; color: #F45CA2; font-family: 'Inter', system-ui, sans-serif; font-size: .9rem; font-weight: 600; cursor: pointer; transition: background .15s, color .15s; }
+      .faq-tab-btn.active { background: #F45CA2; color: #fff; }
+      .faq-panel { display: none; }
+      .faq-panel.active { display: block; }
+      .faq-entry { border-bottom: 1px solid #f0dce8; padding: 28px 0; }
+      .faq-entry:first-child { padding-top: 0; }
+      .faq-entry h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.15rem; font-weight: 700; color: #3B1E2A; margin: 0 0 10px; line-height: 1.35; }
+      .faq-entry p, .faq-entry li { font-family: 'Inter', system-ui, sans-serif; font-size: .97rem; color: #5a3a4a; line-height: 1.7; margin: 0 0 8px; }
+      .faq-entry ul, .faq-entry ol { padding-left: 20px; margin: 8px 0; }
+      .faq-entry a { color: #F45CA2; text-decoration: none; font-weight: 500; }
+      .faq-entry a:hover { text-decoration: underline; }
+      .faq-feedback-banner { text-align: center; margin: 48px auto 0; padding: 28px 24px; background: #fff9fc; border: 1px solid #f6d5e7; border-radius: 16px; }
+      .faq-feedback-banner p { font-family: 'Inter', system-ui, sans-serif; margin: 0 0 14px; color: #3B1E2A; font-size: .95rem; }
+      .faq-feedback-banner a { display: inline-block; padding: 11px 28px; background: #F45CA2; color: #fff; border-radius: 50px; font-family: 'Inter', system-ui, sans-serif; font-weight: 600; text-decoration: none; font-size: .9rem; }
+      .faq-feedback-banner a:hover { background: #d94d8e; }
     </style>
 
     <main>
       <section class="page-hero">
         <span class="eyebrow">FAQ</span>
         <h1>Dúvidas frequentes</h1>
-        <p>Clique na aba que se aplica a você.</p>
+        <p>Escolha o perfil que se aplica a você.</p>
       </section>
 
       <section class="faq">
-        <div class="faq-tabs" role="tablist">
-          <button class="faq-tab-btn active" role="tab" aria-selected="true" aria-controls="panel-cliente" id="tab-cliente" onclick="switchTab('cliente')">Para Clientes</button>
-          <button class="faq-tab-btn" role="tab" aria-selected="false" aria-controls="panel-manicure" id="tab-manicure" onclick="switchTab('manicure')">Para Manicures</button>
-        </div>
-
-        <!-- CLIENTES -->
-        <div class="faq-panel active" id="panel-cliente" role="tabpanel" aria-labelledby="tab-cliente">
-          <div class="faq-list" role="list">
-            <details class="faq-item" role="listitem" open>
-              <summary>Tem custo de deslocamento?</summary>
-              <p>O deslocamento está incluso nas regiões atendidas. Para locais fora da área de cobertura informamos o valor extra antes da confirmação.</p>
-            </details>
-            <details class="faq-item" role="listitem">
-              <summary>Como funciona o pagamento?</summary>
-              <p>O pagamento é feito direto pelo app com cartão ou PIX. Você só é cobrada após o atendimento confirmado.</p>
-            </details>
-            <details class="faq-item" role="listitem">
-              <summary>Como vocês selecionam as profissionais?</summary>
-              <p>Realizamos verificação de documentos, análise do portfólio e revisão contínua das avaliações das clientes antes de liberar cada parceira. Todas as profissionais são verificadas pela NailNow.</p>
-            </details>
-            <details class="faq-item" role="listitem">
-              <summary>Posso cancelar um agendamento?</summary>
-              <p>Sim. Cancelamentos feitos com mais de 2 horas de antecedência são gratuitos. Para cancelamentos em cima da hora, entre em contato com o suporte pelo app.</p>
-            </details>
-            <details class="faq-item" role="listitem">
-              <summary>Quais cidades a NailNow atende?</summary>
-              <p>Atualmente atendemos Porto Alegre (e região metropolitana) e São Paulo. Estamos expandindo — cadastre seu e-mail para saber quando chegarmos na sua cidade.</p>
-            </details>
+        <div class="faq-page">
+          <div class="faq-tabs" role="tablist">
+            <button class="faq-tab-btn active" role="tab" aria-selected="true" aria-controls="panel-cliente" id="tab-cliente" onclick="switchTab('cliente')">Para Clientes</button>
+            <button class="faq-tab-btn" role="tab" aria-selected="false" aria-controls="panel-manicure" id="tab-manicure" onclick="switchTab('manicure')">Para Manicures</button>
           </div>
-        </div>
 
-        <!-- MANICURES -->
-        <div class="faq-panel" id="panel-manicure" role="tabpanel" aria-labelledby="tab-manicure">
-          <div class="faq-list" role="list">
-            <details class="faq-item" role="listitem" open>
-              <summary>Por que não aparecem pedidos no meu app?</summary>
+          <!-- CLIENTES -->
+          <div class="faq-panel active" id="panel-cliente" role="tabpanel" aria-labelledby="tab-cliente">
+            <div class="faq-entry">
+              <h3>Tem custo de deslocamento?</h3>
+              <p>O deslocamento está incluso nas regiões atendidas. Para locais fora da área de cobertura informamos o valor extra antes da confirmação.</p>
+            </div>
+            <div class="faq-entry">
+              <h3>Como funciona o pagamento?</h3>
+              <p>O pagamento é feito direto pelo app com cartão ou PIX. Você só é cobrada após o atendimento confirmado — sem surpresa, sem taxa escondida.</p>
+            </div>
+            <div class="faq-entry">
+              <h3>Como vocês selecionam as profissionais?</h3>
+              <p>Realizamos verificação de documentos, análise do portfólio e revisão contínua das avaliações antes de liberar cada parceira. Todas as profissionais são verificadas pela NailNow.</p>
+            </div>
+            <div class="faq-entry">
+              <h3>Posso cancelar um agendamento?</h3>
+              <p>Sim. Cancelamentos feitos com mais de 2 horas de antecedência são gratuitos. Para cancelamentos em cima da hora, entre em contato com o suporte pelo app.</p>
+            </div>
+            <div class="faq-entry">
+              <h3>Quais cidades a NailNow atende?</h3>
+              <p>Atualmente atendemos Porto Alegre (e região metropolitana) e São Paulo. Estamos expandindo — cadastre seu e-mail para saber quando chegarmos na sua cidade.</p>
+            </div>
+          </div>
+
+          <!-- MANICURES -->
+          <div class="faq-panel" id="panel-manicure" role="tabpanel" aria-labelledby="tab-manicure">
+            <div class="faq-entry">
+              <h3>Por que não aparecem pedidos no meu app?</h3>
               <p>Os agendamentos chegam conforme a demanda de clientes na sua região. Para o seu perfil aparecer nas buscas, é obrigatório ter preenchido no app:</p>
               <ul>
                 <li>✅ Serviços oferecidos</li>
@@ -325,49 +331,43 @@
                 <li>✅ Agenda com dias e horários disponíveis</li>
                 <li>✅ Endereço completo (sem pendências)</li>
               </ul>
-              <p>Se algum item estiver faltando, você <strong>não aparece nas buscas</strong> — mesmo com o cadastro aprovado. Assista ao vídeo de configuração: <a href="https://www.youtube.com/watch?v=gmVh4Dwu0Pg" target="_blank" rel="noopener">Como configurar o perfil</a>.</p>
-            </details>
-            <details class="faq-item" role="listitem">
-              <summary>Qual é o raio de atendimento?</summary>
-              <p>Você aparece para clientes num raio de até <strong>10 km</strong> do endereço cadastrado no app. Para pedidos abaixo de R$50, o raio é de 2 km. Os atendimentos chegam conforme a demanda da região — a base de clientes cresce aos poucos.</p>
-            </details>
-            <details class="faq-item" role="listitem">
-              <summary>Como precificar? O deslocamento já está incluso?</summary>
-              <p><strong>Sim, o deslocamento fica por conta de você</strong> — não é cobrado separado. Coloque no app um valor que cubra tanto o seu serviço quanto o custo de ir até a cliente (ida + volta).</p>
-              <p><strong>Dica de cálculo:</strong> se você cobra R$60 no seu espaço e gasta R$15 de transporte, coloque pelo menos R$75 no app. O valor é definido por você e precisa fazer sentido para a cliente também.</p>
-            </details>
-            <details class="faq-item" role="listitem">
-              <summary>Como funciona o pagamento e o repasse?</summary>
-              <p>A cliente paga pelo app (PIX ou cartão). A NailNow retém <strong>20% de taxa</strong> sobre o valor do atendimento. Os outros <strong>80% são repassados para você</strong> por PIX após o atendimento ser concluído e confirmado no app.</p>
-              <p>Por isso, é essencial ter uma <strong>chave PIX cadastrada</strong> no seu perfil.</p>
-            </details>
-            <details class="faq-item" role="listitem">
-              <summary>Quando aceito um chamado no grupo, o agendamento vai direto pra minha agenda?</summary>
-              <p><strong>Não.</strong> Os chamados no grupo são uma pré-seleção: a NailNow está verificando quem tem disponibilidade para apresentar à cliente. Depois que você sinaliza interesse, ainda acontece:</p>
-              <ol>
-                <li>Contato com a cliente para confirmar horário e condições</li>
-                <li>Aceite da cliente</li>
-                <li>Confirmação do agendamento → só aí aparece na sua agenda no app</li>
-              </ol>
-            </details>
-            <details class="faq-item" role="listitem">
-              <summary>O que é "mão em gel"?</summary>
-              <p>No app da NailNow, <strong>"mão em gel" = esmaltação em gel</strong> (banho de gel / shellac). Não é alongamento. Se tiver dúvida sobre o pedido específico, confirme com a cliente pelo chat do app antes do atendimento.</p>
-            </details>
-            <details class="faq-item" role="listitem">
-              <summary>Meu perfil aparece como "pendente" — o que fazer?</summary>
-              <p>Perfil pendente geralmente significa que o <strong>endereço está incompleto ou incorreto</strong>. Entre no app → Perfil → Endereço, revise todos os campos e salve. Se o problema persistir, chame a NailNow no privado.</p>
-            </details>
-            <details class="faq-item" role="listitem">
-              <summary>Sem avaliações fica mais difícil receber chamados?</summary>
-              <p>No início é natural demorar um pouco mais. Uma vez que você faz os primeiros atendimentos e recebe avaliações positivas, seu perfil ganha mais visibilidade. Dica: mantenha o perfil completo, a agenda sempre atualizada e aceite pedidos mesmo que sejam um pouco mais longe — as primeiras avaliações valem muito.</p>
-            </details>
+              <p>Se algum item estiver faltando, você <strong>não aparece nas buscas</strong> — mesmo com o cadastro aprovado. <a href="https://www.youtube.com/watch?v=gmVh4Dwu0Pg" target="_blank" rel="noopener">Assista ao vídeo de configuração do perfil.</a></p>
+            </div>
+            <div class="faq-entry">
+              <h3>Qual é o raio de atendimento?</h3>
+              <p>Você aparece para clientes num raio de até <strong>10 km</strong> do endereço cadastrado. Para pedidos abaixo de R$50, o raio é de 2 km. Os atendimentos chegam conforme a demanda da região — a base de clientes cresce aos poucos.</p>
+            </div>
+            <div class="faq-entry">
+              <h3>Como precificar? O deslocamento já está incluso?</h3>
+              <p>Sim, o deslocamento fica por conta de você — não é cobrado separado. Coloque no app um valor que cubra tanto o seu serviço quanto o custo de ir até a cliente (ida + volta).</p>
+              <p>Exemplo: se você cobra R$60 no seu espaço e gasta R$15 de transporte, coloque pelo menos R$75 no app. O valor é definido por você.</p>
+            </div>
+            <div class="faq-entry">
+              <h3>Como funciona o pagamento e o repasse?</h3>
+              <p>A cliente paga pelo app (PIX ou cartão). A NailNow retém <strong>20% de taxa</strong> e repassa os outros <strong>80%</strong> para você por PIX após o atendimento ser concluído e confirmado no app. É essencial ter uma chave PIX cadastrada no seu perfil.</p>
+            </div>
+            <div class="faq-entry">
+              <h3>Quando aceito um chamado no grupo, o agendamento vai direto pra minha agenda?</h3>
+              <p>Não. Os chamados no grupo são uma pré-seleção: a NailNow está verificando quem tem disponibilidade para apresentar à cliente. Depois que você sinaliza interesse, ainda acontece o contato com a cliente, confirmação de horário e condições — só então o agendamento entra na sua agenda no app.</p>
+            </div>
+            <div class="faq-entry">
+              <h3>O que é "mão em gel"?</h3>
+              <p>"Mão em gel" = esmaltação em gel (banho de gel / shellac). Não é alongamento. Se tiver dúvida sobre o pedido específico, confirme com a cliente pelo chat do app antes do atendimento.</p>
+            </div>
+            <div class="faq-entry">
+              <h3>Meu perfil aparece como "pendente" — o que fazer?</h3>
+              <p>Perfil pendente geralmente significa que o endereço está incompleto ou incorreto. Entre no app → Perfil → Endereço, revise todos os campos e salve. Se o problema persistir, chame a NailNow no privado.</p>
+            </div>
+            <div class="faq-entry">
+              <h3>Sem avaliações fica mais difícil receber chamados?</h3>
+              <p>No início é natural demorar um pouco mais. Assim que você faz os primeiros atendimentos e recebe avaliações positivas, seu perfil ganha mais visibilidade. Dica: mantenha o perfil completo, a agenda sempre atualizada e aceite pedidos mesmo que sejam um pouco mais longe — as primeiras avaliações valem muito.</p>
+            </div>
           </div>
-        </div>
 
-        <div class="faq-feedback-banner">
-          <p>Tem alguma sugestão ou feedback sobre o app ou a plataforma?</p>
-          <a href="/feedbacks">Enviar feedback</a>
+          <div class="faq-feedback-banner">
+            <p>Tem alguma sugestão ou feedback sobre o app ou a plataforma?</p>
+            <a href="/feedbacks">Enviar feedback</a>
+          </div>
         </div>
       </section>
 
