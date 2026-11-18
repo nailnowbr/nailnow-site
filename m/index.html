@@ -39,6 +39,10 @@
       .brand-text { display: flex; flex-direction: column; }
       .brand-name { font-family: Georgia, 'Times New Roman', serif; font-size: 15px; letter-spacing: 3px; color: #F45CA2; font-weight: 400; }
       .brand-tag { font-size: 8px; letter-spacing: 2px; color: #c98aa8; }
+
+      /* Botão principal — sempre visível no topo */
+      .top-cta-wrap { margin-bottom: 20px; }
+
       .card {
         background: #fff;
         border-radius: 24px;
@@ -124,6 +128,11 @@
         </div>
       </div>
 
+      <!-- Botão principal — sempre visível, aparece antes do perfil carregar -->
+      <div class="top-cta-wrap">
+        <button class="cta" id="topOpenBtn">📲 Abrir no app NailNow</button>
+      </div>
+
       <div id="loading">Carregando perfil...</div>
       <div id="error" class="hidden">Não encontramos essa manicure 💔<br /><br /><a href="/" style="color:#C4267A;">Voltar pra home</a></div>
 
@@ -139,7 +148,7 @@
 
           <div class="stores">
             <a id="appstore" href="https://apps.apple.com/br/app/nailnow/id6762576610">📱 App Store</a>
-            <a id="playstore" href="https://play.google.com/store/apps/details?id=app.nailnow">🤖 Google Play</a>
+            <a id="playstore" href="https://play.google.com/store/apps/details?id=br.com.nailnow.nailnow">🤖 Google Play</a>
           </div>
         </div>
 
@@ -163,13 +172,13 @@
       (function () {
         var BACKEND = 'https://nailnow.vercel.app/v1/professionals/public/by-slug/';
         var IOS_STORE_URL = 'https://apps.apple.com/br/app/nailnow/id6762576610';
-        var ANDROID_STORE_URL = 'https://play.google.com/store/apps/details?id=app.nailnow';
+        var ANDROID_STORE_URL = 'https://play.google.com/store/apps/details?id=br.com.nailnow.nailnow';
 
         function getSlug() {
           var m = window.location.pathname.match(/^\/m\/([a-z0-9-]+)/i);
-          if (m) return m[1];
+          if (m) return m[1].toLowerCase();
           var q = new URLSearchParams(window.location.search).get('u');
-          return q || null;
+          return q ? q.toLowerCase() : null;
         }
 
         function detectPlatform() {
@@ -183,13 +192,50 @@
 
         var slug = getSlug();
         var platform = detectPlatform();
+
+        // Tenta abrir o app via deep link. Se a página continuar visível após 1,5s
+        // (app não instalado), redireciona para a loja correta (mobile) ou não faz nada (desktop).
+        function tryOpenApp() {
+          if (!slug) return;
+          if (platform === 'desktop') {
+            window.location.href = 'nailnow://m/' + slug;
+            return;
+          }
+          var storeUrl = platform === 'android' ? ANDROID_STORE_URL : IOS_STORE_URL;
+          var t = setTimeout(function () {
+            if (document.visibilityState !== 'hidden') {
+              window.location.href = storeUrl;
+            }
+          }, 1500);
+          window.location.href = 'nailnow://m/' + slug;
+          document.addEventListener('visibilitychange', function handler() {
+            if (document.hidden) {
+              clearTimeout(t);
+              document.removeEventListener('visibilitychange', handler);
+            }
+          });
+        }
+
+        // Botão do topo — sempre visível
+        el('topOpenBtn').addEventListener('click', function () {
+          tryOpenApp();
+        });
+
         if (!slug) {
           el('loading').classList.add('hidden');
           el('error').classList.remove('hidden');
           return;
         }
 
-        // Ordena os botões de loja pela plataforma do cliente
+        // Auto-open ao carregar em celular (não em desktop)
+        if (platform !== 'desktop') {
+          setTimeout(tryOpenApp, 400);
+        }
+
+        // Corrige href estático da Play Store (redundante com a constante acima, mas garante)
+        el('playstore').href = ANDROID_STORE_URL;
+
+        // Ordena botões de loja pela plataforma
         if (platform === 'android') {
           var apstore = el('appstore');
           var plstore = el('playstore');
@@ -248,30 +294,13 @@
               });
             }
 
-            var cta = el('ctaOpen');
-            // O CTA principal aponta pro universal link. iOS/Android com app
-            // instalado interceptam antes de qualquer navegação. Sem app, o
-            // clique cai de volta aqui — nesse caso mandamos direto pra loja.
-            cta.href = 'https://nailnow.app/m/' + slug;
-            cta.addEventListener('click', function (e) {
-              if (platform === 'ios' || platform === 'android') {
-                e.preventDefault();
-                var storeUrl = platform === 'android' ? ANDROID_STORE_URL : IOS_STORE_URL;
-                // Tenta abrir o app via universal link. Se ele não estiver
-                // instalado (universal link não intercepta), depois de ~1.2s
-                // caímos na loja.
-                var t = setTimeout(function () {
-                  window.location.href = storeUrl;
-                }, 1200);
-                window.location.href = 'https://nailnow.app/m/' + slug;
-                // Se a página virar hidden (app abriu), cancela o redirect
-                document.addEventListener('visibilitychange', function () {
-                  if (document.hidden) clearTimeout(t);
-                }, { once: true });
-              }
+            // Botão do card chama o mesmo tryOpenApp
+            el('ctaOpen').addEventListener('click', function (e) {
+              e.preventDefault();
+              tryOpenApp();
             });
 
-            // Meta OpenGraph mais rico agora que temos os dados
+            // Meta OpenGraph com dados reais da manicure
             var ogTitle = document.querySelector('meta[property="og:title"]');
             var ogDesc = document.querySelector('meta[property="og:description"]');
             var ogUrl = document.querySelector('meta[property="og:url"]');
