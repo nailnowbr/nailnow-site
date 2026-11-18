@@ -193,27 +193,35 @@
         var slug = getSlug();
         var platform = detectPlatform();
 
-        // Tenta abrir o app via deep link. Se a página continuar visível após 1,5s
-        // (app não instalado), redireciona para a loja correta (mobile) ou não faz nada (desktop).
         function tryOpenApp() {
           if (!slug) return;
-          if (platform === 'desktop') {
+
+          if (platform === 'ios') {
+            // iOS: só tenta o deep link. O Safari exibe "Abrir no NailNow?" nativamente.
+            // Sem timer — a página fica visível durante o diálogo do sistema.
             window.location.href = 'nailnow://m/' + slug;
             return;
           }
-          var storeUrl = platform === 'android' ? ANDROID_STORE_URL : IOS_STORE_URL;
-          var t = setTimeout(function () {
-            if (document.visibilityState !== 'hidden') {
-              window.location.href = storeUrl;
-            }
-          }, 1500);
+
+          if (platform === 'android') {
+            // Android: nailnow://, com fallback à Play Store após 1,5s se a página ainda estiver visível.
+            var t = setTimeout(function () {
+              if (document.visibilityState !== 'hidden') {
+                window.location.href = ANDROID_STORE_URL;
+              }
+            }, 1500);
+            window.location.href = 'nailnow://m/' + slug;
+            document.addEventListener('visibilitychange', function handler() {
+              if (document.hidden) {
+                clearTimeout(t);
+                document.removeEventListener('visibilitychange', handler);
+              }
+            });
+            return;
+          }
+
+          // desktop
           window.location.href = 'nailnow://m/' + slug;
-          document.addEventListener('visibilitychange', function handler() {
-            if (document.hidden) {
-              clearTimeout(t);
-              document.removeEventListener('visibilitychange', handler);
-            }
-          });
         }
 
         // Botão do topo — sempre visível
@@ -227,9 +235,16 @@
           return;
         }
 
-        // Auto-open ao carregar em celular (não em desktop)
-        if (platform !== 'desktop') {
-          setTimeout(tryOpenApp, 400);
+        // Auto-open: só Android, via intent:// com fallback nativo à Play Store.
+        // iOS: sem auto-open (evita alerta de erro do Safari para quem não tem o app).
+        if (platform === 'android') {
+          setTimeout(function () {
+            var intentUrl = 'intent://m/' + slug
+              + '#Intent;scheme=nailnow;package=br.com.nailnow.nailnow'
+              + ';S.browser_fallback_url=' + encodeURIComponent(ANDROID_STORE_URL)
+              + ';end';
+            window.location.href = intentUrl;
+          }, 400);
         }
 
         // Corrige href estático da Play Store (redundante com a constante acima, mas garante)
