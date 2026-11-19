@@ -231,10 +231,28 @@
         box-shadow: 0 4px 18px rgba(0,0,0,0.3);
         letter-spacing: 0.3px;
       }
-      .story-url-text {
-        font-size: 10px; color: rgba(255,255,255,0.55);
-        letter-spacing: 0.6px;
+      .story-qr-wrap {
+        display: flex; flex-direction: column; align-items: center; gap: 5px;
       }
+      .story-qr {
+        width: 56px; height: 56px; border-radius: 10px;
+        background: white; padding: 4px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+      }
+      .story-qr-label {
+        font-size: 9px; color: rgba(255,255,255,0.5);
+        letter-spacing: 0.8px; text-align: center;
+      }
+      .story-actions {
+        display: flex; gap: 10px; align-items: center;
+      }
+      .story-copy-btn {
+        background: #F45CA2; color: white;
+        border: none; padding: 10px 22px; border-radius: 999px;
+        font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit;
+        box-shadow: 0 4px 16px rgba(244,92,162,0.4);
+      }
+      .story-copy-btn:active { opacity: 0.85; }
       .story-tagline {
         font-size: 8.5px; color: rgba(255,255,255,0.38);
         letter-spacing: 1.8px; text-transform: uppercase;
@@ -282,7 +300,6 @@
             <a id="appstore" href="https://apps.apple.com/br/app/nailnow/id6762576610">📱 App Store</a>
             <a id="playstore" href="https://play.google.com/store/apps/details?id=br.com.nailnow.nailnow">🤖 Google Play</a>
           </div>
-          <button class="share-insta-btn" id="shareInstaBtn">📸 Criar card para o Instagram</button>
         </div>
 
         <div id="servicesSection" class="hidden">
@@ -321,12 +338,18 @@
           </div>
           <div class="story-bottom">
             <div class="story-cta-pill">Agende comigo ✨</div>
-            <div class="story-url-text" id="storyUrlText"></div>
+            <div class="story-qr-wrap">
+              <img class="story-qr" id="storyQr" src="" alt="QR Code" />
+              <div class="story-qr-label">Aponte a câmera para agendar</div>
+            </div>
             <div class="story-tagline">Do seu jeito. No seu tempo.</div>
           </div>
         </div>
       </div>
-      <button class="story-close-btn" id="storyCloseBtn">✕ Fechar</button>
+      <div class="story-actions">
+        <button class="story-copy-btn" id="storyCopyBtn">🔗 Copiar link</button>
+        <button class="story-close-btn" id="storyCloseBtn">✕ Fechar</button>
+      </div>
     </div>
 
     <script>
@@ -523,7 +546,9 @@
               + (p.averageRating || 0).toFixed(1) + ' (' + p.ratingsCount + ')';
           }
 
-          el('storyUrlText').textContent = 'nailnow.app/m/' + (slug || '');
+          var profileUrl = 'https://nailnow.app/m/' + (slug || '');
+          el('storyQr').src = 'https://api.qrserver.com/v1/create-qr-code/?size=120x120&data='
+            + encodeURIComponent(profileUrl) + '&color=C4267A&bgcolor=ffffff&margin=4';
         }
 
         el('shareInstaBtn').addEventListener('click', function () {
@@ -532,6 +557,25 @@
 
         el('storyCloseBtn').addEventListener('click', function () {
           el('storyOverlay').classList.add('hidden');
+        });
+
+        el('storyCopyBtn').addEventListener('click', function () {
+          if (!slug) return;
+          var url = 'https://nailnow.app/m/' + slug;
+          var btn = el('storyCopyBtn');
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(url).then(function () {
+              btn.textContent = '✓ Copiado!';
+              setTimeout(function () { btn.textContent = '🔗 Copiar link'; }, 2000);
+            });
+          } else {
+            var ta = document.createElement('textarea');
+            ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+            document.body.appendChild(ta); ta.focus(); ta.select();
+            try { document.execCommand('copy'); btn.textContent = '✓ Copiado!'; } catch(e) {}
+            document.body.removeChild(ta);
+            setTimeout(function () { btn.textContent = '🔗 Copiar link'; }, 2000);
+          }
         });
 
       })();
