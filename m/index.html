@@ -116,6 +116,138 @@
       #loading, #error { text-align: center; padding: 60px 20px; color: #7a5a68; }
       #error { color: #B24858; }
       .hidden { display: none !important; }
+
+      /* Share button */
+      .share-insta-btn {
+        display: flex; align-items: center; justify-content: center; gap: 8px;
+        width: 100%; margin-top: 12px;
+        background: transparent; border: 1.5px solid #f1bfd9;
+        color: #C4267A; font-size: 14px; font-weight: 600;
+        padding: 12px; border-radius: 999px; cursor: pointer;
+        letter-spacing: 0.3px; font-family: inherit;
+      }
+      .share-insta-btn:active { background: #fdf0f7; }
+
+      /* Story overlay */
+      .story-overlay {
+        position: fixed; inset: 0; z-index: 1000;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        gap: 14px;
+        background: rgba(18, 4, 12, 0.93);
+        padding: 20px 16px;
+      }
+      .story-hint {
+        font-size: 13px; color: rgba(255,255,255,0.72);
+        text-align: center; margin: 0; letter-spacing: 0.2px;
+      }
+      .story-frame {
+        position: relative;
+        width: min(290px, 80vw);
+        aspect-ratio: 9 / 16;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      }
+      .story-bg {
+        position: absolute; inset: 0;
+        background: linear-gradient(155deg, #ffacd9 0%, #F45CA2 42%, #C4267A 78%, #7a1248 100%);
+        background-size: cover; background-position: center;
+      }
+      .story-bg.has-photo {
+        filter: blur(18px) brightness(0.52) saturate(1.4);
+        transform: scale(1.12);
+      }
+      .story-gradient {
+        position: absolute; inset: 0;
+        background: linear-gradient(to bottom,
+          rgba(0,0,0,0.0) 0%,
+          rgba(0,0,0,0.0) 30%,
+          rgba(45,5,22,0.5) 60%,
+          rgba(45,5,22,0.92) 100%);
+      }
+      .story-deco-top {
+        position: absolute; top: -50px; right: -50px;
+        width: 160px; height: 160px; border-radius: 50%;
+        background: rgba(255,255,255,0.07); pointer-events: none;
+      }
+      .story-deco-bot {
+        position: absolute; bottom: 90px; left: -55px;
+        width: 130px; height: 130px; border-radius: 50%;
+        background: rgba(255,255,255,0.05); pointer-events: none;
+      }
+      .story-content {
+        position: relative; z-index: 2;
+        display: flex; flex-direction: column; align-items: center;
+        justify-content: space-between;
+        height: 100%; padding: 16px 14px 18px;
+        color: white;
+      }
+      .story-logo-row {
+        display: flex; align-items: center; gap: 6px;
+        background: rgba(255,255,255,0.16);
+        backdrop-filter: blur(10px);
+        padding: 5px 11px; border-radius: 999px;
+      }
+      .story-logo-row img { width: 15px; height: 15px; }
+      .story-logo-row span {
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 10px; letter-spacing: 2.5px; color: white;
+      }
+      .story-middle {
+        display: flex; flex-direction: column; align-items: center; gap: 9px;
+        flex: 1; justify-content: center;
+      }
+      .story-avatar {
+        width: 82px; height: 82px; border-radius: 50%;
+        border: 2.5px solid rgba(255,255,255,0.88);
+        background: rgba(255,200,230,0.25) center/cover no-repeat;
+        box-shadow: 0 6px 28px rgba(0,0,0,0.45);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 34px;
+      }
+      .story-pro-name {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 21px; font-weight: 700; color: white;
+        text-align: center; text-shadow: 0 2px 12px rgba(0,0,0,0.55);
+        line-height: 1.2;
+      }
+      .story-pro-loc {
+        font-size: 11px; color: rgba(255,255,255,0.68);
+        letter-spacing: 0.3px; text-align: center;
+      }
+      .story-pro-stars {
+        font-size: 11px; color: rgba(255,255,255,0.88);
+        display: flex; align-items: center; gap: 4px;
+      }
+      .story-pro-stars .s-stars { color: #FFD06A; letter-spacing: 1.5px; }
+      .story-bottom {
+        display: flex; flex-direction: column; align-items: center; gap: 7px; width: 100%;
+      }
+      .story-cta-pill {
+        background: white; color: #C4267A;
+        padding: 9px 0; border-radius: 999px;
+        font-size: 12px; font-weight: 700;
+        text-align: center; width: 100%;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+        letter-spacing: 0.3px;
+      }
+      .story-url-text {
+        font-size: 10px; color: rgba(255,255,255,0.55);
+        letter-spacing: 0.6px;
+      }
+      .story-tagline {
+        font-size: 8.5px; color: rgba(255,255,255,0.38);
+        letter-spacing: 1.8px; text-transform: uppercase;
+        text-align: center;
+      }
+      .story-close-btn {
+        background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.78);
+        border: 1px solid rgba(255,255,255,0.18);
+        padding: 10px 26px; border-radius: 999px;
+        font-size: 14px; cursor: pointer; font-family: inherit;
+        backdrop-filter: blur(8px);
+      }
+      .story-close-btn:active { background: rgba(255,255,255,0.2); }
     </style>
   </head>
   <body>
@@ -150,6 +282,7 @@
             <a id="appstore" href="https://apps.apple.com/br/app/nailnow/id6762576610">📱 App Store</a>
             <a id="playstore" href="https://play.google.com/store/apps/details?id=br.com.nailnow.nailnow">🤖 Google Play</a>
           </div>
+          <button class="share-insta-btn" id="shareInstaBtn">📸 Criar card para o Instagram</button>
         </div>
 
         <div id="servicesSection" class="hidden">
@@ -166,6 +299,34 @@
           Feito pela <a href="/">NailNow</a> · Do seu jeito. No seu tempo.
         </p>
       </div>
+    </div>
+
+    <div id="storyOverlay" class="story-overlay hidden">
+      <p class="story-hint">📸 Tire um print desta tela e compartilhe nos Stories!</p>
+      <div class="story-frame" id="storyFrame">
+        <div class="story-bg" id="storyBg"></div>
+        <div class="story-gradient"></div>
+        <div class="story-deco-top"></div>
+        <div class="story-deco-bot"></div>
+        <div class="story-content">
+          <div class="story-logo-row">
+            <img src="/assets/app-logo.png" alt="NailNow" />
+            <span>NAILNOW</span>
+          </div>
+          <div class="story-middle">
+            <div class="story-avatar" id="storyAvatar">💅</div>
+            <div class="story-pro-name" id="storyProName"></div>
+            <div class="story-pro-loc" id="storyProLoc"></div>
+            <div class="story-pro-stars" id="storyProStars"></div>
+          </div>
+          <div class="story-bottom">
+            <div class="story-cta-pill">Agende comigo ✨</div>
+            <div class="story-url-text" id="storyUrlText"></div>
+            <div class="story-tagline">Do seu jeito. No seu tempo.</div>
+          </div>
+        </div>
+      </div>
+      <button class="story-close-btn" id="storyCloseBtn">✕ Fechar</button>
     </div>
 
     <script>
@@ -309,6 +470,9 @@
               });
             }
 
+            // Story card
+            buildStoryCard(p);
+
             // Botão do card chama o mesmo tryOpenApp
             el('ctaOpen').addEventListener('click', function (e) {
               e.preventDefault();
@@ -329,6 +493,47 @@
             el('loading').classList.add('hidden');
             el('error').classList.remove('hidden');
           });
+        // Story card builder
+        var storyReady = false;
+
+        function buildStoryCard(p) {
+          storyReady = true;
+          var fullName = (p.firstName || '') + (p.lastName ? ' ' + p.lastName : '');
+
+          if (p.pictureURL) {
+            var avatar = el('storyAvatar');
+            avatar.style.backgroundImage = 'url("' + p.pictureURL + '")';
+            avatar.textContent = '';
+            var bg = el('storyBg');
+            bg.style.backgroundImage = 'url("' + p.pictureURL + '")';
+            bg.classList.add('has-photo');
+          }
+
+          el('storyProName').textContent = fullName;
+
+          var loc = [p.address && p.address.neighborhood, p.address && p.address.city, p.address && p.address.state]
+            .filter(Boolean).join(' · ');
+          if (loc) el('storyProLoc').textContent = '📍 ' + loc;
+
+          if (p.ratingsCount > 0) {
+            var rounded = Math.round(p.averageRating || 0);
+            var stars = '';
+            for (var i = 0; i < rounded; i++) stars += '★';
+            el('storyProStars').innerHTML = '<span class="s-stars">' + stars + '</span> '
+              + (p.averageRating || 0).toFixed(1) + ' (' + p.ratingsCount + ')';
+          }
+
+          el('storyUrlText').textContent = 'nailnow.app/m/' + (slug || '');
+        }
+
+        el('shareInstaBtn').addEventListener('click', function () {
+          if (storyReady) el('storyOverlay').classList.remove('hidden');
+        });
+
+        el('storyCloseBtn').addEventListener('click', function () {
+          el('storyOverlay').classList.add('hidden');
+        });
+
       })();
     </script>
   </body>
