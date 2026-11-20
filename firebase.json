@@ -15,6 +15,14 @@
       {
         "source": "/m/**",
         "destination": "/m/index.html"
+      },
+      {
+        "source": "/excluir-conta",
+        "destination": "/excluir-conta.html"
+      },
+      {
+        "source": "/politica-de-privacidade",
+        "destination": "/politica-de-privacidade.html"
       }
     ],
     "headers": [
