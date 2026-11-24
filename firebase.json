@@ -23,13 +23,268 @@
       {
         "source": "/politica-de-privacidade",
         "destination": "/politica-de-privacidade.html"
+      },
+      {
+        "source": "/app-cliente",
+        "destination": "/app-cliente.html"
+      },
+      {
+        "source": "/app-profissional",
+        "destination": "/app-profissional.html"
+      },
+      {
+        "source": "/auth",
+        "destination": "/auth.html"
+      },
+      {
+        "source": "/beneficio-corporativo",
+        "destination": "/beneficio-corporativo.html"
+      },
+      {
+        "source": "/cadastro",
+        "destination": "/cadastro.html"
+      },
+      {
+        "source": "/cliente/cadastro",
+        "destination": "/cliente/cadastro.html"
+      },
+      {
+        "source": "/cliente/portal",
+        "destination": "/cliente/portal.html"
+      },
+      {
+        "source": "/como-escolher-manicure-a-domicilio",
+        "destination": "/como-escolher-manicure-a-domicilio.html"
+      },
+      {
+        "source": "/como-funciona",
+        "destination": "/como-funciona.html"
+      },
+      {
+        "source": "/confirmar-cadastro",
+        "destination": "/confirmar-cadastro.html"
+      },
+      {
+        "source": "/cookies-e-preferencias",
+        "destination": "/cookies-e-preferencias.html"
+      },
+      {
+        "source": "/faq",
+        "destination": "/faq.html"
+      },
+      {
+        "source": "/feedbacks",
+        "destination": "/feedbacks.html"
+      },
+      {
+        "source": "/instrutora-geisy-ferraz",
+        "destination": "/instrutora-geisy-ferraz.html"
+      },
+      {
+        "source": "/instrutoras",
+        "destination": "/instrutoras.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-alto-de-pinheiros",
+        "destination": "/manicure-a-domicilio-alto-de-pinheiros.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-auxiliadora",
+        "destination": "/manicure-a-domicilio-auxiliadora.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-bela-vista-poa",
+        "destination": "/manicure-a-domicilio-bela-vista-poa.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-bom-fim",
+        "destination": "/manicure-a-domicilio-bom-fim.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-brooklin",
+        "destination": "/manicure-a-domicilio-brooklin.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-cidade-baixa",
+        "destination": "/manicure-a-domicilio-cidade-baixa.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-cristo-redentor",
+        "destination": "/manicure-a-domicilio-cristo-redentor.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-higienopolis",
+        "destination": "/manicure-a-domicilio-higienopolis.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-ipanema",
+        "destination": "/manicure-a-domicilio-ipanema.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-itaim-bibi",
+        "destination": "/manicure-a-domicilio-itaim-bibi.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-jardim-lindoia",
+        "destination": "/manicure-a-domicilio-jardim-lindoia.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-jardins",
+        "destination": "/manicure-a-domicilio-jardins.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-menino-deus",
+        "destination": "/manicure-a-domicilio-menino-deus.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-moema",
+        "destination": "/manicure-a-domicilio-moema.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-moinhos-de-vento",
+        "destination": "/manicure-a-domicilio-moinhos-de-vento.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-morumbi",
+        "destination": "/manicure-a-domicilio-morumbi.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-passo-dareia",
+        "destination": "/manicure-a-domicilio-passo-dareia.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-perdizes",
+        "destination": "/manicure-a-domicilio-perdizes.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-perto-de-mim",
+        "destination": "/manicure-a-domicilio-perto-de-mim.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-petropolis",
+        "destination": "/manicure-a-domicilio-petropolis.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-pinheiros",
+        "destination": "/manicure-a-domicilio-pinheiros.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-porto-alegre",
+        "destination": "/manicure-a-domicilio-porto-alegre.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-restinga",
+        "destination": "/manicure-a-domicilio-restinga.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-rio-de-janeiro",
+        "destination": "/manicure-a-domicilio-rio-de-janeiro.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-rubem-berta",
+        "destination": "/manicure-a-domicilio-rubem-berta.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-sao-joao",
+        "destination": "/manicure-a-domicilio-sao-joao.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-sao-paulo",
+        "destination": "/manicure-a-domicilio-sao-paulo.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-sarandi",
+        "destination": "/manicure-a-domicilio-sarandi.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-vila-madalena",
+        "destination": "/manicure-a-domicilio-vila-madalena.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-vila-mariana",
+        "destination": "/manicure-a-domicilio-vila-mariana.html"
+      },
+      {
+        "source": "/manicure-a-domicilio-vila-olimpia",
+        "destination": "/manicure-a-domicilio-vila-olimpia.html"
+      },
+      {
+        "source": "/manicures",
+        "destination": "/manicures.html"
+      },
+      {
+        "source": "/profissional",
+        "destination": "/profissional.html"
+      },
+      {
+        "source": "/profissional/cadastro",
+        "destination": "/profissional/cadastro.html"
+      },
+      {
+        "source": "/profissional/login",
+        "destination": "/profissional/login.html"
+      },
+      {
+        "source": "/profissional/portal",
+        "destination": "/profissional/portal.html"
+      },
+      {
+        "source": "/quanto-custa-manicure-a-domicilio",
+        "destination": "/quanto-custa-manicure-a-domicilio.html"
+      },
+      {
+        "source": "/quem-somos",
+        "destination": "/quem-somos.html"
+      },
+      {
+        "source": "/servicos",
+        "destination": "/servicos.html"
+      },
+      {
+        "source": "/termos-de-uso",
+        "destination": "/termos-de-uso.html"
+      },
+      {
+        "source": "/trabalhar-como-manicure-bela-vista-poa",
+        "destination": "/trabalhar-como-manicure-bela-vista-poa.html"
+      },
+      {
+        "source": "/trabalhar-como-manicure-bras-sp",
+        "destination": "/trabalhar-como-manicure-bras-sp.html"
+      },
+      {
+        "source": "/trabalhar-como-manicure-jardim-carvalho",
+        "destination": "/trabalhar-como-manicure-jardim-carvalho.html"
+      },
+      {
+        "source": "/trabalhar-como-manicure-jardim-itu",
+        "destination": "/trabalhar-como-manicure-jardim-itu.html"
+      },
+      {
+        "source": "/trabalhar-como-manicure-porto-alegre",
+        "destination": "/trabalhar-como-manicure-porto-alegre.html"
+      },
+      {
+        "source": "/trabalhar-como-manicure-republica-sp",
+        "destination": "/trabalhar-como-manicure-republica-sp.html"
+      },
+      {
+        "source": "/trabalhar-como-manicure-sao-paulo",
+        "destination": "/trabalhar-como-manicure-sao-paulo.html"
+      },
+      {
+        "source": "/trabalhar-como-manicure-vila-ipiranga",
+        "destination": "/trabalhar-como-manicure-vila-ipiranga.html"
       }
     ],
     "headers": [
       {
         "source": "/.well-known/apple-app-site-association",
         "headers": [
-          { "key": "Content-Type", "value": "application/json" }
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
         ]
       }
     ]
