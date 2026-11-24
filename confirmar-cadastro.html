@@ -172,7 +172,7 @@
         <div class="footer-column footer-links" aria-label="Links úteis">
           <h3>Links rápidos</h3>
           <a href="/cliente/index.html">Acesso cliente</a>
-          <a href="/profissional/index.html">Acesso profissional</a>
+          <a href="/app-profissional">Acesso profissional</a>
           <a href="/faq.html">Perguntas frequentes</a>
           <a href="/feedbacks.html">Feedbacks</a>
         </div>
@@ -299,7 +299,7 @@
           if (response.ok) {
             const loginUrl = payload.loginUrl ||
               (payload.role === "profissional"
-                ? `${APP_URL}/profissional/index.html`
+                ? `${APP_URL}/app-profissional`
                 : `${APP_URL}/cliente/index.html`);
             setStatus("success", payload.status === "already-confirmed" ? "Cadastro já estava confirmado." : "Cadastro confirmado com sucesso!");
             detailsEl.textContent = "Agora você já pode acessar o portal e aproveitar todos os recursos da NailNow.";

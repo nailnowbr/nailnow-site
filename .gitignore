@@ -1,4 +1,5 @@
 node_modules/
 **/node_modules/
 .firebase/
+.firebase.local.json
 assets/_original/

@@ -187,12 +187,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://nailnow.app/agendamentos</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://nailnow.app/manicures</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>
