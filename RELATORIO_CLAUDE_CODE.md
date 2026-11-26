@@ -1,5 +1,44 @@
 # Relatório Claude Code — nailnow-site
 
+## 26/11/2026 — texto novo de `/excluir-conta` (revisão Play Data Safety)
+
+### Contexto
+Google Play está revisando a Segurança dos Dados do app NailNow e a página `https://nailnow.app/excluir-conta` precisava descrever exatamente o que o sistema faz. Prazo do Google: **04/12/2026**. A versão anterior afirmava algo errado ("agendamentos em aberto são cancelados automaticamente") e continha prazo de retenção.
+
+### O que mudou (`excluir-conta.html`)
+- **"O que é excluído":**
+  - login agora menciona Google/Apple;
+  - removida a frase falsa "Agendamentos em aberto sem pagamento confirmado são cancelados automaticamente";
+  - linha de avaliações reduzida a "As avaliações que você fez passam a aparecer sem o seu nome" (só as feitas pela pessoa; nada afirmado sobre as recebidas);
+  - adicionado parágrafo "A exclusão é da conta inteira. Não existe exclusão parcial de dados."
+- **"Antes de excluir a conta":** reescrito em `<p>` com a definição exata — "em aberto" = aguardando aceite / confirmados / em andamento → bloqueia a exclusão; concluídos/cancelados/recusados/expirados não impedem; repasse pendente bloqueia profissionais até resolver com suporte.
+- **"O que é mantido":** removida a cláusula "pelo prazo exigido pela legislação" (sem citar retenção).
+
+### Commit + deploy
+- Commit: **`d38409e`** em `main` ("docs(excluir-conta): alinha texto com Segurança dos Dados do Google Play"), pushed.
+- Deploy: `firebase deploy --only hosting --project nailnow-site` — release complete **2026-11-26 11:52 BRT**.
+
+### Verificação pós-deploy
+| URL | Status | Esperado |
+|---|---|---|
+| `https://nailnow.app/excluir-conta` | **200** com texto novo no ar | ok |
+| `https://www.nailnow.app/excluir-conta` | **301** → `https://nailnow.app/excluir-conta` | ok |
+| `https://nailnow.app/.well-known/apple-app-site-association` | **200** | ok |
+| `https://nailnow.app/.well-known/assetlinks.json` | **200** | ok |
+| `https://nailnow.app/m/bruna-6` | **200** | ok |
+
+### Pendências pós-deploy
+- Confirmar no Play Console que a URL de exclusão está cadastrada **sem** `www` (redireciona 301, mas o Play deve guardar a canônica). Responsável: Bruna. Prazo: **04/12/2026**.
+- Rever o texto final de "O que é mantido" com a Marta antes de considerar fechado.
+- Teste de envio SPF/DKIM/DMARC do domínio — pendente, esperando "vai" da Bruna.
+- `firebase deploy --only functions --project nailnow-site` segue bloqueado (bug Gen 1 CPU no `firebase-tools 14.x`); stash `functions-url-nailnow-app` preservado.
+
+### Rollback
+- Texto: `git revert d38409e && git push origin main` + novo `firebase deploy --only hosting --project nailnow-site`.
+- Ou, no Firebase Console → Hosting → release anterior, **Reverter**.
+
+---
+
 ## 24/11/2026 — migração GitHub Pages → Firebase Hosting e www
 
 ### Contexto
